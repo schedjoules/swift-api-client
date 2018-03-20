@@ -1,0 +1,14 @@
+{
+    "item": {
+        "item_id": 25896940,
+        "name": "World Cup",
+        "url": "https://api.schedjoules.com/pages/25896940?locale=en",
+        "category_id": 2,
+        "category": "Sports",
+        "sport": "Football",
+        "season": "2018",
+        "gender": "Men",
+        "icon": "https://cdn-images.schedjoules.com/assets/world-cup-russia.png?32a308eeb59b0827c659e782650a1f43"
+    },
+    "item_class": "page"
+}

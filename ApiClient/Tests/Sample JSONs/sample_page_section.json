@@ -1,0 +1,428 @@
+{
+    "item_id": 115673,
+    "name": "All Calendars United States",
+    "country": "United States",
+    "icon": "https://cdn-images.schedjoules.com/assets/9783d4f3.png?8af003b2248e904b3d6369816e7a67f1",
+    "page_sections": [
+                      {
+                      "items": [
+                                {
+                                "item": {
+                                "item_id": 50084,
+                                "name": "Public holidays",
+                                "url": "https://iphone.schedjoules.com/calendars/4d26c6d53ae3?l=en&x=4af052",
+                                "category_id": 1,
+                                "category": "Holidays",
+                                "country": "United States",
+                                "icon": "https://cdn-images.schedjoules.com/assets/9783d4f3.png?8af003b2248e904b3d6369816e7a67f1"
+                                },
+                                "item_class": "calendar"
+                                },
+                                {
+                                "item": {
+                                "item_id": 49741,
+                                "name": "Public holidays and observances",
+                                "url": "https://iphone.schedjoules.com/calendars/f568de0f4b6f?l=en&x=4af052",
+                                "category_id": 1,
+                                "category": "Holidays",
+                                "country": "United States",
+                                "icon": "https://cdn-images.schedjoules.com/assets/00f2a418.png?6d97d4d8be9de3dca765e9f1399ef947"
+                                },
+                                "item_class": "calendar"
+                                },
+                                {
+                                "item": {
+                                "item_id": 92046,
+                                "name": "State Holidays",
+                                "url": "https://api.schedjoules.com/pages/92046?locale=en",
+                                "category_id": 1,
+                                "category": "Holidays",
+                                "country": "United States",
+                                "icon": "https://cdn-images.schedjoules.com/assets/9783d4f3.png?8af003b2248e904b3d6369816e7a67f1"
+                                },
+                                "item_class": "page"
+                                },
+                                {
+                                "item": {
+                                "item_id": 82932,
+                                "name": "Religious holidays",
+                                "url": "https://api.schedjoules.com/pages/82932?locale=en",
+                                "category_id": 1,
+                                "category": "Holidays",
+                                "icon": "https://cdn-images.schedjoules.com/assets/religions.png?de47930ab61307284b3201211cab3603"
+                                },
+                                "item_class": "page"
+                                }
+                                ],
+                      "name": "Holidays"
+                      },
+                      {
+                      "items": [
+                                {
+                                "item": {
+                                "item_id": 25896940,
+                                "name": "World Cup",
+                                "url": "https://api.schedjoules.com/pages/25896940?locale=en",
+                                "category_id": 2,
+                                "category": "Sports",
+                                "sport": "Football",
+                                "season": "2018",
+                                "gender": "Men",
+                                "icon": "https://cdn-images.schedjoules.com/assets/world-cup-russia.png?32a308eeb59b0827c659e782650a1f43"
+                                },
+                                "item_class": "page"
+                                },
+                                {
+                                "item": {
+                                "item_id": 17751521,
+                                "name": "F1",
+                                "url": "https://api.schedjoules.com/pages/17751521?locale=en",
+                                "category_id": 2,
+                                "category": "Sports",
+                                "sport": "Auto Racing",
+                                "icon": "https://cdn-images.schedjoules.com/assets/f1.png?ecd26cc2486a401389679f5336b63908"
+                                },
+                                "item_class": "page"
+                                },
+                                {
+                                "item": {
+                                "item_id": 17858326,
+                                "name": "MotoGP",
+                                "url": "https://api.schedjoules.com/pages/17858326?locale=en",
+                                "category_id": 2,
+                                "category": "Sports",
+                                "sport": "Motor Racing",
+                                "icon": "https://cdn-images.schedjoules.com/assets/motogp.png?05c7e94bc8fdc8fec87f1d2dbb781284"
+                                },
+                                "item_class": "page"
+                                },
+                                {
+                                "item": {
+                                "item_id": 25454973,
+                                "name": "NBA",
+                                "url": "https://api.schedjoules.com/pages/25454973?locale=en",
+                                "category_id": 2,
+                                "category": "Sports",
+                                "country": "United States",
+                                "sport": "Basketball",
+                                "season": "2017-2018",
+                                "gender": "Men",
+                                "icon": "https://cdn-images.schedjoules.com/assets/9783d4f3.png?8af003b2248e904b3d6369816e7a67f1"
+                                },
+                                "item_class": "page"
+                                },
+                                {
+                                "item": {
+                                "item_id": 24083349,
+                                "name": "MLB",
+                                "url": "https://api.schedjoules.com/pages/24083349?locale=en",
+                                "category_id": 2,
+                                "category": "Sports",
+                                "country": "United States",
+                                "sport": "Baseball",
+                                "season": "2018",
+                                "gender": "Men",
+                                "icon": "https://cdn-images.schedjoules.com/assets/baseball.png?a6fe1fc95311e9c21f4d3158007f894a"
+                                },
+                                "item_class": "page"
+                                },
+                                {
+                                "item": {
+                                "item_id": 24976341,
+                                "name": "NHL",
+                                "url": "https://api.schedjoules.com/pages/24976341?locale=en",
+                                "category_id": 2,
+                                "category": "Sports",
+                                "country": "United States",
+                                "sport": "Ice Hockey",
+                                "season": "2017-2018",
+                                "gender": "Men",
+                                "icon": "https://cdn-images.schedjoules.com/assets/icehockey.png?df261b543a24f7f3b6bdd5208e1b9bff"
+                                },
+                                "item_class": "page"
+                                },
+                                {
+                                "item": {
+                                "item_id": 24934043,
+                                "name": "NFL",
+                                "url": "https://api.schedjoules.com/pages/24934043?locale=en",
+                                "category_id": 2,
+                                "category": "Sports",
+                                "country": "United States",
+                                "sport": "American Football",
+                                "season": "2017-2018",
+                                "gender": "Men",
+                                "icon": "https://cdn-images.schedjoules.com/assets/9783d4f3.png?8af003b2248e904b3d6369816e7a67f1"
+                                },
+                                "item_class": "page"
+                                },
+                                {
+                                "item": {
+                                "item_id": 1714156,
+                                "name": "NCAAF",
+                                "url": "https://api.schedjoules.com/pages/1714156?locale=en",
+                                "category_id": 2,
+                                "category": "Sports",
+                                "country": "United States",
+                                "sport": "American Football",
+                                "gender": "Men",
+                                "icon": "https://cdn-images.schedjoules.com/assets/us_football.png?5fcb4967041e25d1aef54681d7609345"
+                                },
+                                "item_class": "page"
+                                },
+                                {
+                                "item": {
+                                "item_id": 25634156,
+                                "name": "NCAAB",
+                                "url": "https://api.schedjoules.com/pages/25634156?locale=en",
+                                "category_id": 2,
+                                "category": "Sports",
+                                "country": "United States",
+                                "sport": "Basketball",
+                                "season": "2017-2018",
+                                "gender": "Men",
+                                "icon": "https://cdn-images.schedjoules.com/assets/basketball.png?0be1c70958ebfed702de32752cbcd31c"
+                                },
+                                "item_class": "page"
+                                },
+                                {
+                                "item": {
+                                "item_id": 24428282,
+                                "name": "Nascar",
+                                "url": "https://iphone.schedjoules.com/calendars/1ecddbc61038?l=en&x=4af052",
+                                "category_id": 2,
+                                "category": "Sports",
+                                "country": "United States",
+                                "sport": "Auto Racing",
+                                "season": "2018",
+                                "icon": "https://cdn-images.schedjoules.com/assets/nascar.png?61a2c80e0a75e5bd8e6cb07b2b92938f"
+                                },
+                                "item_class": "calendar"
+                                },
+                                {
+                                "item": {
+                                "item_id": 118117,
+                                "name": "All Sports United States",
+                                "url": "https://api.schedjoules.com/pages/118117?locale=en",
+                                "category_id": 2,
+                                "category": "Sports",
+                                "country": "United States",
+                                "icon": "https://cdn-images.schedjoules.com/assets/9783d4f3.png?8af003b2248e904b3d6369816e7a67f1"
+                                },
+                                "item_class": "page"
+                                }
+                                ],
+                      "name": "Sports"
+                      },
+                      {
+                      "items": [
+                                {
+                                "item": {
+                                "item_id": 49755,
+                                "name": "Jewish Holidays",
+                                "url": "https://iphone.schedjoules.com/calendars/6345f0956e81?l=en&x=4af052",
+                                "category_id": 1,
+                                "category": "Holidays",
+                                "icon": "https://cdn-images.schedjoules.com/assets/35fae232.png?a7bc1c6780517bc3185e43b5eaf00b97"
+                                },
+                                "item_class": "calendar"
+                                },
+                                {
+                                "item": {
+                                "item_id": 25259626,
+                                "name": "NYT Astronomy and Space Calendar",
+                                "url": "https://iphone.schedjoules.com/calendars/5525fcabe66d?l=en&x=4af052",
+                                "category_id": 5,
+                                "category": "Miscellaneous",
+                                "icon": "https://cdn-images.schedjoules.com/assets/astronomy_360.png?027b49b451cb09e51cc5898f34718dc4"
+                                },
+                                "item_class": "calendar"
+                                },
+                                {
+                                "item": {
+                                "item_id": 90734,
+                                "name": "Moon Phases",
+                                "url": "https://iphone.schedjoules.com/calendars/766e8a162f82?l=en&x=4af052",
+                                "category_id": 5,
+                                "category": "Miscellaneous",
+                                "icon": "https://cdn-images.schedjoules.com/assets/moonphases.png?fade7194ec4eb1006f9d34e3ec2bffa8"
+                                },
+                                "item_class": "calendar"
+                                },
+                                {
+                                "item": {
+                                "item_id": 90730,
+                                "name": "City Weather",
+                                "url": "https://iphone.schedjoules.com/calendars/weather/calendar.ics?l=en&loc={location}&d={temp}&p={rain}&w={wind}&t={time}&x=4af052",
+                                "category_id": 3,
+                                "category": "Weather",
+                                "icon": "https://cdn-images.schedjoules.com/assets/weather.png?4a3002e01d951a851bbb1d306a522cf9"
+                                },
+                                "item_class": "calendar"
+                                },
+                                {
+                                "item": {
+                                "item_id": 90741,
+                                "name": "Name Days",
+                                "url": "https://api.schedjoules.com/pages/90741?locale=en",
+                                "category_id": 5,
+                                "category": "Miscellaneous",
+                                "icon": "https://cdn-images.schedjoules.com/assets/namedays.png?e632f42c2a1d011f6ae51cb24402d2b5"
+                                },
+                                "item_class": "page"
+                                },
+                                {
+                                "item": {
+                                "item_id": 90733,
+                                "name": "Week Numbers",
+                                "url": "https://api.schedjoules.com/pages/90733?locale=en",
+                                "category_id": 5,
+                                "category": "Miscellaneous",
+                                "icon": "https://cdn-images.schedjoules.com/assets/weeknumbers.png?d3c204c14b91f83a4df0f8eb1c084d08"
+                                },
+                                "item_class": "page"
+                                }
+                                ],
+                      "name": "Popular"
+                      },
+                      {
+                      "items": [
+                                {
+                                "item": {
+                                "item_id": 1471770,
+                                "name": "Alaska",
+                                "url": "https://api.schedjoules.com/pages/1471770?locale=en",
+                                "category_id": 6,
+                                "category": "TV shows",
+                                "country": "United States",
+                                "icon": "https://cdn-images.schedjoules.com/assets/rh_341769170.png?8412f2c946b67aef4cae0bc407e74328"
+                                },
+                                "item_class": "page"
+                                },
+                                {
+                                "item": {
+                                "item_id": 1471774,
+                                "name": "Atlantic",
+                                "url": "https://api.schedjoules.com/pages/1471774?locale=en",
+                                "category_id": 6,
+                                "category": "TV shows",
+                                "country": "United States",
+                                "icon": "https://cdn-images.schedjoules.com/assets/rh_341769730.png?91ff8324d6f5c879605b1ca7c0115802"
+                                },
+                                "item_class": "page"
+                                },
+                                {
+                                "item": {
+                                "item_id": 1471767,
+                                "name": "Central",
+                                "url": "https://api.schedjoules.com/pages/1471767?locale=en",
+                                "category_id": 6,
+                                "category": "TV shows",
+                                "country": "United States",
+                                "icon": "https://cdn-images.schedjoules.com/assets/rh_341769167.png?df089f288d3131751521f392315dd146"
+                                },
+                                "item_class": "page"
+                                },
+                                {
+                                "item": {
+                                "item_id": 1471704,
+                                "name": "East",
+                                "url": "https://api.schedjoules.com/pages/1471704?locale=en",
+                                "category_id": 6,
+                                "category": "TV shows",
+                                "country": "United States",
+                                "icon": "https://cdn-images.schedjoules.com/assets/rh_341769166.png?d8c0fff814fed1541a3e54d3c0ae4488"
+                                },
+                                "item_class": "page"
+                                },
+                                {
+                                "item": {
+                                "item_id": 1471773,
+                                "name": "Hawaii",
+                                "url": "https://api.schedjoules.com/pages/1471773?locale=en",
+                                "category_id": 6,
+                                "category": "TV shows",
+                                "country": "United States",
+                                "icon": "https://cdn-images.schedjoules.com/assets/rh_341769171.png?3256bf61a3b27c9141d9eb13291af8a2"
+                                },
+                                "item_class": "page"
+                                },
+                                {
+                                "item": {
+                                "item_id": 1471768,
+                                "name": "Mountain",
+                                "url": "https://api.schedjoules.com/pages/1471768?locale=en",
+                                "category_id": 6,
+                                "category": "TV shows",
+                                "country": "United States",
+                                "icon": "https://cdn-images.schedjoules.com/assets/rh_341769168.png?f07a745ae63bfcd844f1bf650886367b"
+                                },
+                                "item_class": "page"
+                                },
+                                {
+                                "item": {
+                                "item_id": 1471764,
+                                "name": "Pacific",
+                                "url": "https://api.schedjoules.com/pages/1471764?locale=en",
+                                "category_id": 6,
+                                "category": "TV shows",
+                                "country": "United States",
+                                "icon": "https://cdn-images.schedjoules.com/assets/rh_341769169.png?18c1a7313d808aa727e9fa78bc1694f7"
+                                },
+                                "item_class": "page"
+                                }
+                                ],
+                      "name": "TV"
+                      },
+                      {
+                      "items": [
+                                {
+                                "item": {
+                                "item_id": 113476,
+                                "name": "Holidays worldwide",
+                                "url": "https://api.schedjoules.com/pages/113476?locale=en",
+                                "category_id": 1,
+                                "category": "Holidays",
+                                "icon": "https://cdn-images.schedjoules.com/assets/holidays.png?ca30c78f3a44397f6ffcb01fcc65fb3f"
+                                },
+                                "item_class": "page"
+                                },
+                                {
+                                "item": {
+                                "item_id": 113477,
+                                "name": "Browse all sports",
+                                "url": "https://api.schedjoules.com/pages/113477?locale=en",
+                                "category_id": 2,
+                                "category": "Sports",
+                                "icon": "https://cdn-images.schedjoules.com/assets/sports.png?6857068de88b5583752fcfb901224074"
+                                },
+                                "item_class": "page"
+                                },
+                                {
+                                "item": {
+                                "item_id": 113478,
+                                "name": "Company Events",
+                                "url": "https://api.schedjoules.com/pages/113478?locale=en",
+                                "category_id": 4,
+                                "category": "Financial Calendars",
+                                "icon": "https://cdn-images.schedjoules.com/assets/finance.png?c30cb8e2bdfad873d93c15a2e87ec05e"
+                                },
+                                "item_class": "page"
+                                },
+                                {
+                                "item": {
+                                "item_id": 1471835,
+                                "name": "TV Shows",
+                                "url": "https://api.schedjoules.com/pages/1471835?locale=en",
+                                "category_id": 6,
+                                "category": "TV shows",
+                                "icon": "https://cdn-images.schedjoules.com/assets/tv.png?6a1eb591c4682d3409e287669e46954e"
+                                },
+                                "item_class": "page"
+                                }
+                                ],
+                      "name": "Browse All"
+                      }
+                      ]
+}
+
