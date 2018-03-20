@@ -252,6 +252,8 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
+=======
 		B66787512062AC840061B2B9 /* iCalendarParser */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +274,7 @@
 			path = Calendar;
 			sourceTree = "<group>";
 		};
+>>>>>>> 7ef6c21... - Updated Podfile to work with new test target (#4)
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
