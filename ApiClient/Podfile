@@ -9,7 +9,7 @@ target 'ApiClient' do
   	pod 'Alamofire', '~> 4.5'	
 	pod 'Result', '~> 3.0.0'
 
-  target 'ApiClientTests' do
+  target 'Tests' do
     inherit! :search_paths
     # Pods for testing
   end
