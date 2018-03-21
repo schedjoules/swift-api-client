@@ -105,7 +105,7 @@ class ApiClientTests: XCTestCase {
     func testIcsQuery() {
         let api = SchedJoulesApiClient(accessToken: getApiKey())
         let responseExpectation = expectation(description: "Received response")
-        let icsQuery = IcsQuery(resource: "/calendars/afdd5213056f?l=en&x=6cdd34")
+        let icsQuery = IcsQuery(url: "https://iphone.schedjoules.com/calendars/afdd5213056f?l=en&x=6cdd34")
         api.execute(query: icsQuery, completion: { result in
             switch result {
             case let .success(calendar):
