@@ -1,8 +1,8 @@
 //
-//  ParsedLine.swift
-//  iCalendarParser
+//  CalendarQuery.swift
+//  ApiClient
 //
-//  Created by Balazs Vincze on 2018. 02. 16..
+//  Created by Balazs Vincze on 2018. 03. 21..
 //  Copyright © 2018. SchedJoules. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,15 +24,26 @@
 // THE SOFTWARE.
 
 import Foundation
+import Alamofire
 
-class ParsedLine {
-    let key: String
-    let value: String
-    let params: [String:String]?
+final class CalendarQuery: Query {
+    typealias Result = Calendar?
+
+    let url: String
+    let method: HTTPMethod = .get
+    let parameters: Parameters = [:]
+    let headers: HTTPHeaders = ["Accept" : "text/calendar", "Content-Type" : "text/calendar"]
     
-    required init(key: String, value: String, params: [String:String]?) {
-        self.key = key
-        self.value = value
-        self.params = params
+    required init(url: String) {
+        self.url = url
     }
+    
+    /// Parse the retrieved .ics file
+    func handleResult(with data: Data) -> Calendar? {
+        guard let icsString = String(data: data, encoding: .utf8) else {
+            return nil
+        }
+        return Parser.parse(ics: icsString)
+    }
+
 }

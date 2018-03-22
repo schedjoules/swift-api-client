@@ -35,7 +35,7 @@ enum ParseError: Error{
     case networkError(String)
 }
 
-class Parser {
+final class Parser {
     /// Parse the parameters into a dictionary
     private static func parse(params: [String]) -> [String:String] {
         var paramsDict = [String:String]()

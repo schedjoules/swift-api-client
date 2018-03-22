@@ -25,7 +25,7 @@
 
 import Foundation
 
-class Event{
+final class Event{
     var startDate: Date!
     var endDate: Date?
     var description: String!

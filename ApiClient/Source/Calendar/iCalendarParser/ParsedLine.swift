@@ -1,8 +1,8 @@
 //
-//  Calendar.swift
+//  ParsedLine.swift
 //  iCalendarParser
 //
-//  Created by Balazs Vincze on 2018. 02. 19..
+//  Created by Balazs Vincze on 2018. 02. 16..
 //  Copyright © 2018. SchedJoules. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,11 +25,14 @@
 
 import Foundation
 
-class Calendar {
-    let events: [Event]
+final class ParsedLine {
+    let key: String
+    let value: String
+    let params: [String:String]?
     
-    /// Initialize with the events sorted by start date
-    required init(events: [Event]) {
-        self.events = events.sorted(by: { $0.startDate.compare($1.startDate) == ComparisonResult.orderedAscending })
+    required init(key: String, value: String, params: [String:String]?) {
+        self.key = key
+        self.value = value
+        self.params = params
     }
 }
