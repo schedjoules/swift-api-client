@@ -26,6 +26,16 @@
 		B633B5802060630600685458 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B633B57B2060630600685458 /* LaunchScreen.storyboard */; };
 		B633B5812060630600685458 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B633B57D2060630600685458 /* Main.storyboard */; };
 		B65413AA205FD24C00A3EE2F /* PageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65413A9205FD24C00A3EE2F /* PageItem.swift */; };
+		B66787562062AC840061B2B9 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66787522062AC840061B2B9 /* Event.swift */; };
+		B66787572062AC840061B2B9 /* ParsedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66787532062AC840061B2B9 /* ParsedLine.swift */; };
+		B66787582062AC840061B2B9 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66787542062AC840061B2B9 /* Parser.swift */; };
+		B66787592062AC840061B2B9 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66787552062AC840061B2B9 /* Calendar.swift */; };
+		B667875E2062ACE50061B2B9 /* IcsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667875D2062ACE50061B2B9 /* IcsQuery.swift */; };
+		B667875F2062B2A90061B2B9 /* ApiClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6233C38204D9BA70081FC2C /* ApiClientTests.swift */; };
+		B66787612062B3B40061B2B9 /* API.plist in Resources */ = {isa = PBXBuildFile; fileRef = B66787602062B3B40061B2B9 /* API.plist */; };
+		B66787622062C3040061B2B9 /* sample_page_item.json in Resources */ = {isa = PBXBuildFile; fileRef = B633B56E206052A700685458 /* sample_page_item.json */; };
+		B66787632062C3040061B2B9 /* sample_page.json in Resources */ = {isa = PBXBuildFile; fileRef = B633B570206052B600685458 /* sample_page.json */; };
+		B66787642062C3040061B2B9 /* sample_page_section.json in Resources */ = {isa = PBXBuildFile; fileRef = B633B5682060460C00685458 /* sample_page_section.json */; };
 		C8C9DB09D8ED18A28A561809 /* Pods_ApiClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C05815CA0C6F46C4D9F1D6AF /* Pods_ApiClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +80,12 @@
 		B633B57E2060630600685458 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		B633B5882060645400685458 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B65413A9205FD24C00A3EE2F /* PageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageItem.swift; sourceTree = "<group>"; };
+		B66787522062AC840061B2B9 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		B66787532062AC840061B2B9 /* ParsedLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedLine.swift; sourceTree = "<group>"; };
+		B66787542062AC840061B2B9 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		B66787552062AC840061B2B9 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		B667875D2062ACE50061B2B9 /* IcsQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IcsQuery.swift; sourceTree = "<group>"; };
+		B66787602062B3B40061B2B9 /* API.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = API.plist; sourceTree = "<group>"; };
 		C05815CA0C6F46C4D9F1D6AF /* Pods_ApiClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ApiClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC8F504C2BDC25AFC8D5F9AE /* Pods-ApiClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApiClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApiClient/Pods-ApiClient.debug.xcconfig"; sourceTree = "<group>"; };
 		DA6F91A2A8EC5EAA44D4F85B /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -207,6 +223,7 @@
 			children = (
 				B6233C38204D9BA70081FC2C /* ApiClientTests.swift */,
 				B6233C3A204D9BA70081FC2C /* Info.plist */,
+				B66787602062B3B40061B2B9 /* API.plist */,
 				B633B572206052DE00685458 /* Sample JSONs */,
 			);
 			path = Tests;
@@ -230,8 +247,29 @@
 				B60AE6AF2056C0180016671F /* Query.swift */,
 				B60AE6B12056C0180016671F /* SchedJoulesApiClient.swift */,
 				B60AE69D2056C0180016671F /* Pages */,
+				B667875C2062ACC00061B2B9 /* Ics */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		B66787512062AC840061B2B9 /* iCalendarParser */ = {
+			isa = PBXGroup;
+			children = (
+				B66787542062AC840061B2B9 /* Parser.swift */,
+				B66787552062AC840061B2B9 /* Calendar.swift */,
+				B66787522062AC840061B2B9 /* Event.swift */,
+				B66787532062AC840061B2B9 /* ParsedLine.swift */,
+			);
+			path = iCalendarParser;
+			sourceTree = "<group>";
+		};
+		B667875C2062ACC00061B2B9 /* Ics */ = {
+			isa = PBXGroup;
+			children = (
+				B667875D2062ACE50061B2B9 /* IcsQuery.swift */,
+				B66787512062AC840061B2B9 /* iCalendarParser */,
+			);
+			path = Ics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +370,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B66787612062B3B40061B2B9 /* API.plist in Resources */,
+				B66787632062C3040061B2B9 /* sample_page.json in Resources */,
+				B66787642062C3040061B2B9 /* sample_page_section.json in Resources */,
+				B66787622062C3040061B2B9 /* sample_page_item.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,14 +496,19 @@
 				B60AE6C12056C0180016671F /* SchedJoulesApiClient.swift in Sources */,
 				B60AE6B52056C0180016671F /* JSONPageItem.swift in Sources */,
 				B60AE6B72056C0180016671F /* Item.swift in Sources */,
+				B66787562062AC840061B2B9 /* Event.swift in Sources */,
 				B60AE6B92056C0180016671F /* Page.swift in Sources */,
+				B66787572062AC840061B2B9 /* ParsedLine.swift in Sources */,
 				B60AE6BF2056C0180016671F /* Query.swift in Sources */,
 				B60AE6B82056C0180016671F /* PageSection.swift in Sources */,
 				B633B56D206050B900685458 /* JSONPageSection.swift in Sources */,
 				B60AE6C02056C0180016671F /* ApiError.swift in Sources */,
+				B66787582062AC840061B2B9 /* Parser.swift in Sources */,
 				B60AE6BA2056C0180016671F /* SinglePageQuery.swift in Sources */,
 				B633B57F2060630600685458 /* ViewController.swift in Sources */,
 				B60AE6B32056C0180016671F /* JSONPage.swift in Sources */,
+				B66787592062AC840061B2B9 /* Calendar.swift in Sources */,
+				B667875E2062ACE50061B2B9 /* IcsQuery.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B667875F2062B2A90061B2B9 /* ApiClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

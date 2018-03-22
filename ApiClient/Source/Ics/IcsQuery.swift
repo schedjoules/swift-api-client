@@ -1,8 +1,8 @@
 //
-//  SearchQuery.swift
+//  IcsQuery.swift
 //  ApiClient
 //
-//  Created by Balazs Vincze on 2018. 03. 05..
+//  Created by Balazs Vincze on 2018. 03. 21..
 //  Copyright © 2018. SchedJoules. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,28 +26,24 @@
 import Foundation
 import Alamofire
 
-final class SearchQuery: Query {
-    typealias Result = JSONPage?
-    
+final class IcsQuery: Query {
+    typealias Result = Calendar?
+
     let url: String
     let method: HTTPMethod = .get
     let parameters: Parameters = [:]
-    let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
+    let headers: HTTPHeaders = ["Accept" : "text/calendar", "Content-Type" : "text/calendar"]
     
-    required init(resource: String) {
-        self.url = "https://api.schedjoules.com/" + resource
+    required init(url: String) {
+        self.url = url
+    }
+    
+    /// Parse the retrieved .ics file
+    func handleResult(with data: Data) -> Calendar? {
+        guard let icsString = String(data: data, encoding: .utf8) else {
+            return nil
+        }
+        return Parser.parse(ics: icsString)
     }
 
-    /// Initiliaze with a query string
-    convenience init(query: String) {
-        let locale = Locale.preferredLanguages[0].components(separatedBy: "-")[0]
-        let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-        self.init(resource: "/pages/search?q=\(encodedQuery)&locale=\(locale)")
-    }
-    
-    /// Return a Page object from the data
-    func handleResult(with data: Data) -> JSONPage? {
-        return try? JSONDecoder().decode(JSONPage.self, from: data)
-    }
-    
 }

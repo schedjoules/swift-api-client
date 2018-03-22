@@ -1,8 +1,8 @@
 //
-//  SearchQuery.swift
-//  ApiClient
+//  ParsedLine.swift
+//  iCalendarParser
 //
-//  Created by Balazs Vincze on 2018. 03. 05..
+//  Created by Balazs Vincze on 2018. 02. 16..
 //  Copyright © 2018. SchedJoules. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,30 +24,15 @@
 // THE SOFTWARE.
 
 import Foundation
-import Alamofire
 
-final class SearchQuery: Query {
-    typealias Result = JSONPage?
+class ParsedLine {
+    let key: String
+    let value: String
+    let params: [String:String]?
     
-    let url: String
-    let method: HTTPMethod = .get
-    let parameters: Parameters = [:]
-    let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
-    
-    required init(resource: String) {
-        self.url = "https://api.schedjoules.com/" + resource
+    required init(key: String, value: String, params: [String:String]?) {
+        self.key = key
+        self.value = value
+        self.params = params
     }
-
-    /// Initiliaze with a query string
-    convenience init(query: String) {
-        let locale = Locale.preferredLanguages[0].components(separatedBy: "-")[0]
-        let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-        self.init(resource: "/pages/search?q=\(encodedQuery)&locale=\(locale)")
-    }
-    
-    /// Return a Page object from the data
-    func handleResult(with data: Data) -> JSONPage? {
-        return try? JSONDecoder().decode(JSONPage.self, from: data)
-    }
-    
 }

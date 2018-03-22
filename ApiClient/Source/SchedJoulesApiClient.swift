@@ -27,8 +27,7 @@ import Foundation
 import Alamofire
 import enum Result.Result
 
-class SchedJoulesApiClient: Api {
-    private let baseURL = "https://api.schedjoules.com/"
+final class SchedJoulesApiClient: Api {
     private let accessToken: String
     private let sessionManager: Alamofire.SessionManager
     
@@ -50,9 +49,6 @@ class SchedJoulesApiClient: Api {
     
     // Execute a request object
     func execute<T: Query> (query: T, completion: @escaping (Result<T.Result,ApiError>) -> Void) {
-        // Buld the URL from the passed in request
-        let url = baseURL + query.resource
-        
         // Set required HTTP headers
         var headers = Alamofire.SessionManager.defaultHTTPHeaders
         headers["Authorization"] = "Token token=\(accessToken)"
@@ -63,7 +59,7 @@ class SchedJoulesApiClient: Api {
         }
         
         // Execute the request
-        sessionManager.request(url, method: query.method, parameters: query.parameters, encoding: URLEncoding.default, headers: headers).validate().responseData { response in
+        sessionManager.request(query.url, method: query.method, parameters: query.parameters, encoding: URLEncoding.default, headers: headers).validate().responseData { response in
             switch response.result {
             case .success:
                 guard let responseData = response.result.value else {
