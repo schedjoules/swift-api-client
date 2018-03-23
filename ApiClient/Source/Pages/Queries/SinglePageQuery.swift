@@ -29,13 +29,13 @@ import Alamofire
 final class SinglePageQuery: Query {
     typealias Result = JSONPage?
     
-    let url: String
+    let url: URL?
     let method: HTTPMethod = .get
     let parameters: Parameters = [:]
     let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
     
     required init(resource: String) {
-       self.url = "https://api.schedjoules.com/" + resource
+       self.url = URL(string:"https://api.schedjoules.com/" + resource)
     }
     
     /// Initialize with a given Page ID and automatically add locale and

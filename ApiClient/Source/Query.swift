@@ -29,7 +29,7 @@ import Alamofire
 protocol Query {
     associatedtype Result
     
-    var url: String { get }
+    var url: URL? { get }
     var method: HTTPMethod { get }
     var parameters: Parameters { get }
     var headers: HTTPHeaders { get }

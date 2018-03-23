@@ -29,13 +29,13 @@ import Alamofire
 final class SearchQuery: Query {
     typealias Result = JSONPage?
     
-    let url: String
+    let url: URL?
     let method: HTTPMethod = .get
     let parameters: Parameters = [:]
     let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
     
     required init(resource: String) {
-        self.url = "https://api.schedjoules.com/" + resource
+        self.url = URL(string:"https://api.schedjoules.com/" + resource)
     }
 
     /// Initiliaze with a query string
