@@ -1,9 +1,9 @@
 //
-//  Query.swift
+//  CalendarQuery.swift
 //  ApiClient
 //
-//  Created by Balazs Vincze on 2017. 12. 15..
-//  Copyright © 2017. SchedJoules. All rights reserved.
+//  Created by Balazs Vincze on 2018. 03. 21..
+//  Copyright © 2018. SchedJoules. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -26,13 +26,24 @@
 import Foundation
 import Alamofire
 
-protocol Query {
-    associatedtype Result
+final class CalendarQuery: Query {
+    typealias Result = Calendar?
+
+    let url: URL?
+    let method: HTTPMethod = .get
+    let parameters: Parameters = [:]
+    let headers: HTTPHeaders = ["Accept" : "text/calendar", "Content-Type" : "text/calendar"]
     
-    var url: URL? { get }
-    var method: HTTPMethod { get }
-    var parameters: Parameters { get }
-    var headers: HTTPHeaders { get }
+    required init(url: String) {
+        self.url = URL(string: url)
+    }
     
-    func handleResult(with data: Data) -> Result
+    /// Parse the retrieved .ics file
+    func handleResult(with data: Data) -> Calendar? {
+        guard let icsString = String(data: data, encoding: .utf8) else {
+            return nil
+        }
+        return Parser.parse(ics: icsString)
+    }
+
 }

@@ -30,7 +30,6 @@ class ApiClientTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
@@ -39,42 +38,29 @@ class ApiClientTests: XCTestCase {
     }
     
     func testJsonPageItemDecoding() {
-        let testBundle = Bundle(for: type(of: self))
-        guard let path = testBundle.path(forResource: "sample_page_item", ofType: "json") else {
-            XCTFail()
-            return
-        }
-        
-        guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe) else {
-            XCTFail()
-            return
-        }
+        let path = Bundle(for: type(of: self)).path(forResource: "sample_page_item", ofType: "json")
+        XCTAssertNotNil(path)
+        let data = try? Data(contentsOf: URL(fileURLWithPath: path!), options: .mappedIfSafe)
+        XCTAssertNotNil(data)
         
         let decoder = JSONDecoder()
         do {
-            let pageItem = try decoder.decode(JSONPageItem.self, from: data)
+            let pageItem = try decoder.decode(JSONPageItem.self, from: data!)
             print(pageItem)
         } catch {
-            print(error)
             XCTFail()
         }
     }
     
     func testJsonPageSectionDecoding() {
-        let testBundle = Bundle(for: type(of: self))
-        guard let path = testBundle.path(forResource: "sample_page_section", ofType: "json") else {
-            XCTFail()
-            return
-        }
-        
-        guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe) else {
-            XCTFail()
-            return
-        }
+        let path = Bundle(for: type(of: self)).path(forResource: "sample_page_section", ofType: "json")
+        XCTAssertNotNil(path)
+        let data = try? Data(contentsOf: URL(fileURLWithPath: path!), options: .mappedIfSafe)
+        XCTAssertNotNil(data)
         
         let decoder = JSONDecoder()
         do {
-            let pageSection = try decoder.decode(JSONPageSection.self, from: data)
+            let pageSection = try decoder.decode(JSONPageSection.self, from: data!)
             print(pageSection)
         } catch {
             print(error)
@@ -83,29 +69,23 @@ class ApiClientTests: XCTestCase {
     }
     
     func testJsonPageDecoding() {
-        let testBundle = Bundle(for: type(of: self))
-        guard let path = testBundle.path(forResource: "sample_page", ofType: "json") else {
-            XCTFail()
-            return
-        }
-        
-        guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe) else {
-            XCTFail()
-            return
-        }
+        let path = Bundle(for: type(of: self)).path(forResource: "sample_page", ofType: "json")
+        XCTAssertNotNil(path)
+        let data = try? Data(contentsOf: URL(fileURLWithPath: path!), options: .mappedIfSafe)
+        XCTAssertNotNil(data)
         
         let decoder = JSONDecoder()
         do {
-            let page = try decoder.decode(JSONPage.self, from: data)
+            let page = try decoder.decode(JSONPage.self, from: data!)
             print(page)
         } catch {
-            print(error)
             XCTFail()
         }
+        
     }
     
     func testQueryResult() {
-        let api = SchedJoulesApiClient(accessToken: "0443a55244bb2b6224fd48e0416f0d9c")        
+        let api = SchedJoulesApiClient(accessToken: getApiKey())
         let responseExpectation = expectation(description: "Received response")
         api.execute(query: HomePageQuery(), completion: { result in
             switch result {
@@ -115,10 +95,42 @@ class ApiClientTests: XCTestCase {
             case let .failure(apiError):
                 print(apiError)
                 XCTFail()
+                
             }
         })
         
         waitForExpectations(timeout: 10.0) { (_) -> Void in }
+    }
+    
+    func testCalendarQuery() {
+        let api = SchedJoulesApiClient(accessToken: getApiKey())
+        let responseExpectation = expectation(description: "Received response")
+        let icsQuery = CalendarQuery(url: "https://iphone.schedjoules.com/calendars/afdd5213056f?l=en&x=6cdd34")
+        api.execute(query: icsQuery, completion: { result in
+            switch result {
+            case let .success(calendar):
+                responseExpectation.fulfill()
+                XCTAssertNotNil(calendar)
+            case let .failure(apiError):
+                print(apiError)
+                XCTFail()
+            }
+        })
+        
+        waitForExpectations(timeout: 10.0) { (_) -> Void in }
+    }
+    
+    // Read API Key from API.plist (not included in source control, please create your own using the API Key we provided you with.)
+    func getApiKey() -> String {
+        let apiInfoPath = Bundle(for: type(of: self)).url(forResource: "API", withExtension: "plist")
+        XCTAssertNotNil(apiInfoPath)
+        let apiInfoData = try? Data(contentsOf: apiInfoPath!)
+        XCTAssertNotNil(apiInfoData)
+        let apiPlist = (try? PropertyListSerialization.propertyList(from: apiInfoData!, options: [], format: nil)) as? [String: String]
+        XCTAssertNotNil(apiPlist)
+        let apiKey = apiPlist!["API_KEY"]
+        XCTAssertNotNil(apiKey)
+        return apiKey!
     }
     
 }

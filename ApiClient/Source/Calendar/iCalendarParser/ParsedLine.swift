@@ -1,9 +1,9 @@
 //
-//  Query.swift
-//  ApiClient
+//  ParsedLine.swift
+//  iCalendarParser
 //
-//  Created by Balazs Vincze on 2017. 12. 15..
-//  Copyright © 2017. SchedJoules. All rights reserved.
+//  Created by Balazs Vincze on 2018. 02. 16..
+//  Copyright © 2018. SchedJoules. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,15 +24,15 @@
 // THE SOFTWARE.
 
 import Foundation
-import Alamofire
 
-protocol Query {
-    associatedtype Result
+final class ParsedLine {
+    let key: String
+    let value: String
+    let params: [String:String]?
     
-    var url: URL? { get }
-    var method: HTTPMethod { get }
-    var parameters: Parameters { get }
-    var headers: HTTPHeaders { get }
-    
-    func handleResult(with data: Data) -> Result
+    required init(key: String, value: String, params: [String:String]?) {
+        self.key = key
+        self.value = value
+        self.params = params
+    }
 }
