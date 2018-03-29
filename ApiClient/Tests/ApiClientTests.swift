@@ -85,7 +85,7 @@ class ApiClientTests: XCTestCase {
     }
     
     func testQueryResult() {
-        let api = SchedJoulesApiClient(accessToken: getApiKey())
+        let api = SchedJoulesApiClient(accessToken: "0443a55244bb2b6224fd48e0416f0d9c")        
         let responseExpectation = expectation(description: "Received response")
         api.execute(query: HomePageQuery(), completion: { result in
             switch result {
