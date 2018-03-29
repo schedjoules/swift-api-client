@@ -51,11 +51,6 @@ final class SinglePageQuery: Query {
     
     /// Return a Page object from the data
     func handleResult(with data: Data) -> JSONPage? {
-        do {
-            try JSONDecoder().decode(JSONPage.self, from: data)
-        } catch {
-            print(error)
-        }
         return try? JSONDecoder().decode(JSONPage.self, from: data)
     }
 }
