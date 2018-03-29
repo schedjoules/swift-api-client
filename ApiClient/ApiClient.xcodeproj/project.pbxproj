@@ -30,11 +30,7 @@
 		B66787572062AC840061B2B9 /* ParsedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66787532062AC840061B2B9 /* ParsedLine.swift */; };
 		B66787582062AC840061B2B9 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66787542062AC840061B2B9 /* Parser.swift */; };
 		B66787592062AC840061B2B9 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66787552062AC840061B2B9 /* Calendar.swift */; };
-<<<<<<< HEAD
 		B667875E2062ACE50061B2B9 /* CalendarQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667875D2062ACE50061B2B9 /* CalendarQuery.swift */; };
-=======
-		B667875E2062ACE50061B2B9 /* IcsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667875D2062ACE50061B2B9 /* IcsQuery.swift */; };
->>>>>>> c73d046... - Modified queries to include the full url because ics files use a different base url (https://iphone.schedjoules.com/)
 		B667875F2062B2A90061B2B9 /* ApiClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6233C38204D9BA70081FC2C /* ApiClientTests.swift */; };
 		B66787612062B3B40061B2B9 /* API.plist in Resources */ = {isa = PBXBuildFile; fileRef = B66787602062B3B40061B2B9 /* API.plist */; };
 		B66787622062C3040061B2B9 /* sample_page_item.json in Resources */ = {isa = PBXBuildFile; fileRef = B633B56E206052A700685458 /* sample_page_item.json */; };
@@ -89,10 +85,14 @@
 		B66787542062AC840061B2B9 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		B66787552062AC840061B2B9 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 <<<<<<< HEAD
+<<<<<<< HEAD
 		B667875D2062ACE50061B2B9 /* CalendarQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarQuery.swift; sourceTree = "<group>"; };
 =======
 		B667875D2062ACE50061B2B9 /* IcsQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IcsQuery.swift; sourceTree = "<group>"; };
 >>>>>>> c73d046... - Modified queries to include the full url because ics files use a different base url (https://iphone.schedjoules.com/)
+=======
+		B667875D2062ACE50061B2B9 /* CalendarQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarQuery.swift; sourceTree = "<group>"; };
+>>>>>>> 689453d... Renamed  `ICSQuery ` to  `CalendarQuery ` , implements #2
 		B66787602062B3B40061B2B9 /* API.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = API.plist; sourceTree = "<group>"; };
 		C05815CA0C6F46C4D9F1D6AF /* Pods_ApiClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ApiClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC8F504C2BDC25AFC8D5F9AE /* Pods-ApiClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApiClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApiClient/Pods-ApiClient.debug.xcconfig"; sourceTree = "<group>"; };
@@ -256,10 +256,14 @@
 				B60AE6B12056C0180016671F /* SchedJoulesApiClient.swift */,
 				B60AE69D2056C0180016671F /* Pages */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 				B667875C2062ACC00061B2B9 /* Calendar */,
 =======
 				B667875C2062ACC00061B2B9 /* Ics */,
 >>>>>>> c73d046... - Modified queries to include the full url because ics files use a different base url (https://iphone.schedjoules.com/)
+=======
+				B667875C2062ACC00061B2B9 /* Calendar */,
+>>>>>>> 689453d... Renamed  `ICSQuery ` to  `CalendarQuery ` , implements #2
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -280,6 +284,7 @@
 			sourceTree = "<group>";
 		};
 <<<<<<< HEAD
+<<<<<<< HEAD
 		B667875C2062ACC00061B2B9 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,12 +298,15 @@
 >>>>>>> 9055ae5... - Updated Podfile to work with new test target
 =======
 		B667875C2062ACC00061B2B9 /* Ics */ = {
+=======
+		B667875C2062ACC00061B2B9 /* Calendar */ = {
+>>>>>>> 689453d... Renamed  `ICSQuery ` to  `CalendarQuery ` , implements #2
 			isa = PBXGroup;
 			children = (
-				B667875D2062ACE50061B2B9 /* IcsQuery.swift */,
+				B667875D2062ACE50061B2B9 /* CalendarQuery.swift */,
 				B66787512062AC840061B2B9 /* iCalendarParser */,
 			);
-			path = Ics;
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 >>>>>>> c73d046... - Modified queries to include the full url because ics files use a different base url (https://iphone.schedjoules.com/)

@@ -49,6 +49,12 @@ final class SchedJoulesApiClient: Api {
     
     // Execute a request object
     func execute<T: Query> (query: T, completion: @escaping (Result<T.Result,ApiError>) -> Void) {
+        // Check if url is not nil
+        guard let url = query.url else {
+            completion(.failure(ApiError.emptyURL))
+            return
+        }
+        
         // Set required HTTP headers
         var headers = Alamofire.SessionManager.defaultHTTPHeaders
         headers["Authorization"] = "Token token=\(accessToken)"
@@ -59,15 +65,18 @@ final class SchedJoulesApiClient: Api {
         }
         
         // Execute the request
-        sessionManager.request(query.url, method: query.method, parameters: query.parameters, encoding: URLEncoding.default, headers: headers).validate().responseData { response in
+        sessionManager.request(url, method: query.method, parameters: query.parameters, encoding: URLEncoding.default, headers: headers).validate().responseData { response in
             switch response.result {
             case .success:
                 guard let responseData = response.result.value else {
-                    print("Response data is nil.")
                     completion(.failure(ApiError.emptyResponseData))
                     return
                 }
-                completion(.success(query.handleResult(with: responseData)))
+                guard let handledResult = query.handleResult(with: responseData) else {
+                    completion(.failure(ApiError.errorHandlingResult))
+                    return
+                }
+                completion(.success(handledResult))
             case .failure(let error):
                 guard let data = response.data else {
                     completion(.failure(ApiError.error(error, response: nil)))

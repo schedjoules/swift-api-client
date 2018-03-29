@@ -1,8 +1,8 @@
 //
-//  Calendar.swift
-//  iCalendarParser
+//  PageItem.swift
+//  ApiClient
 //
-//  Created by Balazs Vincze on 2018. 02. 19..
+//  Created by Balazs Vincze on 2018. 03. 19..
 //  Copyright © 2018. SchedJoules. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,11 +25,23 @@
 
 import Foundation
 
-class Calendar {
-    let events: [Event]
+protocol PageItem: Item {
+    // Required properties
+    var itemID: Int { get }
+    var url: String { get }
+    var itemClass: ItemClass { get }
     
-    /// Initialize with the events sorted by start date
-    required init(events: [Event]) {
-        self.events = events.sorted(by: { $0.startDate.compare($1.startDate) == ComparisonResult.orderedAscending })
-    }
+    // Optional properties
+    var country: String? { get }
+    var sport: String? { get }
+    var season: String? { get }
+    var gender: String? { get }
+    var icon: URL? { get }
+    var category: String? { get }
+    var categoryID: Int? { get }
+}
+
+enum ItemClass: String, Decodable {
+    case page
+    case calendar
 }

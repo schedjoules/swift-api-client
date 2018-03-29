@@ -27,14 +27,14 @@ import Foundation
 import Alamofire
 
 final class CalendarQuery: Query {
-    typealias Result = Calendar?
+    typealias Result = Calendar
 
-    let url: String
+    let url: URL?
     let method: HTTPMethod = .get
     let parameters: Parameters = [:]
     let headers: HTTPHeaders = ["Accept" : "text/calendar", "Content-Type" : "text/calendar"]
     
-    required init(url: String) {
+    required init(url: URL) {
         self.url = url
     }
     

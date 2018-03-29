@@ -27,15 +27,15 @@ import Foundation
 import Alamofire
 
 final class SinglePageQuery: Query {
-    typealias Result = JSONPage?
+    typealias Result = JSONPage
     
-    let url: String
+    let url: URL?
     let method: HTTPMethod = .get
     let parameters: Parameters = [:]
     let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
     
     required init(resource: String) {
-       self.url = "https://api.schedjoules.com/" + resource
+       self.url = URL(string:"https://api.schedjoules.com/" + resource)
     }
     
     /// Initialize with a given Page ID and automatically add locale and
@@ -51,6 +51,11 @@ final class SinglePageQuery: Query {
     
     /// Return a Page object from the data
     func handleResult(with data: Data) -> JSONPage? {
+        do {
+            try JSONDecoder().decode(JSONPage.self, from: data)
+        } catch {
+            print(error)
+        }
         return try? JSONDecoder().decode(JSONPage.self, from: data)
     }
 }

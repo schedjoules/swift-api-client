@@ -1,8 +1,8 @@
 //
-//  IcsQuery.swift
+//  Page.swift
 //  ApiClient
 //
-//  Created by Balazs Vincze on 2018. 03. 21..
+//  Created by Balazs Vincze on 2018. 03. 12..
 //  Copyright © 2018. SchedJoules. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,26 +24,14 @@
 // THE SOFTWARE.
 
 import Foundation
-import Alamofire
 
-final class IcsQuery: Query {
-    typealias Result = Calendar?
-
-    let url: String
-    let method: HTTPMethod = .get
-    let parameters: Parameters = [:]
-    let headers: HTTPHeaders = ["Accept" : "text/calendar", "Content-Type" : "text/calendar"]
+protocol Page: Item {
+    // Required properties
+    var itemID: Int { get }
+    var name: String { get }
+    var sections: [PageSection] { get }
     
-    required init(url: String) {
-        self.url = url
-    }
-    
-    /// Parse the retrieved .ics file
-    func handleResult(with data: Data) -> Calendar? {
-        guard let icsString = String(data: data, encoding: .utf8) else {
-            return nil
-        }
-        return Parser.parse(ics: icsString)
-    }
-
+    // Optional properties
+    var country: String? { get }
+    var icon: URL? { get }
 }
