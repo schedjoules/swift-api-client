@@ -85,7 +85,7 @@ class ApiClientTests: XCTestCase {
     }
     
     func testQueryResult() {
-        let api = SchedJoulesApiClient(accessToken: "0443a55244bb2b6224fd48e0416f0d9c")        
+        let api = SchedJoulesApiClient(accessToken: getApiKey())
         let responseExpectation = expectation(description: "Received response")
         api.execute(query: HomePageQuery(), completion: { result in
             switch result {
@@ -102,7 +102,7 @@ class ApiClientTests: XCTestCase {
         waitForExpectations(timeout: 10.0) { (_) -> Void in }
     }
     
-    func testCalendarQuery() {
+    func testIcsQuery() {
         let api = SchedJoulesApiClient(accessToken: getApiKey())
         let responseExpectation = expectation(description: "Received response")
         let icsQuery = CalendarQuery(url: "https://iphone.schedjoules.com/calendars/afdd5213056f?l=en&x=6cdd34")
