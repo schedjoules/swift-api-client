@@ -34,8 +34,8 @@ final class IcsQuery: Query {
     let parameters: Parameters = [:]
     let headers: HTTPHeaders = ["Accept" : "text/calendar", "Content-Type" : "text/calendar"]
     
-    required init(resource: String) {
-        self.url = "https://iphone.schedjoules.com/" + resource
+    required init(url: String) {
+        self.url = url
     }
     
     /// Parse the retrieved .ics file
