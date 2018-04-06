@@ -27,7 +27,7 @@ import Foundation
 import Alamofire
 import enum Result.Result
 
-class SchedJoulesApiClient: Api {
+final class SchedJoulesApiClient: Api {
     private let baseURL = "https://api.schedjoules.com/"
     private let accessToken: String
     private let sessionManager: Alamofire.SessionManager
