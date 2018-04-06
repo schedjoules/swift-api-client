@@ -124,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				B60AE6A72056C0180016671F /* Queries */,
-				B60AE6A32056C0180016671F /* Protocols */,
 				B60AE69E2056C0180016671F /* Models */,
 			);
 			path = Pages;
@@ -133,6 +132,7 @@
 		B60AE69E2056C0180016671F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B60AE6A32056C0180016671F /* Protocols */,
 				B60AE6C32057DB970016671F /* JSON */,
 			);
 			path = Models;
