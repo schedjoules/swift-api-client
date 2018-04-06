@@ -124,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				B60AE6A72056C0180016671F /* Queries */,
-				B60AE6A32056C0180016671F /* Protocols */,
 				B60AE69E2056C0180016671F /* Models */,
 			);
 			path = Pages;
@@ -133,6 +132,7 @@
 		B60AE69E2056C0180016671F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B60AE6A32056C0180016671F /* Protocols */,
 				B60AE6C32057DB970016671F /* JSON */,
 			);
 			path = Models;
@@ -146,7 +146,8 @@
 				B60AE6A52056C0180016671F /* PageSection.swift */,
 				B65413A9205FD24C00A3EE2F /* PageItem.swift */,
 			);
-			path = Protocols;
+			name = Protocols;
+			path = ../Protocols;
 			sourceTree = "<group>";
 		};
 		B60AE6A72056C0180016671F /* Queries */ = {
