@@ -146,8 +146,7 @@
 				B60AE6A52056C0180016671F /* PageSection.swift */,
 				B65413A9205FD24C00A3EE2F /* PageItem.swift */,
 			);
-			name = Protocols;
-			path = ../Protocols;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		B60AE6A72056C0180016671F /* Queries */ = {
