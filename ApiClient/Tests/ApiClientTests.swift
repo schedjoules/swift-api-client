@@ -105,7 +105,7 @@ class ApiClientTests: XCTestCase {
     }
     
     func testQueryResult() {
-        let api = SchedJoulesApiClient(accessToken: "0443a55244bb2b6224fd48e0416f0d9c")        
+        let api = SchedJoulesApiClient(accessToken: getApiKey())
         let responseExpectation = expectation(description: "Received response")
         api.execute(query: HomePageQuery(), completion: { result in
             switch result {
@@ -119,6 +119,19 @@ class ApiClientTests: XCTestCase {
         })
         
         waitForExpectations(timeout: 10.0) { (_) -> Void in }
+    }
+    
+    // Read API Key from API.plist (not included in source control, please create your own using the API Key we provided you with.)
+    func getApiKey() -> String {
+        let apiInfoPath = Bundle(for: type(of: self)).url(forResource: "API", withExtension: "plist")
+        XCTAssertNotNil(apiInfoPath)
+        let apiInfoData = try? Data(contentsOf: apiInfoPath!)
+        XCTAssertNotNil(apiInfoData)
+        let apiPlist = (try? PropertyListSerialization.propertyList(from: apiInfoData!, options: [], format: nil)) as? [String: String]
+        XCTAssertNotNil(apiPlist)
+        let apiKey = apiPlist!["API_KEY"]
+        XCTAssertNotNil(apiKey)
+        return apiKey!
     }
     
 }

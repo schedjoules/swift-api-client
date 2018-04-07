@@ -20,6 +20,7 @@
 		B60AE6C02056C0180016671F /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60AE6B02056C0180016671F /* ApiError.swift */; };
 		B60AE6C12056C0180016671F /* SchedJoulesApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60AE6B12056C0180016671F /* SchedJoulesApiClient.swift */; };
 		B60AE6C22056C0180016671F /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60AE6B22056C0180016671F /* Api.swift */; };
+		B620F0E120796E1D001D7BDF /* API.plist in Resources */ = {isa = PBXBuildFile; fileRef = B620F0E020796E1D001D7BDF /* API.plist */; };
 		B633B56D206050B900685458 /* JSONPageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B633B56C206050B900685458 /* JSONPageSection.swift */; };
 		B633B57420605F3D00685458 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B633B57320605F3D00685458 /* AppDelegate.swift */; };
 		B633B57F2060630600685458 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B633B5792060630600685458 /* ViewController.swift */; };
@@ -57,6 +58,7 @@
 		B60AE6B02056C0180016671F /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		B60AE6B12056C0180016671F /* SchedJoulesApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedJoulesApiClient.swift; sourceTree = "<group>"; };
 		B60AE6B22056C0180016671F /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		B620F0E020796E1D001D7BDF /* API.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = API.plist; path = ../../../../../blee/ApiClient/Tests/API.plist; sourceTree = "<group>"; };
 		B6233C20204D9BA60081FC2C /* ApiClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApiClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6233C2F204D9BA70081FC2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6233C38204D9BA70081FC2C /* ApiClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientTests.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		B6233C37204D9BA70081FC2C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				B620F0E020796E1D001D7BDF /* API.plist */,
 				B6233C38204D9BA70081FC2C /* ApiClientTests.swift */,
 				B6233C3A204D9BA70081FC2C /* Info.plist */,
 				B633B572206052DE00685458 /* Sample JSONs */,
@@ -333,6 +336,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B620F0E120796E1D001D7BDF /* API.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
