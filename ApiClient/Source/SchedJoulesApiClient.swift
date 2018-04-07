@@ -1,5 +1,5 @@
 //
-//  API.swift
+//  SchedJoulesApiClient.swift
 //  ApiClient
 //
 //  Created by Balazs Vincze on 2017. 12. 15..
