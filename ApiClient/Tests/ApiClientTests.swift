@@ -52,8 +52,7 @@ class ApiClientTests: XCTestCase {
         
         let decoder = JSONDecoder()
         do {
-            let pageItem = try decoder.decode(JSONPageItem.self, from: data)
-            print(pageItem)
+            _ = try decoder.decode(JSONPageItem.self, from: data)
         } catch {
             print(error)
             XCTFail()
@@ -74,8 +73,7 @@ class ApiClientTests: XCTestCase {
         
         let decoder = JSONDecoder()
         do {
-            let pageSection = try decoder.decode(JSONPageSection.self, from: data)
-            print(pageSection)
+            _ = try decoder.decode(JSONPageSection.self, from: data)
         } catch {
             print(error)
             XCTFail()
@@ -96,8 +94,7 @@ class ApiClientTests: XCTestCase {
         
         let decoder = JSONDecoder()
         do {
-            let page = try decoder.decode(JSONPage.self, from: data)
-            print(page)
+            _ = try decoder.decode(JSONPage.self, from: data)
         } catch {
             print(error)
             XCTFail()

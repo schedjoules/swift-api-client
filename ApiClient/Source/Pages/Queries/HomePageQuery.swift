@@ -27,15 +27,15 @@ import Foundation
 import Alamofire
 
 final class HomePageQuery: Query {
-    typealias Result = JSONPage?
+    typealias Result = JSONPage
     
-    let resource: String
+    let url: URL?
     let method: HTTPMethod = .get
     let parameters: Parameters = [:]
     let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
 
     required init(resource: String) {
-        self.resource = resource
+        self.url = URL(string:"https://api.schedjoules.com/" + resource)
     }
     
     /// Automatically add locale and location parameter to the pages URL
@@ -44,8 +44,8 @@ final class HomePageQuery: Query {
     }
     
     /// Manualy specify locale and location parameters
-    convenience init(locale: String, location: String){
-        self.init(resource: "pages/?locale=\(locale)?location=\(location)")
+    convenience init(locale: String, location: String) {
+        self.init(resource: "pages/?locale=\(locale)&location=\(location)")
     }
     
     /// Return a Page object from the data

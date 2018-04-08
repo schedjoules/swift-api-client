@@ -29,10 +29,10 @@ import Alamofire
 protocol Query {
     associatedtype Result
     
-    var resource: String { get }
+    var url: URL? { get }
     var method: HTTPMethod { get }
     var parameters: Parameters { get }
     var headers: HTTPHeaders { get }
     
-    func handleResult(with data: Data) -> Result
+    func handleResult(with data: Data) -> Result?
 }

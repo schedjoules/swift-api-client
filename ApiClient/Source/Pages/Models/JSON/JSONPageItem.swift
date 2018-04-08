@@ -29,13 +29,13 @@ struct JSONPageItem: PageItem {
     // Required properties
     let itemID: Int
     let name: String
-    let categoryID: Int
     let url: String
     let icon: URL?
-    let category: String
     let itemClass: ItemClass
     
     // Optional properties
+    let category: String?
+    let categoryID: Int?
     let country: String?
     let sport: String?
     let season: String?
@@ -83,6 +83,6 @@ extension JSONPageItem: Decodable {
         let season: String? = try itemContainer.decodeIfPresent(String.self, forKey: .season)
         let gender: String? = try itemContainer.decodeIfPresent(String.self, forKey: .gender)
         
-        self.init(itemID: itemID, name: name, categoryID: categoryID, url: url, icon: icon, category: category, itemClass: itemClass, country: country, sport: sport, season: season, gender: gender)
+        self.init(itemID: itemID, name: name, url: url, icon: icon, itemClass: itemClass, category: category, categoryID: categoryID, country: country, sport: sport, season: season, gender: gender)
     }
 }

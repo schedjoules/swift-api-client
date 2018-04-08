@@ -30,6 +30,8 @@ enum ApiError: Error {
     case pagesError(PagesError)
     case emptyResponseData
     case decodingFailed
+    case emptyURL
+    case errorHandlingResult
     
     enum PagesError {
         case parseError
