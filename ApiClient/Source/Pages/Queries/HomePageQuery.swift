@@ -28,24 +28,32 @@ import Alamofire
 
 final class HomePageQuery: Query {
     typealias Result = JSONPage
-    
+
     let url: URL?
+    let host: String = "https://api.schedjoules.com/"
     let method: HTTPMethod = .get
     let parameters: Parameters = [:]
     let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
 
-    required init(resource: String) {
-        self.url = URL(string:"https://api.schedjoules.com/" + resource)
+    required init(path: String, queryItems: [URLQueryItem]) {
+        var urlComponents = URLComponents(string: host)
+        urlComponents?.path = path
+        urlComponents?.queryItems = queryItems
+        self.url = urlComponents?.url
     }
     
     /// Automatically add locale and location parameter to the pages URL
     convenience init() {
-        self.init(locale: Locale.preferredLanguages[0].components(separatedBy: "-")[0], location: Locale.current.regionCode!)
+        let localeQuery = URLQueryItem(name: "locale", value: Locale.preferredLanguages[0].components(separatedBy: "-")[0])
+        let locationQuery = URLQueryItem(name: "location", value: Locale.current.regionCode!)
+        self.init(path: "", queryItems: [localeQuery,locationQuery])
     }
     
     /// Manualy specify locale and location parameters
     convenience init(locale: String, location: String) {
-        self.init(resource: "pages/?locale=\(locale)&location=\(location)")
+        let localeQuery = URLQueryItem(name: "locale", value: locale)
+        let locationQuery = URLQueryItem(name: "location", value: location)
+        self.init(path: "", queryItems: [localeQuery,locationQuery])
     }
     
     /// Return a Page object from the data

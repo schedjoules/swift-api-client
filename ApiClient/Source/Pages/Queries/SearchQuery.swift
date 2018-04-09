@@ -30,19 +30,23 @@ final class SearchQuery: Query {
     typealias Result = JSONPage
     
     let url: URL?
+    let host: String = "https://api.schedjoules.com/"
     let method: HTTPMethod = .get
     let parameters: Parameters = [:]
     let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
     
-    required init(resource: String) {
-        self.url = URL(string:"https://api.schedjoules.com/" + resource)
+    required init(path: String, queryItems: [URLQueryItem]) {
+        var urlComponents = URLComponents(string: host)
+        urlComponents?.path = path
+        urlComponents?.queryItems = queryItems
+        self.url = urlComponents?.url
     }
 
     /// Initiliaze with a query string
     convenience init(query: String) {
-        let locale = Locale.preferredLanguages[0].components(separatedBy: "-")[0]
-        let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-        self.init(resource: "/pages/search?q=\(encodedQuery)&locale=\(locale)")
+        let searchQuery = URLQueryItem(name: "search", value: query)
+        let localeQuery = URLQueryItem(name: "locale", value: Locale.preferredLanguages[0].components(separatedBy: "-")[0])
+        self.init(path: "", queryItems: [searchQuery,localeQuery])
     }
     
     /// Return a Page object from the data

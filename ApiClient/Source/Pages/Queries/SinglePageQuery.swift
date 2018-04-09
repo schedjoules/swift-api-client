@@ -26,27 +26,31 @@
 import Foundation
 import Alamofire
 
-final class SinglePageQuery: Query {
+final class SinglePageQuery: Query {    
     typealias Result = JSONPage
     
     let url: URL?
+    let host: String = "https://api.schedjoules.com/pages"
     let method: HTTPMethod = .get
     let parameters: Parameters = [:]
     let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
     
-    required init(resource: String) {
-       self.url = URL(string:"https://api.schedjoules.com/" + resource)
+    required init(path: String, queryItems: [URLQueryItem]) {
+        var urlComponents = URLComponents(string: host)
+        urlComponents?.path = path
+        urlComponents?.queryItems = queryItems
+        self.url = urlComponents?.url
     }
     
-    /// Initialize with a given Page ID and automatically add locale and
-    /// location parameter to the pages URL
+    /// Initialize with a given Page ID and automatically add locale parameter
     convenience init(pageID: String) {
-        self.init(pageID: pageID, locale: Locale.preferredLanguages[0].components(separatedBy: "-")[0])
+        let localeQuery = URLQueryItem(name: "locale", value: Locale.preferredLanguages[0].components(separatedBy: "-")[0])
+        self.init(path: pageID, queryItems: [localeQuery])
     }
     
     /// Initialize with a given Page ID and a locale
     convenience init(pageID: String, locale: String) {
-        self.init(resource: "pages/\(pageID)?locale=\(locale)")
+        self.init(path: pageID, queryItems: [URLQueryItem(name: "locale", value: locale)])
     }
     
     /// Return a Page object from the data
