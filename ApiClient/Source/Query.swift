@@ -35,6 +35,5 @@ protocol Query {
     var parameters: Parameters { get }
     var headers: HTTPHeaders { get }
     
-    init?(path: String?, queryItems: [URLQueryItem])
     func handleResult(with data: Data) -> Result?
 }

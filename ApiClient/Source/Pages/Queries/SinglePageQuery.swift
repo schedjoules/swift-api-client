@@ -35,15 +35,14 @@ final class SinglePageQuery: Query {
     let parameters: Parameters = [:]
     let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
     
-    required init?(path: String?, queryItems: [URLQueryItem]) {
+    private init?(pageID: String, queryItems: [URLQueryItem]) {
         // Build url from components
         guard var urlComponents = URLComponents(string: host) else {
             return nil
         }
         // Add path to the url
-        if path != nil {
-            urlComponents.path = "/pages/\(path!)"
-        }
+        urlComponents.path = "/pages/\(pageID)"
+        // Add query items to the url
         urlComponents.queryItems = queryItems
         // If the url could not be constructed, return nil
         if urlComponents.url == nil {
@@ -55,12 +54,12 @@ final class SinglePageQuery: Query {
     /// Initialize with a given Page ID and automatically add locale parameter
     convenience init?(pageID: String) {
         let localeQuery = URLQueryItem(name: "locale", value: Locale.preferredLanguages[0].components(separatedBy: "-")[0])
-        self.init(path: pageID, queryItems: [localeQuery])
+        self.init(pageID: pageID, queryItems: [localeQuery])
     }
     
     /// Initialize with a given Page ID and a locale
     convenience init?(pageID: String, locale: String) {
-        self.init(path: pageID, queryItems: [URLQueryItem(name: "locale", value: locale)])
+        self.init(pageID: pageID, queryItems: [URLQueryItem(name: "locale", value: locale)])
     }
     
     /// Return a Page object from the data
