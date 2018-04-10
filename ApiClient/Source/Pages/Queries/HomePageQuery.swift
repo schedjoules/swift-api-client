@@ -51,9 +51,7 @@ final class HomePageQuery: Query {
     
     /// Manualy specify locale and location parameters
     convenience init(locale: String, location: String) {
-        let localeQuery = URLQueryItem(name: "locale", value: locale)
-        let locationQuery = URLQueryItem(name: "location", value: location)
-        self.init(path: "", queryItems: [localeQuery,locationQuery])
+        self.init(path: "", queryItems: [URLQueryItem(name: "locale", value: locale), URLQueryItem(name: "location", value: location)])
     }
     
     /// Return a Page object from the data

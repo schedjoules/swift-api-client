@@ -28,7 +28,10 @@ import Foundation
 protocol PageItem: Item {
     // Required properties
     var itemID: Int { get }
+    var categoryID: Int { get }
     var url: String { get }
+    var icon: URL? { get }
+    var category: String { get }
     var itemClass: ItemClass { get }
     
     // Optional properties
@@ -36,9 +39,6 @@ protocol PageItem: Item {
     var sport: String? { get }
     var season: String? { get }
     var gender: String? { get }
-    var icon: URL? { get }
-    var category: String? { get }
-    var categoryID: Int? { get }
 }
 
 enum ItemClass: String, Decodable {

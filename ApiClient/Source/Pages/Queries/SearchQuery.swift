@@ -44,9 +44,8 @@ final class SearchQuery: Query {
 
     /// Initiliaze with a query string
     convenience init(query: String) {
-        let searchQuery = URLQueryItem(name: "search", value: query)
         let localeQuery = URLQueryItem(name: "locale", value: Locale.preferredLanguages[0].components(separatedBy: "-")[0])
-        self.init(path: "", queryItems: [searchQuery,localeQuery])
+        self.init(path: "", queryItems: [URLQueryItem(name: "search", value: query),localeQuery])
     }
     
     /// Return a Page object from the data
