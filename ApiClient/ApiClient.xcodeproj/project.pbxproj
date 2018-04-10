@@ -29,7 +29,8 @@
 		B637DD45207AC1A300DE4229 /* sample_page.json in Resources */ = {isa = PBXBuildFile; fileRef = B633B570206052B600685458 /* sample_page.json */; };
 		B637DD46207AC1A300DE4229 /* sample_page_section.json in Resources */ = {isa = PBXBuildFile; fileRef = B633B5682060460C00685458 /* sample_page_section.json */; };
 		B637DD47207AC1A300DE4229 /* sample_page_item.json in Resources */ = {isa = PBXBuildFile; fileRef = B633B56E206052A700685458 /* sample_page_item.json */; };
-		B649EB3B2078A5FE0096F7A0 /* ApiClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6233C38204D9BA70081FC2C /* ApiClientTests.swift */; };
+		B649EB3B2078A5FE0096F7A0 /* QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6233C38204D9BA70081FC2C /* QueryTests.swift */; };
+		B68D43B8207CEE9A00203EC7 /* ParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D43B7207CEE9900203EC7 /* ParsingTests.swift */; };
 		C8C9DB09D8ED18A28A561809 /* Pods_ApiClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C05815CA0C6F46C4D9F1D6AF /* Pods_ApiClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +51,7 @@
 		9D53F3FF48CAA0D4FC8445A3 /* Pods_ApiClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ApiClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6233C20204D9BA60081FC2C /* ApiClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApiClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6233C2F204D9BA70081FC2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B6233C38204D9BA70081FC2C /* ApiClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientTests.swift; sourceTree = "<group>"; };
+		B6233C38204D9BA70081FC2C /* QueryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryTests.swift; sourceTree = "<group>"; };
 		B6233C3A204D9BA70081FC2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B633B5682060460C00685458 /* sample_page_section.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample_page_section.json; sourceTree = "<group>"; };
 		B633B56E206052A700685458 /* sample_page_item.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample_page_item.json; sourceTree = "<group>"; };
@@ -74,6 +75,7 @@
 		B637DD3E207AC16C00DE4229 /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		B637DD3F207AC16C00DE4229 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		B637DD40207AC16C00DE4229 /* Query.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
+		B68D43B7207CEE9900203EC7 /* ParsingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsingTests.swift; sourceTree = "<group>"; };
 		C05815CA0C6F46C4D9F1D6AF /* Pods_ApiClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ApiClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC8F504C2BDC25AFC8D5F9AE /* Pods-ApiClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApiClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApiClient/Pods-ApiClient.debug.xcconfig"; sourceTree = "<group>"; };
 		DA6F91A2A8EC5EAA44D4F85B /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -160,7 +162,8 @@
 		B6233C37204D9BA70081FC2C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				B6233C38204D9BA70081FC2C /* ApiClientTests.swift */,
+				B6233C38204D9BA70081FC2C /* QueryTests.swift */,
+				B68D43B7207CEE9900203EC7 /* ParsingTests.swift */,
 				B6233C3A204D9BA70081FC2C /* Info.plist */,
 				B633B572206052DE00685458 /* Sample JSONs */,
 			);
@@ -476,7 +479,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B649EB3B2078A5FE0096F7A0 /* ApiClientTests.swift in Sources */,
+				B68D43B8207CEE9A00203EC7 /* ParsingTests.swift in Sources */,
+				B649EB3B2078A5FE0096F7A0 /* QueryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,32 +26,42 @@
 import Foundation
 import Alamofire
 
-final class HomePageQuery: Query {
+final class HomePageQuery: Query {    
     typealias Result = JSONPage
 
-    let url: URL?
-    let host: String = "https://api.schedjoules.com/"
+    let url: URL
+    let host: String = "https://api.schedjoules.com/pages"
     let method: HTTPMethod = .get
     let parameters: Parameters = [:]
     let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
 
-    required init(path: String, queryItems: [URLQueryItem]) {
-        var urlComponents = URLComponents(string: host)
-        urlComponents?.path = path
-        urlComponents?.queryItems = queryItems
-        self.url = urlComponents?.url
+    required init?(path: String?, queryItems: [URLQueryItem]) {
+        // Build url from components
+        guard var urlComponents = URLComponents(string: host) else {
+            return nil
+        }
+        // Add path to the url
+        if path != nil {
+            urlComponents.path = path!
+        }
+        urlComponents.queryItems = queryItems
+        // If the url could not be constructed, return nil
+        if urlComponents.url == nil {
+            return nil
+        }
+        self.url = urlComponents.url!
     }
     
     /// Automatically add locale and location parameter to the pages URL
-    convenience init() {
+    convenience init?() {
         let localeQuery = URLQueryItem(name: "locale", value: Locale.preferredLanguages[0].components(separatedBy: "-")[0])
         let locationQuery = URLQueryItem(name: "location", value: Locale.current.regionCode!)
-        self.init(path: "", queryItems: [localeQuery,locationQuery])
+        self.init(path: nil, queryItems: [localeQuery,locationQuery])
     }
     
     /// Manualy specify locale and location parameters
-    convenience init(locale: String, location: String) {
-        self.init(path: "", queryItems: [URLQueryItem(name: "locale", value: locale), URLQueryItem(name: "location", value: location)])
+    convenience init?(locale: String, location: String) {
+        self.init(path: nil, queryItems: [URLQueryItem(name: "locale", value: locale), URLQueryItem(name: "location", value: location)])
     }
     
     /// Return a Page object from the data

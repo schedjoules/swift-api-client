@@ -29,12 +29,12 @@ import Alamofire
 protocol Query {
     associatedtype Result
     
-    var url: URL? { get }
+    var url: URL { get }
     var host: String { get }
     var method: HTTPMethod { get }
     var parameters: Parameters { get }
     var headers: HTTPHeaders { get }
     
-    init(path: String, queryItems: [URLQueryItem])
+    init?(path: String?, queryItems: [URLQueryItem])
     func handleResult(with data: Data) -> Result?
 }

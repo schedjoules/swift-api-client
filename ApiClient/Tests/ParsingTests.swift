@@ -1,6 +1,6 @@
 //
-//  ApiClientTests.swift
-//  ApiClientTests
+//  ParsingTests.swift
+//  ParsingTests
 //
 //  Created by Balazs Vincze on 2018. 03. 19..
 //  Copyright © 2018. SchedJoules. All rights reserved.
@@ -26,7 +26,7 @@
 import XCTest
 @testable import ApiClient
 
-class ApiClientTests: XCTestCase {
+class ParsingTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -101,21 +101,5 @@ class ApiClientTests: XCTestCase {
         }
     }
     
-    func testQueryResult() {
-        let api = SchedJoulesApiClient(accessToken: "0443a55244bb2b6224fd48e0416f0d9c")        
-        let responseExpectation = expectation(description: "Received response")
-        api.execute(query: HomePageQuery(), completion: { result in
-            switch result {
-            case let .success(page):
-                responseExpectation.fulfill()
-                XCTAssertNotNil(page)
-            case let .failure(apiError):
-                print(apiError)
-                XCTFail()
-            }
-        })
-        
-        waitForExpectations(timeout: 10.0) { (_) -> Void in }
-    }
     
 }
