@@ -35,31 +35,25 @@ final class SinglePageQuery: Query {
     let parameters: Parameters = [:]
     let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
     
-    private init?(pageID: String, queryItems: [URLQueryItem]) {
-        // Build url from components
-        guard var urlComponents = URLComponents(string: host) else {
-            return nil
-        }
-        // Add path to the url
-        urlComponents.path = "/pages/\(pageID)"
+    private init(pageID: String, queryItems: [URLQueryItem]) {
+        // Initialize url components from a string
+        var urlComponents = URLComponents(string: "https://api.schedjoules.com/pages/\(pageID)")
         // Add query items to the url
-        urlComponents.queryItems = queryItems
-        // If the url could not be constructed, return nil
-        if urlComponents.url == nil {
-            return nil
-        }
-        self.url = urlComponents.url!
+        urlComponents!.queryItems = queryItems
+        // Set the url property to the url constructed from the components
+        self.url = urlComponents!.url!
     }
     
     /// Initialize with a given Page ID and automatically add locale parameter
-    convenience init?(pageID: String) {
-        let localeQuery = URLQueryItem(name: "locale", value: Locale.preferredLanguages[0].components(separatedBy: "-")[0])
-        self.init(pageID: pageID, queryItems: [localeQuery])
+    convenience init(pageID: String) {
+        self.init(pageID: pageID,
+                  queryItems: [URLQueryItem(name: "locale", value: Locale.preferredLanguages[0].components(separatedBy: "-")[0])])
     }
     
     /// Initialize with a given Page ID and a locale
-    convenience init?(pageID: String, locale: String) {
-        self.init(pageID: pageID, queryItems: [URLQueryItem(name: "locale", value: locale)])
+    convenience init(pageID: String, locale: String) {
+        self.init(pageID: pageID,
+                  queryItems: [URLQueryItem(name: "locale", value: locale)])
     }
     
     /// Return a Page object from the data

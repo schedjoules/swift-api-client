@@ -30,31 +30,23 @@ final class SearchQuery: Query {
     typealias Result = JSONPage
     
     let url: URL
-    let host: String = "https://api.schedjoules.com"
     let method: HTTPMethod = .get
     let parameters: Parameters = [:]
     let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
     
-    private init?(queryItems: [URLQueryItem]) {
-        // Build url from components
-        guard var urlComponents = URLComponents(string: host) else {
-            return nil
-        }
-        // Add path to the url
-        urlComponents.path = "/pages"
+    private init(queryItems: [URLQueryItem]) {
+        // Initialize url components from a string
+        var urlComponents = URLComponents(string: "https://api.schedjoules.com/pages")
         // Add query items to the url
-        urlComponents.queryItems = queryItems
-        // If the url could not be constructed, return nil
-        if urlComponents.url == nil {
-            return nil
-        }
-        self.url = urlComponents.url!
+        urlComponents!.queryItems = queryItems
+        // Set the url property to the url constructed from the components
+        self.url = urlComponents!.url!
     }
 
     /// Initiliaze with a query string
-    convenience init?(query: String) {
-        let localeQuery = URLQueryItem(name: "locale", value: Locale.preferredLanguages[0].components(separatedBy: "-")[0])
-        self.init(queryItems: [URLQueryItem(name: "search?q", value: query),localeQuery])
+    convenience init(query: String) {
+        self.init(queryItems: [URLQueryItem(name: "search?q", value: query),
+                               URLQueryItem(name: "locale", value: Locale.preferredLanguages[0].components(separatedBy: "-")[0])])
     }
     
     /// Return a Page object from the data
