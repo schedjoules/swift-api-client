@@ -36,7 +36,7 @@ final class SearchQuery: Query {
     
     private init(queryItems: [URLQueryItem]) {
         // Initialize url components from a string
-        var urlComponents = URLComponents(string: "https://api.schedjoules.com/pages")
+        var urlComponents = URLComponents(string: "https://api.schedjoules.com/pages/search")
         // Add query items to the url
         urlComponents!.queryItems = queryItems
         // Set the url property to the url constructed from the components
@@ -45,7 +45,7 @@ final class SearchQuery: Query {
 
     /// Initiliaze with a query string
     convenience init(query: String) {
-        self.init(queryItems: [URLQueryItem(name: "search?q", value: query),
+        self.init(queryItems: [URLQueryItem(name: "q", value: query),
                                URLQueryItem(name: "locale", value: Locale.preferredLanguages[0].components(separatedBy: "-")[0])])
     }
     

@@ -26,7 +26,7 @@
 import Foundation
 import Alamofire
 
-final class HomePageQuery: Query {    
+final class HomePageQuery: Query {
     typealias Result = JSONPage
 
     let url: URL
@@ -52,7 +52,8 @@ final class HomePageQuery: Query {
     
     /// Manualy specify locale and location parameters
     convenience init(locale: String, location: String) {
-        self.init(queryItems: [URLQueryItem(name: "locale", value: locale), URLQueryItem(name: "location", value: location)])
+        self.init(queryItems: [URLQueryItem(name: "locale", value: locale),
+                               URLQueryItem(name: "location", value: location)])
     }
     
     /// Return a Page object from the data

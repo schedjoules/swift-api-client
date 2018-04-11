@@ -26,7 +26,7 @@
 import Foundation
 import Alamofire
 
-final class SinglePageQuery: Query {    
+final class SinglePageQuery: Query {
     typealias Result = JSONPage
     
     let url: URL
@@ -46,8 +46,7 @@ final class SinglePageQuery: Query {
     
     /// Initialize with a given Page ID and automatically add locale parameter
     convenience init(pageID: String) {
-        self.init(pageID: pageID,
-                  queryItems: [URLQueryItem(name: "locale", value: Locale.preferredLanguages[0].components(separatedBy: "-")[0])])
+        self.init(pageID: pageID, locale: Locale.preferredLanguages[0].components(separatedBy: "-")[0])
     }
     
     /// Initialize with a given Page ID and a locale
