@@ -45,9 +45,7 @@ final class HomePageQuery: Query {
     
     /// Automatically add locale and location parameter to the pages URL
     convenience init() {
-        self.init(queryItems: [
-                URLQueryItem(name: "locale", value: Locale.preferredLanguages[0].components(separatedBy: "-")[0]),
-                URLQueryItem(name: "location", value: Locale.current.regionCode!)])
+        self.init(locale: Locale.preferredLanguages[0].components(separatedBy: "-")[0], location: Locale.current.regionCode!)
     }
     
     /// Manualy specify locale and location parameters
