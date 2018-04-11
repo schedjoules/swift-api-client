@@ -30,7 +30,6 @@ final class SinglePageQuery: Query {
     typealias Result = JSONPage
     
     let url: URL
-    let host: String = "https://api.schedjoules.com"
     let method: HTTPMethod = .get
     let parameters: Parameters = [:]
     let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
