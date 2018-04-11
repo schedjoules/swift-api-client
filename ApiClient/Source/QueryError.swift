@@ -1,8 +1,8 @@
 //
-//  Page.swift
+//  QueryError.swift
 //  ApiClient
 //
-//  Created by Balazs Vincze on 2018. 03. 12..
+//  Created by Balazs Vincze on 2018. 04. 11..
 //  Copyright © 2018. SchedJoules. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,11 +25,7 @@
 
 import Foundation
 
-protocol Page: Item {
-    // Required properties
-    var itemID: Int { get }
-    var name: String { get }
-    var country: String { get }
-    var icon: URL? { get }
-    var sections: [PageSection] { get }
+enum QueryError: Error {
+    case invalidHost
+    case emptyURL
 }

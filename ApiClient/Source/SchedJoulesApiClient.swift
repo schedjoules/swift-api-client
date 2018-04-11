@@ -28,7 +28,6 @@ import Alamofire
 import enum Result.Result
 
 final class SchedJoulesApiClient: Api {
-    private let baseURL = "https://api.schedjoules.com/"
     private let accessToken: String
     private let sessionManager: Alamofire.SessionManager
     
@@ -50,9 +49,6 @@ final class SchedJoulesApiClient: Api {
     
     // Execute a request object
     func execute<T: Query> (query: T, completion: @escaping (Result<T.Result,ApiError>) -> Void) {
-        // Buld the URL from the passed in request
-        let url = baseURL + query.resource
-        
         // Set required HTTP headers
         var headers = Alamofire.SessionManager.defaultHTTPHeaders
         headers["Authorization"] = "Token token=\(accessToken)"
@@ -63,15 +59,18 @@ final class SchedJoulesApiClient: Api {
         }
         
         // Execute the request
-        sessionManager.request(url, method: query.method, parameters: query.parameters, encoding: URLEncoding.default, headers: headers).validate().responseData { response in
+        sessionManager.request(query.url, method: query.method, parameters: query.parameters, encoding: URLEncoding.default, headers: headers).validate().responseData { response in
             switch response.result {
             case .success:
                 guard let responseData = response.result.value else {
-                    print("Response data is nil.")
                     completion(.failure(ApiError.emptyResponseData))
                     return
                 }
-                completion(.success(query.handleResult(with: responseData)))
+                guard let handledResult = query.handleResult(with: responseData) else {
+                    completion(.failure(ApiError.errorHandlingResult))
+                    return
+                }
+                completion(.success(handledResult))
             case .failure(let error):
                 guard let data = response.data else {
                     completion(.failure(ApiError.error(error, response: nil)))

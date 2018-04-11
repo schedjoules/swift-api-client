@@ -27,22 +27,26 @@ import Foundation
 import Alamofire
 
 final class SearchQuery: Query {
-    typealias Result = JSONPage?
+    typealias Result = JSONPage
     
-    let resource: String
+    let url: URL
     let method: HTTPMethod = .get
     let parameters: Parameters = [:]
     let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
     
-    required init(resource: String) {
-        self.resource = resource
+    private init(queryItems: [URLQueryItem]) {
+        // Initialize url components from a string
+        var urlComponents = URLComponents(string: "https://api.schedjoules.com/pages/search")
+        // Add query items to the url
+        urlComponents!.queryItems = queryItems
+        // Set the url property to the url constructed from the components
+        self.url = urlComponents!.url!
     }
 
     /// Initiliaze with a query string
     convenience init(query: String) {
-        let locale = Locale.preferredLanguages[0].components(separatedBy: "-")[0]
-        let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-        self.init(resource: "/pages/search?q=\(encodedQuery)&locale=\(locale)")
+        self.init(queryItems: [URLQueryItem(name: "q", value: query),
+                               URLQueryItem(name: "locale", value: Locale.preferredLanguages[0].components(separatedBy: "-")[0])])
     }
     
     /// Return a Page object from the data
