@@ -43,10 +43,11 @@ extension JSONPageSection: Decodable {
         // Get data container
         let container = try decoder.container(keyedBy: PageSectionKeys.self)
         
-        // Get values
+        // Decode required values
         let name = try container.decode(String.self, forKey: .name)
         let items = try container.decode([JSONPageItem].self, forKey: .items)
         
+        // Initialize with the decoded values
         self.init(name: name, items: items)
     }
 }

@@ -27,11 +27,13 @@ import Foundation
 
 struct JSONPage: Page {
     // Required properties
-    let itemID: Int
     let name: String
-    let country: String
-    let icon: URL?
+    let itemID: Int?
     let sections: [PageSection]
+    
+    // Optional properties
+    let country: String?
+    let icon: URL?
 }
 
 // MARK: - Decodable protocol
@@ -49,13 +51,16 @@ extension JSONPage: Decodable {
         // Get data container
         let container = try decoder.container(keyedBy: PageKeys.self)
         
-        // Get values
+        // Decode required values
         let name = try container.decode(String.self, forKey: .name)
-        let country = try container.decode(String.self, forKey: .country)
-        let icon = try container.decode(URL.self, forKey: .icon)
-        let itemID = try container.decode(Int.self, forKey: .itemID)
+        let itemID = try container.decode(Int?.self, forKey: .itemID)
         let sections = try container.decode([JSONPageSection].self, forKey: .sections)
         
-        self.init(itemID: itemID, name: name, country: country, icon: icon, sections: sections)
+        // Decode optional values
+        let country = try container.decodeIfPresent(String.self, forKey: .country)
+        let icon = try container.decodeIfPresent(URL.self, forKey: .icon)
+        
+        // Initialize with the decoded values
+        self.init(name: name, itemID: itemID, sections: sections, country: country, icon: icon)
     }
 }
