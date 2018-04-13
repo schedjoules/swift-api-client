@@ -27,15 +27,15 @@ import Foundation
 
 struct JSONPageItem: PageItem {
     // Required properties
-    let itemID: Int
     let name: String
-    let categoryID: Int
+    let itemID: Int?
     let url: String
-    let icon: URL?
-    let category: String
     let itemClass: ItemClass
     
     // Optional properties
+    let icon: URL?
+    let categoryID: Int?
+    let category: String?
     let country: String?
     let sport: String?
     let season: String?
@@ -68,21 +68,22 @@ extension JSONPageItem: Decodable {
         let container = try decoder.container(keyedBy: PageItemKeys.self)
         let itemContainer = try container.nestedContainer(keyedBy: PageItemKeys.self, forKey: .item)
         
-        // Get values
-        let itemClass = try container.decode(ItemClass.self, forKey: .itemClass)
-        let itemID = try itemContainer.decode(Int.self, forKey: .itemID)
+        // Decode required values
         let name = try itemContainer.decode(String.self, forKey: .name)
-        let category = try itemContainer.decode(String.self, forKey: .category)
-        let categoryID = try itemContainer.decode(Int.self, forKey: .categoryID)
+        let itemID = try itemContainer.decode(Int?.self, forKey: .itemID)
         let url = try itemContainer.decode(String.self, forKey: .url)
-        let icon = try itemContainer.decode(URL.self, forKey: .icon)
+        let itemClass = try container.decode(ItemClass.self, forKey: .itemClass)
         
-        // Optional properties
+        // Decode optional values
+        let icon = try itemContainer.decodeIfPresent(URL.self, forKey: .icon)
+        let categoryID = try itemContainer.decodeIfPresent(Int.self, forKey: .categoryID)
+        let category = try itemContainer.decodeIfPresent(String.self, forKey: .category)
         let country = try itemContainer.decodeIfPresent(String.self, forKey: .country)
-        let sport: String? = try itemContainer.decodeIfPresent(String.self, forKey: .sport)
-        let season: String? = try itemContainer.decodeIfPresent(String.self, forKey: .season)
-        let gender: String? = try itemContainer.decodeIfPresent(String.self, forKey: .gender)
+        let sport = try itemContainer.decodeIfPresent(String.self, forKey: .sport)
+        let season = try itemContainer.decodeIfPresent(String.self, forKey: .season)
+        let gender = try itemContainer.decodeIfPresent(String.self, forKey: .gender)
         
-        self.init(itemID: itemID, name: name, categoryID: categoryID, url: url, icon: icon, category: category, itemClass: itemClass, country: country, sport: sport, season: season, gender: gender)
+        // Initialize with the decoded values
+        self.init(name: name, itemID: itemID, url: url, itemClass: itemClass, icon: icon, categoryID: categoryID, category: category, country: country, sport: sport, season: season, gender: gender)
     }
 }

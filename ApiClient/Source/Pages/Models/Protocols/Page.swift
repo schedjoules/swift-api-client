@@ -27,9 +27,11 @@ import Foundation
 
 protocol Page: Item {
     // Required properties
-    var itemID: Int { get }
+    var itemID: Int? { get }
     var name: String { get }
-    var country: String { get }
-    var icon: URL? { get }
     var sections: [PageSection] { get }
+    
+    // Optional properties
+    var country: String? { get }
+    var icon: URL? { get }
 }
