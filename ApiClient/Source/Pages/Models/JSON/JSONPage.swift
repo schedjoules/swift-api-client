@@ -25,7 +25,7 @@
 
 import Foundation
 
-struct JSONPage: Page {    
+struct JSONPage: Page {
     // Required properties
     let name: String
     let itemID: Int?
