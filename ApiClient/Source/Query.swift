@@ -27,12 +27,18 @@ import Foundation
 import Alamofire
 
 public protocol Query {
+    /// The type returned by the query.
     associatedtype Result
     
+    /// The url of the query.
     var url: URL { get }
+    /// The HTTP method of the query.
     var method: HTTPMethod { get }
+    /// The HTTP parameters of the query.
     var parameters: Parameters { get }
+    /// The HTTP headers for the query.
     var headers: HTTPHeaders { get }
     
+    /// Handle turning the response from the API into the associated type.
     func handleResult(with data: Data) -> Result?
 }
