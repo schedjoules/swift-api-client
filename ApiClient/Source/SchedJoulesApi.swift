@@ -27,12 +27,12 @@ import Foundation
 import Alamofire
 import enum Result.Result
 
-final class SchedJoulesApi: Api {
+public final class SchedJoulesApi: Api {
     private let accessToken: String
     private let sessionManager: Alamofire.SessionManager
     
     // Initiliaze with an access token
-    required init (accessToken: String) {
+    public required init (accessToken: String) {
         self.accessToken = accessToken
         
         // Set up a session manager
@@ -48,7 +48,7 @@ final class SchedJoulesApi: Api {
     }
     
     // Execute a request object
-    func execute<T: Query> (query: T, completion: @escaping (Result<T.Result,ApiError>) -> Void) {
+    public func execute<T: Query> (query: T, completion: @escaping (Result<T.Result,ApiError>) -> Void) {
         // Set required HTTP headers
         var headers = Alamofire.SessionManager.defaultHTTPHeaders
         headers["Authorization"] = "Token token=\(accessToken)"

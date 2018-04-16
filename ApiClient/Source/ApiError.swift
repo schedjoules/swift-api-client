@@ -25,7 +25,7 @@
 
 import Foundation
 
-enum ApiError: Error {
+public enum ApiError: Error {
     case error(Error, response: String?)
     case pagesError(PagesError)
     case emptyResponseData
@@ -33,7 +33,7 @@ enum ApiError: Error {
     case emptyURL
     case errorHandlingResult
     
-    enum PagesError {
+    public enum PagesError {
         case parseError
     }
 }
