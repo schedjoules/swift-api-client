@@ -54,7 +54,6 @@ class QueryTests: XCTestCase {
             }
             responseExpectation.fulfill()
         })
-
         wait(for: [responseExpectation], timeout: 10.0)
     }
     
@@ -71,7 +70,6 @@ class QueryTests: XCTestCase {
             }
             responseExpectation.fulfill()
         })
-        
         wait(for: [responseExpectation], timeout: 10.0)
     }
     
@@ -88,7 +86,6 @@ class QueryTests: XCTestCase {
             }
             responseExpectation.fulfill()
         })
-        
         wait(for: [responseExpectation], timeout: 10.0)
     }
     
@@ -98,15 +95,14 @@ class QueryTests: XCTestCase {
         api.execute(query: languageQuery, completion: { result in
             switch result {
             case let .success(languages):
-                responseExpectation.fulfill()
                 XCTAssertEqual(languages.count, 18)
             case let .failure(apiError):
                 print(apiError)
                 XCTFail()
             }
+            responseExpectation.fulfill()
         })
-        
-        waitForExpectations(timeout: 10.0) { (_) -> Void in }
+        wait(for: [responseExpectation], timeout: 10.0)
     }
     
     func testCountryQuery() {
@@ -115,15 +111,29 @@ class QueryTests: XCTestCase {
         api.execute(query: countryQuery, completion: { result in
             switch result {
             case let .success(countries):
-                responseExpectation.fulfill()
                 XCTAssertEqual(countries.count, 74)
             case let .failure(apiError):
                 print(apiError)
                 XCTFail()
             }
+            responseExpectation.fulfill()
         })
-        
-        waitForExpectations(timeout: 10.0) { (_) -> Void in }
+        wait(for: [responseExpectation], timeout: 10.0)
     }
     
+    func testCalendarQuery() {
+        let responseExpectation = expectation(description: "Received response")
+        let calendarQuery = CalendarQuery(url: URL(string: "https://iphone.schedjoules.com/calendars/afdd5213056f?l=en&x=6cdd34")!)
+        api.execute(query: calendarQuery, completion: { result in
+            switch result {
+            case let .success(calendar):
+                XCTAssertNotNil(calendar)
+            case let .failure(apiError):
+                print(apiError)
+                XCTFail()
+            }
+            responseExpectation.fulfill()
+        })
+        wait(for: [responseExpectation], timeout: 10.0)
+    }
 }
