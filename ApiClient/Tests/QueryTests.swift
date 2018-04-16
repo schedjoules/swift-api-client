@@ -28,6 +28,9 @@ import XCTest
 
 class QueryTests: XCTestCase {
     
+    // Initialize the Api Client
+    let api = SchedJoulesApi(accessToken: "0443a55244bb2b6224fd48e0416f0d9c")
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -39,7 +42,6 @@ class QueryTests: XCTestCase {
     }
     
     func testHomePageQuery() {
-        let api = SchedJoulesApi(accessToken: "0443a55244bb2b6224fd48e0416f0d9c")        
         let responseExpectation = expectation(description: "Received response")
         let homePageQuery = HomePageQuery()
         api.execute(query: homePageQuery, completion: { result in
@@ -57,7 +59,6 @@ class QueryTests: XCTestCase {
     }
     
     func testSinglePageQuery() {
-        let api = SchedJoulesApi(accessToken: "0443a55244bb2b6224fd48e0416f0d9c")
         let responseExpectation = expectation(description: "Received response")
         let singlePageQuery = SinglePageQuery(pageID: "115673")
         api.execute(query: singlePageQuery, completion: { result in
@@ -75,13 +76,29 @@ class QueryTests: XCTestCase {
     }
     
     func testSearchQuery() {
-        let api = SchedJoulesApi(accessToken: "0443a55244bb2b6224fd48e0416f0d9c")
         let responseExpectation = expectation(description: "Received response")
         let searchQuery = SearchQuery(query: "swim")
         api.execute(query: searchQuery, completion: { result in
             switch result {
             case let .success(page):
                 XCTAssertNotNil(page)
+            case let .failure(apiError):
+                print(apiError)
+                XCTFail()
+            }
+            responseExpectation.fulfill()
+        })
+        
+        wait(for: [responseExpectation], timeout: 10.0)
+    }
+    
+    func testCalendarQuery() {
+        let responseExpectation = expectation(description: "Received response")
+        let calendarQuery = CalendarQuery(url: URL(string: "https://iphone.schedjoules.com/calendars/afdd5213056f?l=en&x=6cdd34")!)
+        api.execute(query: calendarQuery, completion: { result in
+            switch result {
+            case let .success(calendar):
+                XCTAssertNotNil(calendar)
             case let .failure(apiError):
                 print(apiError)
                 XCTFail()
