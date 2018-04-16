@@ -27,7 +27,7 @@ import Foundation
 import Alamofire
 
 final class SearchQuery: Query {
-    typealias Result = JSONPage
+    typealias Result = Page
     
     let url: URL
     let method: HTTPMethod = .get
@@ -50,7 +50,7 @@ final class SearchQuery: Query {
     }
     
     /// Return a Page object from the data
-    func handleResult(with data: Data) -> JSONPage? {
+    func handleResult(with data: Data) -> Page? {
         return try? JSONDecoder().decode(JSONPage.self, from: data)
     }
     
