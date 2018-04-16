@@ -26,7 +26,7 @@
 import Foundation
 import Alamofire
 
-final class SearchQuery: Query {
+public final class SearchQuery: Query {
     typealias Result = JSONPage
     
     let url: URL
