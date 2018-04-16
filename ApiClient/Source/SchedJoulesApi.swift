@@ -1,5 +1,5 @@
 //
-//  SchedJoulesApiClient.swift
+//  SchedJoulesApi.swift
 //  ApiClient
 //
 //  Created by Balazs Vincze on 2017. 12. 15..
@@ -27,7 +27,7 @@ import Foundation
 import Alamofire
 import enum Result.Result
 
-final class SchedJoulesApiClient: Api {
+final class SchedJoulesApi: Api {
     private let accessToken: String
     private let sessionManager: Alamofire.SessionManager
     
