@@ -15,7 +15,7 @@
 		B637DD33207ABFE200DE4229 /* HomePageQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637DD26207ABFE200DE4229 /* HomePageQuery.swift */; };
 		B637DD34207ABFE200DE4229 /* SinglePageQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637DD27207ABFE200DE4229 /* SinglePageQuery.swift */; };
 		B637DD35207ABFE200DE4229 /* SearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637DD28207ABFE200DE4229 /* SearchQuery.swift */; };
-		B637DD41207AC16D00DE4229 /* SchedJoulesApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637DD3D207AC16C00DE4229 /* SchedJoulesApiClient.swift */; };
+		B637DD41207AC16D00DE4229 /* SchedJoulesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637DD3D207AC16C00DE4229 /* SchedJoulesApi.swift */; };
 		B637DD42207AC16D00DE4229 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637DD3E207AC16C00DE4229 /* ApiError.swift */; };
 		B637DD43207AC16D00DE4229 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637DD3F207AC16C00DE4229 /* Api.swift */; };
 		B637DD44207AC16D00DE4229 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637DD40207AC16C00DE4229 /* Query.swift */; };
@@ -65,7 +65,7 @@
 		B637DD26207ABFE200DE4229 /* HomePageQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageQuery.swift; sourceTree = "<group>"; };
 		B637DD27207ABFE200DE4229 /* SinglePageQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePageQuery.swift; sourceTree = "<group>"; };
 		B637DD28207ABFE200DE4229 /* SearchQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchQuery.swift; sourceTree = "<group>"; };
-		B637DD3D207AC16C00DE4229 /* SchedJoulesApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedJoulesApiClient.swift; sourceTree = "<group>"; };
+		B637DD3D207AC16C00DE4229 /* SchedJoulesApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedJoulesApi.swift; sourceTree = "<group>"; };
 		B637DD3E207AC16C00DE4229 /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		B637DD3F207AC16C00DE4229 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		B637DD40207AC16C00DE4229 /* Query.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 				B637DD3E207AC16C00DE4229 /* ApiError.swift */,
 				B637DD40207AC16C00DE4229 /* Query.swift */,
 				B69A3F65207E4FE30025D13D /* QueryError.swift */,
-				B637DD3D207AC16C00DE4229 /* SchedJoulesApiClient.swift */,
+				B637DD3D207AC16C00DE4229 /* SchedJoulesApi.swift */,
 				B637DD24207ABFE200DE4229 /* Pages */,
 			);
 			path = Source;
@@ -470,7 +470,7 @@
 				B637DD42207AC16D00DE4229 /* ApiError.swift in Sources */,
 				B63F1F1D2080D24400121936 /* Item.swift in Sources */,
 				B637DD33207ABFE200DE4229 /* HomePageQuery.swift in Sources */,
-				B637DD41207AC16D00DE4229 /* SchedJoulesApiClient.swift in Sources */,
+				B637DD41207AC16D00DE4229 /* SchedJoulesApi.swift in Sources */,
 				B63F1F222080D24400121936 /* JSONPageSection.swift in Sources */,
 				B637DD44207AC16D00DE4229 /* Query.swift in Sources */,
 				B63F1F232080D24400121936 /* JSONPageItem.swift in Sources */,

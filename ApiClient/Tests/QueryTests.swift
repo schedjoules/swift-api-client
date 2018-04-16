@@ -39,7 +39,7 @@ class QueryTests: XCTestCase {
     }
     
     func testHomePageQuery() {
-        let api = SchedJoulesApiClient(accessToken: "0443a55244bb2b6224fd48e0416f0d9c")        
+        let api = SchedJoulesApi(accessToken: "0443a55244bb2b6224fd48e0416f0d9c")        
         let responseExpectation = expectation(description: "Received response")
         let homePageQuery = HomePageQuery()
         api.execute(query: homePageQuery, completion: { result in
@@ -57,7 +57,7 @@ class QueryTests: XCTestCase {
     }
     
     func testSinglePageQuery() {
-        let api = SchedJoulesApiClient(accessToken: "0443a55244bb2b6224fd48e0416f0d9c")
+        let api = SchedJoulesApi(accessToken: "0443a55244bb2b6224fd48e0416f0d9c")
         let responseExpectation = expectation(description: "Received response")
         let singlePageQuery = SinglePageQuery(pageID: "115673")
         api.execute(query: singlePageQuery, completion: { result in
@@ -75,7 +75,7 @@ class QueryTests: XCTestCase {
     }
     
     func testSearchQuery() {
-        let api = SchedJoulesApiClient(accessToken: "0443a55244bb2b6224fd48e0416f0d9c")
+        let api = SchedJoulesApi(accessToken: "0443a55244bb2b6224fd48e0416f0d9c")
         let responseExpectation = expectation(description: "Received response")
         let searchQuery = SearchQuery(query: "swim")
         api.execute(query: searchQuery, completion: { result in
