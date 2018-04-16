@@ -54,7 +54,6 @@ class QueryTests: XCTestCase {
             }
             responseExpectation.fulfill()
         })
-
         wait(for: [responseExpectation], timeout: 10.0)
     }
     
@@ -71,7 +70,6 @@ class QueryTests: XCTestCase {
             }
             responseExpectation.fulfill()
         })
-        
         wait(for: [responseExpectation], timeout: 10.0)
     }
     
@@ -88,7 +86,6 @@ class QueryTests: XCTestCase {
             }
             responseExpectation.fulfill()
         })
-        
         wait(for: [responseExpectation], timeout: 10.0)
     }
     
@@ -105,8 +102,7 @@ class QueryTests: XCTestCase {
             }
             responseExpectation.fulfill()
         })
-        
-        waitForExpectations(timeout: 10.0) { (_) -> Void in }
+        wait(for: [responseExpectation], timeout: 10.0)
     }
     
     func testCountryQuery() {
@@ -122,60 +118,22 @@ class QueryTests: XCTestCase {
             }
             responseExpectation.fulfill()
         })
-        
-        waitForExpectations(timeout: 10.0) { (_) -> Void in }
+        wait(for: [responseExpectation], timeout: 10.0)
     }
     
-    func testTopPageQuery() {
+    func testCalendarQuery() {
         let responseExpectation = expectation(description: "Received response")
-        let topPageQuery = TopPageQuery(numberOfItems: 15, locale: "en", location: "nl")
-        api.execute(query: topPageQuery, completion: { result in
+        let calendarQuery = CalendarQuery(url: URL(string: "https://iphone.schedjoules.com/calendars/afdd5213056f?l=en&x=6cdd34")!)
+        api.execute(query: calendarQuery, completion: { result in
             switch result {
-            case let .success(page):
-                XCTAssertNotNil(page)
+            case let .success(calendar):
+                XCTAssertNotNil(calendar)
             case let .failure(apiError):
                 print(apiError)
                 XCTFail()
             }
             responseExpectation.fulfill()
         })
-        
-        waitForExpectations(timeout: 10.0) { (_) -> Void in }
+        wait(for: [responseExpectation], timeout: 10.0)
     }
-    
-    func testNextPageQuery() {
-        let responseExpectation = expectation(description: "Received response")
-        let nextPageQuery = NextPageQuery(numberOfItems: 15, locale: "en")
-        api.execute(query: nextPageQuery, completion: { result in
-            switch result {
-            case let .success(page):
-                XCTAssertNotNil(page)
-            case let .failure(apiError):
-                print(apiError)
-                XCTFail()
-            }
-            responseExpectation.fulfill()
-        })
-        
-        waitForExpectations(timeout: 10.0) { (_) -> Void in }
-    }
-    
-    func testNewPageQuery() {
-        let responseExpectation = expectation(description: "Received response")
-        let newPageQuery = NewPageQuery(numberOfItems: 15, locale: "en")
-        api.execute(query: newPageQuery, completion: { result in
-            switch result {
-            case let .success(page):
-                print(page)
-                XCTAssertNotNil(page)
-            case let .failure(apiError):
-                print(apiError)
-                XCTFail()
-            }
-            responseExpectation.fulfill()
-        })
-        
-        waitForExpectations(timeout: 10.0) { (_) -> Void in }
-    }
-    
 }
