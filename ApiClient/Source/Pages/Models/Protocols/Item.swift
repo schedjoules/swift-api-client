@@ -25,6 +25,6 @@
 
 import Foundation
 
-protocol Item: Decodable {
+public protocol Item: Decodable {
     var name: String { get }
 }

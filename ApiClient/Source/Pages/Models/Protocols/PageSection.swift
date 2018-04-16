@@ -25,6 +25,6 @@
 
 import Foundation
 
-protocol PageSection: Item {
+public protocol PageSection: Item {
     var items: [PageItem] { get }
 }

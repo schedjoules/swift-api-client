@@ -25,7 +25,7 @@
 
 import Foundation
 
-protocol PageItem: Item {
+public protocol PageItem: Item {
     // Required properties
     var itemID: Int? { get }
     var url: String { get }
