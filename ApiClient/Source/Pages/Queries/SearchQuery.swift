@@ -26,13 +26,13 @@
 import Foundation
 import Alamofire
 
-final class SearchQuery: Query {
-    typealias Result = Page
+public final class SearchQuery: Query {
+    public typealias Result = Page
     
-    let url: URL
-    let method: HTTPMethod = .get
-    let parameters: Parameters = [:]
-    let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
+    public let url: URL
+    public let method: HTTPMethod = .get
+    public let parameters: Parameters = [:]
+    public let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
     
     private init(queryItems: [URLQueryItem]) {
         // Initialize url components from a string
@@ -44,13 +44,13 @@ final class SearchQuery: Query {
     }
 
     /// Initiliaze with a query string
-    convenience init(query: String) {
+    public convenience init(query: String) {
         self.init(queryItems: [URLQueryItem(name: "q", value: query),
                                URLQueryItem(name: "locale", value: Locale.preferredLanguages[0].components(separatedBy: "-")[0])])
     }
     
     /// Return a Page object from the data
-    func handleResult(with data: Data) -> Page? {
+    public func handleResult(with data: Data) -> Page? {
         return try? JSONDecoder().decode(JSONPage.self, from: data)
     }
     

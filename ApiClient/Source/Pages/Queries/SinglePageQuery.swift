@@ -26,13 +26,13 @@
 import Foundation
 import Alamofire
 
-final class SinglePageQuery: Query {
-    typealias Result = Page
+public final class SinglePageQuery: Query {
+    public typealias Result = Page
     
-    let url: URL
-    let method: HTTPMethod = .get
-    let parameters: Parameters = [:]
-    let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
+    public let url: URL
+    public let method: HTTPMethod = .get
+    public let parameters: Parameters = [:]
+    public let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
     
     private init(pageID: String, queryItems: [URLQueryItem]) {
         // Initialize url components from a string
@@ -44,18 +44,18 @@ final class SinglePageQuery: Query {
     }
     
     /// Initialize with a given Page ID and automatically add locale parameter
-    convenience init(pageID: String) {
+    public convenience init(pageID: String) {
         self.init(pageID: pageID, locale: Locale.preferredLanguages[0].components(separatedBy: "-")[0])
     }
     
     /// Initialize with a given Page ID and a locale
-    convenience init(pageID: String, locale: String) {
+    public convenience init(pageID: String, locale: String) {
         self.init(pageID: pageID,
                   queryItems: [URLQueryItem(name: "locale", value: locale)])
     }
     
     /// Return a Page object from the data
-    func handleResult(with data: Data) -> Page? {
+    public func handleResult(with data: Data) -> Page? {
         return try? JSONDecoder().decode(JSONPage.self, from: data)
     }
 }

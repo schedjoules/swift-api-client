@@ -25,7 +25,7 @@
 
 import Foundation
 
-protocol PageItem: Item {
+public protocol PageItem: Item {
     // Required properties
     var itemID: Int? { get }
     var url: String { get }
@@ -41,7 +41,7 @@ protocol PageItem: Item {
     var gender: String? { get }
 }
 
-enum ItemClass: String, Decodable {
+public enum ItemClass: String, Decodable {
     case page
     case calendar
 }

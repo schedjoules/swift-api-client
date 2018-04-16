@@ -26,7 +26,7 @@
 import Foundation
 import Alamofire
 
-protocol Query {
+public protocol Query {
     associatedtype Result
     
     var url: URL { get }
