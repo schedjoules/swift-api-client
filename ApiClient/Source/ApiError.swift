@@ -32,4 +32,6 @@ public enum ApiError: Error {
     case emptyResponseData
     /// Error handling the result by the passed in query.
     case errorHandlingResult
+    /// The URL of the passed in query is not in the `schedjoules.com` domain.
+    case invalidDomain
 }
