@@ -32,8 +32,8 @@
 		B649EB3B2078A5FE0096F7A0 /* QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6233C38204D9BA70081FC2C /* QueryTests.swift */; };
 		B68D43B8207CEE9A00203EC7 /* ParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D43B7207CEE9900203EC7 /* ParsingTests.swift */; };
 		B69A3F66207E4FE30025D13D /* QueryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69A3F65207E4FE30025D13D /* QueryError.swift */; };
-		B6CBD58220856B3B00305975 /* LanguageQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CBD57A20856B3B00305975 /* LanguageQuery.swift */; };
-		B6CBD58320856B3B00305975 /* CountryQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CBD57B20856B3B00305975 /* CountryQuery.swift */; };
+		B6CBD58220856B3B00305975 /* SupportedLanguagesQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CBD57A20856B3B00305975 /* SupportedLanguagesQuery.swift */; };
+		B6CBD58320856B3B00305975 /* SupportedCountriesQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CBD57B20856B3B00305975 /* SupportedCountriesQuery.swift */; };
 		B6CBD58420856B3B00305975 /* JSONLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CBD57E20856B3B00305975 /* JSONLanguage.swift */; };
 		B6CBD58520856B3B00305975 /* JSONCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CBD57F20856B3B00305975 /* JSONCountry.swift */; };
 		B6CBD58620856B3B00305975 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CBD58120856B3B00305975 /* Localization.swift */; };
@@ -83,8 +83,8 @@
 		B63F1F1C2080D24400121936 /* JSONPageItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONPageItem.swift; sourceTree = "<group>"; };
 		B68D43B7207CEE9900203EC7 /* ParsingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsingTests.swift; sourceTree = "<group>"; };
 		B69A3F65207E4FE30025D13D /* QueryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryError.swift; sourceTree = "<group>"; };
-		B6CBD57A20856B3B00305975 /* LanguageQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageQuery.swift; sourceTree = "<group>"; };
-		B6CBD57B20856B3B00305975 /* CountryQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryQuery.swift; sourceTree = "<group>"; };
+		B6CBD57A20856B3B00305975 /* SupportedLanguagesQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportedLanguagesQuery.swift; sourceTree = "<group>"; };
+		B6CBD57B20856B3B00305975 /* SupportedCountriesQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportedCountriesQuery.swift; sourceTree = "<group>"; };
 		B6CBD57E20856B3B00305975 /* JSONLanguage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONLanguage.swift; sourceTree = "<group>"; };
 		B6CBD57F20856B3B00305975 /* JSONCountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONCountry.swift; sourceTree = "<group>"; };
 		B6CBD58120856B3B00305975 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
@@ -267,8 +267,8 @@
 		B6CBD57920856B3B00305975 /* Queries */ = {
 			isa = PBXGroup;
 			children = (
-				B6CBD57A20856B3B00305975 /* LanguageQuery.swift */,
-				B6CBD57B20856B3B00305975 /* CountryQuery.swift */,
+				B6CBD57A20856B3B00305975 /* SupportedLanguagesQuery.swift */,
+				B6CBD57B20856B3B00305975 /* SupportedCountriesQuery.swift */,
 			);
 			path = Queries;
 			sourceTree = "<group>";
@@ -523,9 +523,9 @@
 				B63F1F1E2080D24400121936 /* PageItem.swift in Sources */,
 				B6CBD58420856B3B00305975 /* JSONLanguage.swift in Sources */,
 				B63F1F1F2080D24400121936 /* PageSection.swift in Sources */,
-				B6CBD58220856B3B00305975 /* LanguageQuery.swift in Sources */,
+				B6CBD58220856B3B00305975 /* SupportedLanguagesQuery.swift in Sources */,
 				B637DD42207AC16D00DE4229 /* ApiError.swift in Sources */,
-				B6CBD58320856B3B00305975 /* CountryQuery.swift in Sources */,
+				B6CBD58320856B3B00305975 /* SupportedCountriesQuery.swift in Sources */,
 				B6CBD58620856B3B00305975 /* Localization.swift in Sources */,
 				B63F1F1D2080D24400121936 /* Item.swift in Sources */,
 				B637DD33207ABFE200DE4229 /* HomePageQuery.swift in Sources */,

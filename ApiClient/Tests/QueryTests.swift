@@ -94,7 +94,7 @@ class QueryTests: XCTestCase {
     
     func testLanguageQuery() {
         let responseExpectation = expectation(description: "Received response")
-        let languageQuery = LanguageQuery()
+        let languageQuery = SupportedLanguagesQuery()
         api.execute(query: languageQuery, completion: { result in
             switch result {
             case let .success(languages):
@@ -111,7 +111,7 @@ class QueryTests: XCTestCase {
     
     func testCountryQuery() {
         let responseExpectation = expectation(description: "Received response")
-        let countryQuery = CountryQuery()
+        let countryQuery = SupportedCountriesQuery()
         api.execute(query: countryQuery, completion: { result in
             switch result {
             case let .success(countries):
