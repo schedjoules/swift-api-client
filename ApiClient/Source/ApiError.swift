@@ -26,14 +26,10 @@
 import Foundation
 
 public enum ApiError: Error {
+    /// A general error, which can hold the response from the API (if any).
     case error(Error, response: String?)
-    case pagesError(PagesError)
+    /// No data received from the API when expected.
     case emptyResponseData
-    case decodingFailed
-    case emptyURL
+    /// Error handling the result by the passed in query.
     case errorHandlingResult
-    
-    public enum PagesError {
-        case parseError
-    }
 }
