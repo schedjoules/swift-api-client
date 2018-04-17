@@ -30,6 +30,7 @@ import enum Result.Result
 public final class SchedJoulesApi: Api {
     private let accessToken: String
     private let sessionManager: Alamofire.SessionManager
+    private let apiDomain = ".schedjoules.com"
     
     // Initiliaze with an access token
     public required init (accessToken: String) {
@@ -49,6 +50,11 @@ public final class SchedJoulesApi: Api {
     
     // Execute a request object
     public func execute<T: Query> (query: T, completion: @escaping (Result<T.Result,ApiError>) -> Void) {
+        // Check if the url of the query is in the right domain
+        if query.url.host!.suffix(apiDomain.count) != apiDomain {
+            completion(.failure(ApiError.invalidDomain))
+        }
+        
         // Set required HTTP headers
         var headers = Alamofire.SessionManager.defaultHTTPHeaders
         headers["Authorization"] = "Token token=\(accessToken)"

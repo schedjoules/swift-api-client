@@ -32,6 +32,7 @@ public enum ApiError: Error {
     case decodingFailed
     case emptyURL
     case errorHandlingResult
+    case invalidDomain
     
     public enum PagesError {
         case parseError
