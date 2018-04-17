@@ -41,7 +41,7 @@ public protocol Query {
     var parameters: Parameters { get }
     /** The HTTP headers for the query.
      Example:
-        ["Accept" : "application/json", "Content-Type" : "application/json"]
+        ["Accept" : "application/json"]
      */
     var headers: HTTPHeaders { get }
     
