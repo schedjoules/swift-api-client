@@ -1,5 +1,5 @@
 //
-//  LanguageQuery.swift
+//  SupportedLanguagesQuery.swift
 //  ApiClient
 //
 //  Created by Balazs Vincze on 2018. 03. 31..
@@ -26,7 +26,7 @@
 import Foundation
 import Alamofire
 
-public class LanguageQuery: Query {
+public class SupportedLanguagesQuery: Query {
     public typealias Result = [Localization]
     
     public let url: URL = URL(string:"https://api.schedjoules.com/languages")!
