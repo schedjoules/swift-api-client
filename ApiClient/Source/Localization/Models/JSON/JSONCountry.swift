@@ -25,7 +25,7 @@
 
 import Foundation
 
-struct JSONCountry: Localization {
+struct JSONCountry: Country {
     // Required properties
     let name: String
     let code: String

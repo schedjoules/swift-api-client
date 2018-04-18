@@ -1,5 +1,5 @@
 //
-//  Localization.swift
+//  Country.swift
 //  ApiClient
 //
 //  Created by Balazs Vincze on 2018. 04. 02..
@@ -25,7 +25,7 @@
 
 import Foundation
 
-public protocol Localization {
+public protocol Country {
     var name: String { get }
     var code: String { get }
     var icon: URL? { get }

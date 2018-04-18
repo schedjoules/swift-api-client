@@ -27,14 +27,14 @@ import Foundation
 import Alamofire
 
 public class SupportedLanguagesQuery: Query {
-    public typealias Result = [Localization]
+    public typealias Result = [Language]
     
     public let url: URL = URL(string:"https://api.schedjoules.com/languages")!
     public let method: HTTPMethod = .get
     public let parameters: Parameters = [:]
     public let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
     
-    public func handleResult(with data: Data) -> [Localization]? {
+    public func handleResult(with data: Data) -> [Language]? {
         return try? JSONDecoder().decode([JSONLanguage].self, from: data)
     }
 }
