@@ -31,7 +31,7 @@
 		B63F1F232080D24400121936 /* JSONPageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F1F1C2080D24400121936 /* JSONPageItem.swift */; };
 		B649EB3B2078A5FE0096F7A0 /* QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6233C38204D9BA70081FC2C /* QueryTests.swift */; };
 		B68D43B8207CEE9A00203EC7 /* ParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D43B7207CEE9900203EC7 /* ParsingTests.swift */; };
-		B69A3F66207E4FE30025D13D /* QueryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69A3F65207E4FE30025D13D /* QueryError.swift */; };
+    B69A3F66207E4FE30025D13D /* QueryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69A3F65207E4FE30025D13D /* QueryError.swift */; };
 		B6CBD58220856B3B00305975 /* SupportedLanguagesQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CBD57A20856B3B00305975 /* SupportedLanguagesQuery.swift */; };
 		B6CBD58320856B3B00305975 /* SupportedCountriesQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CBD57B20856B3B00305975 /* SupportedCountriesQuery.swift */; };
 		B6CBD58420856B3B00305975 /* JSONLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CBD57E20856B3B00305975 /* JSONLanguage.swift */; };
@@ -198,7 +198,6 @@
 				B637DD3F207AC16C00DE4229 /* Api.swift */,
 				B637DD3E207AC16C00DE4229 /* ApiError.swift */,
 				B637DD40207AC16C00DE4229 /* Query.swift */,
-				B69A3F65207E4FE30025D13D /* QueryError.swift */,
 				B637DD3D207AC16C00DE4229 /* SchedJoulesApi.swift */,
 				B6CBD57820856B3B00305975 /* Localization */,
 				B637DD24207ABFE200DE4229 /* Pages */,
@@ -514,7 +513,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B69A3F66207E4FE30025D13D /* QueryError.swift in Sources */,
 				B633B57420605F3D00685458 /* AppDelegate.swift in Sources */,
 				B637DD43207AC16D00DE4229 /* Api.swift in Sources */,
 				B637DD34207ABFE200DE4229 /* SinglePageQuery.swift in Sources */,

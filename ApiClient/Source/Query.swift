@@ -27,12 +27,24 @@ import Foundation
 import Alamofire
 
 public protocol Query {
+    /// The type returned by the query.
     associatedtype Result
     
+    /// The URL of the query which must be in the `.schedjoules.com` domain.
     var url: URL { get }
+    /// The HTTP method of the query.
     var method: HTTPMethod { get }
+    /** The parameters are key-value pairs to append to the request. Used mostly for `POST` requests.
+    Example:
+        ["username" : "user", "password" : "pass"]
+    */
     var parameters: Parameters { get }
+    /** The HTTP headers for the query.
+     Example:
+        ["Accept" : "application/json"]
+     */
     var headers: HTTPHeaders { get }
     
+    /// Turn the response from the API into the associated type.
     func handleResult(with data: Data) -> Result?
 }
