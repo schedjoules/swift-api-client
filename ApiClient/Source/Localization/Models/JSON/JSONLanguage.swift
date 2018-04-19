@@ -29,7 +29,6 @@ struct JSONLanguage: Language {
     // Required properties
     let name: String
     let code: String
-    let icon: URL?
 }
 
 // MARK: - Decodable protocol
@@ -48,6 +47,6 @@ extension JSONLanguage: Decodable {
         let name = try container.decode(String.self, forKey: .name)
         let code = try container.decode(String.self, forKey: .code)
         
-        self.init(name: name, code: code, icon: nil)
+        self.init(name: name, code: code)
     }
 }

@@ -11,5 +11,4 @@ import Foundation
 public protocol Language {
     var name: String { get }
     var code: String { get }
-    var icon: URL? { get }
 }

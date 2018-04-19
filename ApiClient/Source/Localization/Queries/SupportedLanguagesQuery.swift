@@ -32,7 +32,7 @@ public class SupportedLanguagesQuery: Query {
     public let url: URL = URL(string:"https://api.schedjoules.com/languages")!
     public let method: HTTPMethod = .get
     public let parameters: Parameters = [:]
-    public let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
+    public let headers: HTTPHeaders = ["Accept" : "application/json"]
     
     public func handleResult(with data: Data) -> [Language]? {
         return try? JSONDecoder().decode([JSONLanguage].self, from: data)

@@ -32,7 +32,7 @@ public class SupportedCountriesQuery: Query {
     public let url: URL = URL(string:"https://api.schedjoules.com/countries")!
     public let method: HTTPMethod = .get
     public let parameters: Parameters = [:]
-    public let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
+    public let headers: HTTPHeaders = ["Accept" : "application/json"]
     
     public func handleResult(with data: Data) -> [Country]? {
         return try? JSONDecoder().decode([JSONCountry].self, from: data)
