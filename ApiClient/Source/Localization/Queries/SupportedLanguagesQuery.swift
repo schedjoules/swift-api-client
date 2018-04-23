@@ -26,7 +26,7 @@
 import Foundation
 import Alamofire
 
-public class SupportedLanguagesQuery: Query {
+public final class SupportedLanguagesQuery: Query {
     public typealias Result = [Language]
     
     public let url: URL = URL(string:"https://api.schedjoules.com/languages")!
