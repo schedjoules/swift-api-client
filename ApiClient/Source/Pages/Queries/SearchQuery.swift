@@ -32,7 +32,7 @@ public final class SearchQuery: Query {
     public let url: URL
     public let method: HTTPMethod = .get
     public let parameters: Parameters = [:]
-    public let headers: HTTPHeaders = ["Accept" : "application/json", "Content-Type" : "application/json"]
+    public let headers: HTTPHeaders = ["Accept" : "application/json"]
     
     private init(queryItems: [URLQueryItem]) {
         // Initialize url components from a string
