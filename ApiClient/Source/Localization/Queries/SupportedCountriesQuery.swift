@@ -26,7 +26,7 @@
 import Foundation
 import Alamofire
 
-public class SupportedCountriesQuery: Query {
+public final class SupportedCountriesQuery: Query {
     public typealias Result = [Country]
     
     public let url: URL = URL(string:"https://api.schedjoules.com/countries")!
