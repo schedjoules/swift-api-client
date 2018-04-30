@@ -63,7 +63,7 @@ public final class SchedJoulesApi: Api {
         for (key,value) in query.headers {
             headers[key] = value
         }
-        
+                
         // Execute the request
         sessionManager.request(query.url, method: query.method, parameters: query.parameters, encoding: URLEncoding.default, headers: headers).validate().responseData { response in
             switch response.result {
