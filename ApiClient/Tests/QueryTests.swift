@@ -89,6 +89,54 @@ class QueryTests: XCTestCase {
         wait(for: [responseExpectation], timeout: 10.0)
     }
     
+    func testTopPageQuery() {
+        let responseExpectation = expectation(description: "Received response")
+        let topPageQuery = TopPageQuery(numberOfItems: 15, locale: "en", location: "nl")
+        api.execute(query: topPageQuery, completion: { result in
+            switch result {
+            case let .success(page):
+                XCTAssertNotNil(page)
+            case let .failure(apiError):
+                print(apiError)
+                XCTFail()
+            }
+            responseExpectation.fulfill()
+        })
+        wait(for: [responseExpectation], timeout: 10.0)
+    }
+    
+    func testNextPageQuery() {
+        let responseExpectation = expectation(description: "Received response")
+        let nextPageQuery = NextPageQuery(numberOfItems: 15, locale: "en")
+        api.execute(query: nextPageQuery, completion: { result in
+            switch result {
+            case let .success(page):
+                XCTAssertNotNil(page)
+            case let .failure(apiError):
+                print(apiError)
+                XCTFail()
+            }
+            responseExpectation.fulfill()
+        })
+        wait(for: [responseExpectation], timeout: 10.0)
+    }
+    
+    func testNewPageQuery() {
+        let responseExpectation = expectation(description: "Received response")
+        let newPageQuery = NewPageQuery(numberOfItems: 15, locale: "en")
+        api.execute(query: newPageQuery, completion: { result in
+            switch result {
+            case let .success(page):
+                XCTAssertNotNil(page)
+            case let .failure(apiError):
+                print(apiError)
+                XCTFail()
+            }
+            responseExpectation.fulfill()
+        })
+        wait(for: [responseExpectation], timeout: 10.0)
+    }
+    
     func testLanguageQuery() {
         let responseExpectation = expectation(description: "Received response")
         let languageQuery = SupportedLanguagesQuery()
