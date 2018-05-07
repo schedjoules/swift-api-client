@@ -34,6 +34,11 @@
 		B63F1F232080D24400121936 /* JSONPageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F1F1C2080D24400121936 /* JSONPageItem.swift */; };
 		B649EB3B2078A5FE0096F7A0 /* QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6233C38204D9BA70081FC2C /* QueryTests.swift */; };
 		B68D43B8207CEE9A00203EC7 /* ParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D43B7207CEE9900203EC7 /* ParsingTests.swift */; };
+		B6A97F2320985EF8008533FA /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A97F1E20985EF8008533FA /* Event.swift */; };
+		B6A97F2420985EF8008533FA /* ParsedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A97F1F20985EF8008533FA /* ParsedLine.swift */; };
+		B6A97F2520985EF8008533FA /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A97F2020985EF8008533FA /* Parser.swift */; };
+		B6A97F2620985EF8008533FA /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A97F2120985EF8008533FA /* Calendar.swift */; };
+		B6A97F2720985EF8008533FA /* CalendarQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A97F2220985EF8008533FA /* CalendarQuery.swift */; };
 		B6CBD58220856B3B00305975 /* SupportedLanguagesQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CBD57A20856B3B00305975 /* SupportedLanguagesQuery.swift */; };
 		B6CBD58320856B3B00305975 /* SupportedCountriesQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CBD57B20856B3B00305975 /* SupportedCountriesQuery.swift */; };
 		B6CBD58420856B3B00305975 /* JSONLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CBD57E20856B3B00305975 /* JSONLanguage.swift */; };
@@ -88,6 +93,11 @@
 		B63F1F1B2080D24400121936 /* JSONPageSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONPageSection.swift; sourceTree = "<group>"; };
 		B63F1F1C2080D24400121936 /* JSONPageItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONPageItem.swift; sourceTree = "<group>"; };
 		B68D43B7207CEE9900203EC7 /* ParsingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsingTests.swift; sourceTree = "<group>"; };
+		B6A97F1E20985EF8008533FA /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		B6A97F1F20985EF8008533FA /* ParsedLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedLine.swift; sourceTree = "<group>"; };
+		B6A97F2020985EF8008533FA /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		B6A97F2120985EF8008533FA /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		B6A97F2220985EF8008533FA /* CalendarQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarQuery.swift; sourceTree = "<group>"; };
 		B6CBD57A20856B3B00305975 /* SupportedLanguagesQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportedLanguagesQuery.swift; sourceTree = "<group>"; };
 		B6CBD57B20856B3B00305975 /* SupportedCountriesQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportedCountriesQuery.swift; sourceTree = "<group>"; };
 		B6CBD57E20856B3B00305975 /* JSONLanguage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONLanguage.swift; sourceTree = "<group>"; };
@@ -215,6 +225,7 @@
 				B637DD3E207AC16C00DE4229 /* ApiError.swift */,
 				B637DD40207AC16C00DE4229 /* Query.swift */,
 				B637DD3D207AC16C00DE4229 /* SchedJoulesApi.swift */,
+				B6A97F1C20985EF8008533FA /* Calendar */,
 				B6175D11208DE37F00F507C5 /* Auxiliary */,
 				B6CBD57820856B3B00305975 /* Localization */,
 				B637DD24207ABFE200DE4229 /* Pages */,
@@ -269,6 +280,26 @@
 				B63F1F1C2080D24400121936 /* JSONPageItem.swift */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		B6A97F1C20985EF8008533FA /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				B6A97F1D20985EF8008533FA /* iCalendarParser */,
+				B6A97F2220985EF8008533FA /* CalendarQuery.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		B6A97F1D20985EF8008533FA /* iCalendarParser */ = {
+			isa = PBXGroup;
+			children = (
+				B6A97F1E20985EF8008533FA /* Event.swift */,
+				B6A97F1F20985EF8008533FA /* ParsedLine.swift */,
+				B6A97F2020985EF8008533FA /* Parser.swift */,
+				B6A97F2120985EF8008533FA /* Calendar.swift */,
+			);
+			path = iCalendarParser;
 			sourceTree = "<group>";
 		};
 		B6CBD57820856B3B00305975 /* Localization */ = {
@@ -543,12 +574,16 @@
 				B6CBD58220856B3B00305975 /* SupportedLanguagesQuery.swift in Sources */,
 				B637DD42207AC16D00DE4229 /* ApiError.swift in Sources */,
 				B6CBD58320856B3B00305975 /* SupportedCountriesQuery.swift in Sources */,
+				B6A97F2320985EF8008533FA /* Event.swift in Sources */,
 				B6CBD58620856B3B00305975 /* Country.swift in Sources */,
+				B6A97F2720985EF8008533FA /* CalendarQuery.swift in Sources */,
 				B63F1F1D2080D24400121936 /* Item.swift in Sources */,
 				B637DD33207ABFE200DE4229 /* HomePageQuery.swift in Sources */,
 				B6175D15208E0A0600F507C5 /* NewPageQuery.swift in Sources */,
 				B637DD41207AC16D00DE4229 /* SchedJoulesApi.swift in Sources */,
 				B63F1F222080D24400121936 /* JSONPageSection.swift in Sources */,
+				B6A97F2420985EF8008533FA /* ParsedLine.swift in Sources */,
+				B6A97F2520985EF8008533FA /* Parser.swift in Sources */,
 				B637DD44207AC16D00DE4229 /* Query.swift in Sources */,
 				B63F1F232080D24400121936 /* JSONPageItem.swift in Sources */,
 				B6CBD58520856B3B00305975 /* JSONCountry.swift in Sources */,
@@ -556,6 +591,7 @@
 				B6175D13208DE49200F507C5 /* TopPageQuery.swift in Sources */,
 				B637DD35207ABFE200DE4229 /* SearchQuery.swift in Sources */,
 				B6EFAA1B20878F3500FE1F0E /* Language.swift in Sources */,
+				B6A97F2620985EF8008533FA /* Calendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
