@@ -37,4 +37,6 @@ public final class SupportedLanguagesQuery: Query {
     public func handleResult(with data: Data) -> [Language]? {
         return try? JSONDecoder().decode([JSONLanguage].self, from: data)
     }
+    
+    public init() {}
 }

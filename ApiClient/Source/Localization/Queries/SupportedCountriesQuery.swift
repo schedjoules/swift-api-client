@@ -37,4 +37,6 @@ public final class SupportedCountriesQuery: Query {
     public func handleResult(with data: Data) -> [Country]? {
         return try? JSONDecoder().decode([JSONCountry].self, from: data)
     }
+    
+    public init() {}
 }
