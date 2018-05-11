@@ -31,6 +31,7 @@ public final class SupportedCountriesQuery: Query {
     
     public let url: URL = URL(string:"https://api.schedjoules.com/countries")!
     public let method: HTTPMethod = .get
+    public let encoding: ParameterEncoding = URLEncoding.default
     public let parameters: Parameters = [:]
     public let headers: HTTPHeaders = ["Accept" : "application/json"]
     
