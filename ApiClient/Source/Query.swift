@@ -44,6 +44,13 @@ public protocol Query {
         ["Accept" : "application/json"]
      */
     var headers: HTTPHeaders { get }
+    /**
+     Specifies how the query parameters should be encoded.
+     
+    **See:**
+     [Alamofire ParameterEncoding](https://github.com/Alamofire/Alamofire/blob/master/Source/ParameterEncoding.swift)
+     */
+    var encoding: ParameterEncoding { get }
     
     /// Turn the response from the API into the associated type.
     func handleResult(with data: Data) -> Result?

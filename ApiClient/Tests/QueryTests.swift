@@ -166,7 +166,6 @@ class QueryTests: XCTestCase {
         api.execute(query: newPageQuery, completion: { result in
             switch result {
             case let .success(page):
-                print(page)
                 XCTAssertNotNil(page)
             case let .failure(apiError):
                 print(apiError)

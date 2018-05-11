@@ -65,7 +65,7 @@ public final class SchedJoulesApi: Api {
         }
         
         // Execute the request
-        sessionManager.request(query.url, method: query.method, parameters: query.parameters, encoding: URLEncoding.default, headers: headers).validate().responseData { response in
+        sessionManager.request(query.url, method: query.method, parameters: query.parameters, encoding: query.encoding, headers: headers).validate().responseData { response in
             switch response.result {
             case .success:
                 guard let responseData = response.result.value else {
