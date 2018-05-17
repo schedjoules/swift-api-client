@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SchedJoulesApiClient'
-  s.version          = '0.6.1'
+  s.version          = '0.6.2'
   s.summary          = 'The ApiClient for the SchedJoules API, written in Swift.'
  
   s.description      = <<-DESC
