@@ -1,8 +1,8 @@
 //
-//  Country.swift
+//  SettingsDetail.swift
 //  ApiClient
 //
-//  Created by Balazs Vincze on 2018. 04. 02..
+//  Created by Balazs Vincze on 2018. 05. 17..
 //  Copyright © 2018. SchedJoules. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,7 +25,7 @@
 
 import Foundation
 
-public protocol Country: SettingsDetail {
+public protocol SettingsDetail {
     var name: String { get }
     var code: String { get }
     var icon: URL? { get }
