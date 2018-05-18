@@ -35,11 +35,9 @@ public final class Event {
     
     private func isDateAllDay(line: ParsedLine) -> Bool {
         guard let params = line.params else {
-            print("No parameters")
             return false
         }
         guard let value = params["VALUE"] else {
-            print("No value parameter")
             return false
         }
         if value == "DATE" {
