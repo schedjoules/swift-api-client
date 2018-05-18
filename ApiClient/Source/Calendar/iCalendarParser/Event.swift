@@ -34,16 +34,7 @@ public final class Event {
     public var isAllDay: Bool!
     
     private func isDateAllDay(line: ParsedLine) -> Bool {
-        guard let params = line.params else {
-            return false
-        }
-        guard let value = params["VALUE"] else {
-            return false
-        }
-        if value == "DATE" {
-            return true
-        }
-        return false
+        return line.params?["VALUE"] == "DATE"
     }
     
     private func dateFrom(parsedLine: ParsedLine) -> Date {

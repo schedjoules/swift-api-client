@@ -35,6 +35,12 @@ public enum ParseError: Error{
     case networkError(String)
 }
 
+/**
+ This class is used to parse `iCalendar` files.
+ 
+ - Warning:
+ The parser has only been tested with SchedJoules generated `iCalendar` files. It is not guranteed to work on files with even slightly different formatting.
+ */
 public final class Parser {
     /// Parse the parameters into a dictionary
     private static func parse(params: [String]) -> [String:String] {
