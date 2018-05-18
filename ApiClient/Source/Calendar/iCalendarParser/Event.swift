@@ -57,8 +57,10 @@ public final class Event {
     }
     
     public required init(with parsedLines: [ParsedLine]) {
-        summary = getLineFor(key: "SUMMARY", in: parsedLines)?.value
+        summary = getLineFor(key: "SUMMARY", in: parsedLines)?.value.replacingOccurrences(of: "\\n", with: "\n")
+                                                                    .replacingOccurrences(of: "\\N", with: "\n")
         description = getLineFor(key: "DESCRIPTION", in: parsedLines)?.value.replacingOccurrences(of: "\\n", with: "\n")
+                                                                            .replacingOccurrences(of: "\\N", with: "\n")
         location = getLineFor(key: "LOCATION", in: parsedLines)?.value
         startDate = dateFrom(parsedLine: getLineFor(key: "DTSTART", in: parsedLines)!)
         if let endDateLine = getLineFor(key: "DTEND", in: parsedLines) {
