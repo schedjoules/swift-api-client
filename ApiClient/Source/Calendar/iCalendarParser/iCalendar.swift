@@ -1,5 +1,5 @@
 //
-//  Calendar.swift
+//  iCalendar.swift
 //  iCalendarParser
 //
 //  Created by Balazs Vincze on 2018. 02. 19..
@@ -25,8 +25,8 @@
 
 import Foundation
 
-public final class Calendar {
-    let events: [Event]
+public final class iCalendar {
+    public let events: [Event]
     
     /// Initialize with the events sorted by start date
     public required init(events: [Event]) {

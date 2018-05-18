@@ -81,7 +81,7 @@ public final class Parser {
     }
     
     /// Parse ICS file
-    public static func parse(ics: String) -> Calendar {
+    public static func parse(ics: String) -> iCalendar {
         // Events to return
         var events = [Event]()
         
@@ -106,34 +106,7 @@ public final class Parser {
                 eventLines.append(line)
             }
         }
-        return Calendar(events: events)
-    }
-    
-    /// Parse ICS file from URL
-    public static func parse(url: URL, completion: @escaping (Result<Calendar,ParseError>) -> Void) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            // Check HTTP status code
-            if let httpResponse = response as? HTTPURLResponse {
-                if httpResponse.statusCode >= 400 {
-                    completion(.failure(.networkError("Error: Server returned \(httpResponse.statusCode) status code.")))
-                    return
-                }
-            }
-            // If error occured
-            if error != nil{
-                completion(.failure(.networkError(error!.localizedDescription)))
-                // If data is nil
-            } else if data == nil {
-                completion(.failure(.networkError("Data is nil.")))
-                // There were no errors
-            } else {
-                guard let icsString = String(data: data!, encoding: .utf8) else {
-                    completion(.failure(.networkError("Could not parse string from data.")))
-                    return
-                }
-                completion(.success(parse(ics: icsString)))
-            }
-        }.resume()
+        return iCalendar(events: events)
     }
 }
 

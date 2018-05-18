@@ -27,7 +27,7 @@ import Foundation
 import Alamofire
 
 public final class CalendarQuery: Query {
-    public typealias Result = Calendar
+    public typealias Result = iCalendar
 
     public let url: URL
     public let method: HTTPMethod = .get
@@ -40,7 +40,7 @@ public final class CalendarQuery: Query {
     }
     
     /// Parse the retrieved .ics file
-    public func handleResult(with data: Data) -> Calendar? {
+    public func handleResult(with data: Data) -> iCalendar? {
         guard let icsString = String(data: data, encoding: .utf8) else {
             return nil
         }
