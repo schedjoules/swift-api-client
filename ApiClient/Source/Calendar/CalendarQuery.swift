@@ -33,7 +33,7 @@ public final class CalendarQuery: Query {
     public let method: HTTPMethod = .get
     public let encoding: ParameterEncoding = URLEncoding.default
     public let parameters: Parameters = [:]
-    public let headers: HTTPHeaders = ["Accept" : "text/calendar", "Content-Type" : "text/calendar"]
+    public let headers: HTTPHeaders = ["Accept" : "text/calendar"]
     
     public required init(url: URL) {
         self.url = url
