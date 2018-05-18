@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4B3B33A300DF542C542859EF /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4DACF9A2972499B7136C22 /* Pods_Tests.framework */; };
+		B60CC7E020AF018A00CAE3BD /* iCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60CC7DF20AF018A00CAE3BD /* iCalendar.swift */; };
 		B6175D13208DE49200F507C5 /* TopPageQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6175D12208DE49200F507C5 /* TopPageQuery.swift */; };
 		B6175D15208E0A0600F507C5 /* NewPageQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6175D14208E0A0600F507C5 /* NewPageQuery.swift */; };
 		B6175D17208E0A4200F507C5 /* NextPageQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6175D16208E0A4200F507C5 /* NextPageQuery.swift */; };
@@ -37,7 +38,6 @@
 		B6791A1120AED99400E83DB8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6791A0C20AED99400E83DB8 /* Event.swift */; };
 		B6791A1220AED99400E83DB8 /* ParsedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6791A0D20AED99400E83DB8 /* ParsedLine.swift */; };
 		B6791A1320AED99400E83DB8 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6791A0E20AED99400E83DB8 /* Parser.swift */; };
-		B6791A1420AED99400E83DB8 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6791A0F20AED99400E83DB8 /* Calendar.swift */; };
 		B6791A1520AED99400E83DB8 /* CalendarQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6791A1020AED99400E83DB8 /* CalendarQuery.swift */; };
 		B68D43B8207CEE9A00203EC7 /* ParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D43B7207CEE9900203EC7 /* ParsingTests.swift */; };
 		B6CBD58220856B3B00305975 /* SupportedLanguagesQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CBD57A20856B3B00305975 /* SupportedLanguagesQuery.swift */; };
@@ -64,6 +64,7 @@
 		949DB18A0797320EAB54DED1 /* Pods-ApiClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApiClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApiClient/Pods-ApiClient.release.xcconfig"; sourceTree = "<group>"; };
 		9D4DACF9A2972499B7136C22 /* Pods_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D53F3FF48CAA0D4FC8445A3 /* Pods_ApiClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ApiClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B60CC7DF20AF018A00CAE3BD /* iCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCalendar.swift; sourceTree = "<group>"; };
 		B6175D12208DE49200F507C5 /* TopPageQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPageQuery.swift; sourceTree = "<group>"; };
 		B6175D14208E0A0600F507C5 /* NewPageQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPageQuery.swift; sourceTree = "<group>"; };
 		B6175D16208E0A4200F507C5 /* NextPageQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextPageQuery.swift; sourceTree = "<group>"; };
@@ -97,7 +98,6 @@
 		B6791A0C20AED99400E83DB8 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		B6791A0D20AED99400E83DB8 /* ParsedLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedLine.swift; sourceTree = "<group>"; };
 		B6791A0E20AED99400E83DB8 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
-		B6791A0F20AED99400E83DB8 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		B6791A1020AED99400E83DB8 /* CalendarQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarQuery.swift; sourceTree = "<group>"; };
 		B68D43B7207CEE9900203EC7 /* ParsingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsingTests.swift; sourceTree = "<group>"; };
 		B6CBD57A20856B3B00305975 /* SupportedLanguagesQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportedLanguagesQuery.swift; sourceTree = "<group>"; };
@@ -296,10 +296,10 @@
 		B6791A0B20AED99400E83DB8 /* iCalendarParser */ = {
 			isa = PBXGroup;
 			children = (
+				B60CC7DF20AF018A00CAE3BD /* iCalendar.swift */,
 				B6791A0C20AED99400E83DB8 /* Event.swift */,
 				B6791A0D20AED99400E83DB8 /* ParsedLine.swift */,
 				B6791A0E20AED99400E83DB8 /* Parser.swift */,
-				B6791A0F20AED99400E83DB8 /* Calendar.swift */,
 			);
 			path = iCalendarParser;
 			sourceTree = "<group>";
@@ -567,6 +567,7 @@
 			files = (
 				B633B57420605F3D00685458 /* AppDelegate.swift in Sources */,
 				B637DD43207AC16D00DE4229 /* Api.swift in Sources */,
+				B60CC7E020AF018A00CAE3BD /* iCalendar.swift in Sources */,
 				B637DD34207ABFE200DE4229 /* SinglePageQuery.swift in Sources */,
 				B63F1F202080D24400121936 /* Page.swift in Sources */,
 				B633B57F2060630600685458 /* ViewController.swift in Sources */,
@@ -584,7 +585,6 @@
 				B6791A1320AED99400E83DB8 /* Parser.swift in Sources */,
 				B6175D15208E0A0600F507C5 /* NewPageQuery.swift in Sources */,
 				B637DD41207AC16D00DE4229 /* SchedJoulesApi.swift in Sources */,
-				B6791A1420AED99400E83DB8 /* Calendar.swift in Sources */,
 				B63F1F222080D24400121936 /* JSONPageSection.swift in Sources */,
 				B637DD44207AC16D00DE4229 /* Query.swift in Sources */,
 				B63F1F232080D24400121936 /* JSONPageItem.swift in Sources */,

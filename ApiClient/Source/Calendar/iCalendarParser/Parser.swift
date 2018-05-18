@@ -81,7 +81,7 @@ public final class Parser {
     }
     
     /// Parse ICS file
-    public static func parse(ics: String) -> iCalendar {
+    public static func parse(ics: String) -> ICalendar {
         // Events to return
         var events = [Event]()
         
@@ -106,7 +106,7 @@ public final class Parser {
                 eventLines.append(line)
             }
         }
-        return iCalendar(events: events)
+        return ICalendar(events: events)
     }
 }
 
