@@ -1,8 +1,8 @@
 //
-//  SupportedCountriesQuery.swift
+//  CodedOption.swift
 //  ApiClient
 //
-//  Created by Balazs Vincze on 2018. 03. 31..
+//  Created by Balazs Vincze on 2018. 05. 17..
 //  Copyright © 2018. SchedJoules. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,22 +24,9 @@
 //  THE SOFTWARE.
 
 import Foundation
-import Alamofire
 
-public final class SupportedCountriesQuery: Query {
-    public typealias Result = [Country]
-    
-    public let url: URL = URL(string:"https://api.schedjoules.com/countries")!
-    public let method: HTTPMethod = .get
-    public let encoding: ParameterEncoding = URLEncoding.default
-    public let parameters: Parameters = [:]
-    public let headers: HTTPHeaders = ["Accept" : "application/json"]
-    
-    public func handleResult(with data: Data) -> [Country]? {
-        return try? JSONDecoder().decode([JSONCountry].self, from: data)
-    }
-    
-    // Explicitly declare the default initializer public
-    public init() {
-    }
+public protocol CodedOption {
+    var name: String { get }
+    var code: String { get }
+    var icon: URL? { get }
 }

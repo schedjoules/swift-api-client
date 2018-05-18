@@ -33,6 +33,7 @@
 		B63F1F222080D24400121936 /* JSONPageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F1F1B2080D24400121936 /* JSONPageSection.swift */; };
 		B63F1F232080D24400121936 /* JSONPageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F1F1C2080D24400121936 /* JSONPageItem.swift */; };
 		B649EB3B2078A5FE0096F7A0 /* QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6233C38204D9BA70081FC2C /* QueryTests.swift */; };
+		B6791A0920AED7D400E83DB8 /* CodedOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6791A0820AED7D400E83DB8 /* CodedOption.swift */; };
 		B68D43B8207CEE9A00203EC7 /* ParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D43B7207CEE9900203EC7 /* ParsingTests.swift */; };
 		B6CBD58220856B3B00305975 /* SupportedLanguagesQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CBD57A20856B3B00305975 /* SupportedLanguagesQuery.swift */; };
 		B6CBD58320856B3B00305975 /* SupportedCountriesQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CBD57B20856B3B00305975 /* SupportedCountriesQuery.swift */; };
@@ -87,6 +88,7 @@
 		B63F1F1A2080D24400121936 /* JSONPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONPage.swift; sourceTree = "<group>"; };
 		B63F1F1B2080D24400121936 /* JSONPageSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONPageSection.swift; sourceTree = "<group>"; };
 		B63F1F1C2080D24400121936 /* JSONPageItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONPageItem.swift; sourceTree = "<group>"; };
+		B6791A0820AED7D400E83DB8 /* CodedOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodedOption.swift; sourceTree = "<group>"; };
 		B68D43B7207CEE9900203EC7 /* ParsingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsingTests.swift; sourceTree = "<group>"; };
 		B6CBD57A20856B3B00305975 /* SupportedLanguagesQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportedLanguagesQuery.swift; sourceTree = "<group>"; };
 		B6CBD57B20856B3B00305975 /* SupportedCountriesQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportedCountriesQuery.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 		B6CBD58020856B3B00305975 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				B6791A0820AED7D400E83DB8 /* CodedOption.swift */,
 				B6CBD58120856B3B00305975 /* Country.swift */,
 				B6EFAA1A20878F3500FE1F0E /* Language.swift */,
 			);
@@ -554,6 +557,7 @@
 				B6CBD58520856B3B00305975 /* JSONCountry.swift in Sources */,
 				B63F1F212080D24400121936 /* JSONPage.swift in Sources */,
 				B6175D13208DE49200F507C5 /* TopPageQuery.swift in Sources */,
+				B6791A0920AED7D400E83DB8 /* CodedOption.swift in Sources */,
 				B637DD35207ABFE200DE4229 /* SearchQuery.swift in Sources */,
 				B6EFAA1B20878F3500FE1F0E /* Language.swift in Sources */,
 			);
