@@ -177,4 +177,20 @@ class QueryTests: XCTestCase {
         waitForExpectations(timeout: 10.0) { (_) -> Void in }
     }
     
+    func testCalendarQuery() {
+        let responseExpectation = expectation(description: "Received response")
+        let calendarQuery = CalendarQuery(url: URL(string: "https://iphone.schedjoules.com/calendars/afdd5213056f?l=en&x=6cdd34")!)
+        api.execute(query: calendarQuery, completion: { result in
+            switch result {
+            case let .success(calendar):
+                XCTAssertNotNil(calendar)
+            case let .failure(apiError):
+                print(apiError)
+                XCTFail()
+            }
+            responseExpectation.fulfill()
+        })
+        waitForExpectations(timeout: 10.0) { (_) -> Void in }
+    }
+    
 }
