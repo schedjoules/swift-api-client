@@ -39,5 +39,7 @@ public final class SupportedLanguagesQuery: Query {
         return try? JSONDecoder().decode([JSONLanguage].self, from: data)
     }
     
-    public init() {}
+    // Explicitly declare the default initializer public
+    public init() {
+    }
 }

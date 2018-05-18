@@ -39,5 +39,7 @@ public final class SupportedCountriesQuery: Query {
         return try? JSONDecoder().decode([JSONCountry].self, from: data)
     }
     
-    public init() {}
+    // Explicitly declare the default initializer public
+    public init() {
+    }
 }

@@ -1,5 +1,5 @@
 //
-//  SettingsDetail.swift
+//  CodeOption.swift
 //  ApiClient
 //
 //  Created by Balazs Vincze on 2018. 05. 17..
@@ -25,7 +25,7 @@
 
 import Foundation
 
-public protocol SettingsDetail {
+public protocol CodeOption {
     var name: String { get }
     var code: String { get }
     var icon: URL? { get }

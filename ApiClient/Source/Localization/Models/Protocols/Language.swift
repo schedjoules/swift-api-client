@@ -25,8 +25,5 @@
 
 import Foundation
 
-public protocol Language: SettingsDetail {
-    var name: String { get }
-    var code: String { get }
-    var icon: URL? { get }
+public protocol Language: CodeOption {
 }
