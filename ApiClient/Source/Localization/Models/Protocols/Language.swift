@@ -25,5 +25,5 @@
 
 import Foundation
 
-public protocol Language: CodeOption {
+public protocol Language: CodedOption {
 }

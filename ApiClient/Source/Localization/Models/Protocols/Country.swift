@@ -24,5 +24,5 @@
 //  THE SOFTWARE.
 import Foundation
 
-public protocol Country: CodeOption {
+public protocol Country: CodedOption {
 }
