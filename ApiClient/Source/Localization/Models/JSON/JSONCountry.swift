@@ -25,11 +25,11 @@
 
 import Foundation
 
-struct JSONCountry: Country {
+public struct JSONCountry: Country {
     // Required properties
-    let name: String
-    let code: String
-    let icon: URL?
+    public let name: String
+    public let code: String
+    public let icon: URL?
 }
 
 // MARK: - Decodable protocol
@@ -41,7 +41,7 @@ extension JSONCountry: Decodable {
         case icon
     }
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         // Get data container
         let container = try decoder.container(keyedBy: PageKeys.self)
         

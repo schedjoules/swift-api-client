@@ -25,11 +25,11 @@
 
 import Foundation
 
-struct JSONLanguage: Language {
+public struct JSONLanguage: Language {
     // Required properties
-    let name: String
-    let code: String
-    let icon: URL? // Only included to satisfy protocol requirements
+    public let name: String
+    public let code: String
+    public let icon: URL? // Only included to satisfy protocol requirements
 }
 
 // MARK: - Decodable protocol
@@ -40,7 +40,7 @@ extension JSONLanguage: Decodable {
         case code = "iso_639_1"
     }
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         // Get data container
         let container = try decoder.container(keyedBy: PageKeys.self)
         
