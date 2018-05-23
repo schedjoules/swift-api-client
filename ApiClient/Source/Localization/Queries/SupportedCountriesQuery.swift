@@ -27,7 +27,7 @@ import Foundation
 import Alamofire
 
 public final class SupportedCountriesQuery: Query {
-    public typealias Result = [Country]
+    public typealias Result = [JSONCountry]
     
     public let url: URL = URL(string:"https://api.schedjoules.com/countries")!
     public let method: HTTPMethod = .get
@@ -35,7 +35,7 @@ public final class SupportedCountriesQuery: Query {
     public let parameters: Parameters = [:]
     public let headers: HTTPHeaders = ["Accept" : "application/json"]
     
-    public func handleResult(with data: Data) -> [Country]? {
+    public func handleResult(with data: Data) -> [JSONCountry]? {
         return try? JSONDecoder().decode([JSONCountry].self, from: data)
     }
     
