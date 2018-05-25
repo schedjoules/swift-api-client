@@ -50,6 +50,7 @@ extension JSONCountry: Decodable {
         let code = try container.decode(String.self, forKey: .code)
         let icon = try container.decode(URL.self, forKey: .icon)
         
+        // Initialize with the decoded values
         self.init(name: name, code: code, icon: icon)
     }
 }

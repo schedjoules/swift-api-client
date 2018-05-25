@@ -32,18 +32,35 @@ public protocol Query {
     
     /// The URL of the query which must be in the `.schedjoules.com` domain.
     var url: URL { get }
-    /// The HTTP method of the query.
+    
+    /**
+     The HTTP method type of the query.
+     
+     **See:**
+     [HTTP method types](https://tools.ietf.org/html/rfc7231#section-4.3)
+     */
     var method: HTTPMethod { get }
-    /** The parameters are key-value pairs to append to the request. Used mostly for `POST` requests.
-    Example:
-        ["username" : "user", "password" : "pass"]
-    */
+    
+    /**
+     The parameters are key-value pairs to append to the request. Used mostly for `POST` requests.
+     
+     **Example:**
+     ````
+     ["username" : "user", "password" : "pass"]
+     ````
+     */
     var parameters: Parameters { get }
-    /** The HTTP headers for the query.
-     Example:
-        ["Accept" : "application/json"]
+    
+    /**
+     The HTTP headers for the query.
+     
+     **Example:**
+     ````
+     ["Accept" : "application/json"]
+     ````
      */
     var headers: HTTPHeaders { get }
+    
     /**
      Specifies how the query parameters should be encoded.
      
