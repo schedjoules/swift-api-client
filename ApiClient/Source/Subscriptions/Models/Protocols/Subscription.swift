@@ -1,8 +1,8 @@
 //
-//  JSONCountry.swift
+//  SubscriptionStatus.swift
 //  ApiClient
 //
-//  Created by Balazs Vincze on 2018. 03. 31..
+//  Created by Balazs Vincze on 2018. 05. 11..
 //  Copyright © 2018. SchedJoules. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,32 +25,17 @@
 
 import Foundation
 
-struct JSONCountry: Country {
-    // Required properties
-    let name: String
-    let code: String
-    let icon: URL?
-}
-
-// MARK: - Decodable protocol
-extension JSONCountry: Decodable {
-    // JSON keys
-    enum PageKeys: String, CodingKey {
-        case name
-        case code = "iso_3166"
-        case icon
-    }
-    
-    init(from decoder: Decoder) throws {
-        // Get data container
-        let container = try decoder.container(keyedBy: PageKeys.self)
-        
-        // Decode required properties
-        let name = try container.decode(String.self, forKey: .name)
-        let code = try container.decode(String.self, forKey: .code)
-        let icon = try container.decode(URL.self, forKey: .icon)
-        
-        // Initialize with the decoded values
-        self.init(name: name, code: code, icon: icon)
-    }
+public protocol Subscription {
+    /// The identifer of the subscription.
+    var subscriptionId: String { get }
+    /// The expiration date (unix timestamp) of the subscription.
+    var expirationDate: TimeInterval { get }
+    /// The most recent purchase date (unix timestamp) of the subscription.
+    var purchaseDate: TimeInterval { get }
+    /// The status code of the subscription
+    var subscriptionStatusCode: Int { get }
+    /// The message for the status code (subscription valid, subscription invalid, subscription expired)
+    var subscriptionStatusMessage: String { get }
+    /// The iTunes transaction ids that were registered for the subscription
+    var transactionIds: [UInt64] { get }
 }

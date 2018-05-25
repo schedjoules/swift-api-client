@@ -1,8 +1,8 @@
 //
-//  JSONCountry.swift
+//  SubscriptionStatusQuery.swift
 //  ApiClient
 //
-//  Created by Balazs Vincze on 2018. 03. 31..
+//  Created by Balazs Vincze on 2018. 05. 11..
 //  Copyright © 2018. SchedJoules. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,33 +24,27 @@
 // THE SOFTWARE.
 
 import Foundation
+import Alamofire
 
-struct JSONCountry: Country {
-    // Required properties
-    let name: String
-    let code: String
-    let icon: URL?
-}
-
-// MARK: - Decodable protocol
-extension JSONCountry: Decodable {
-    // JSON keys
-    enum PageKeys: String, CodingKey {
-        case name
-        case code = "iso_3166"
-        case icon
+public final class SubscriptionStatusQuery: Query {
+    public typealias Result = Subscription
+    
+    public let url: URL
+    public let method: HTTPMethod = .get
+    public let encoding: ParameterEncoding = URLEncoding.default
+    public let parameters: Parameters = [:]
+    public let headers: HTTPHeaders = ["Accept" : "application/json"]
+    
+    /**
+     Initalize with a given subscription identifier..
+     - parameter subscriptionId: The identifier of the subscription to fetch.
+     */
+    public init(subscriptionId: String) {
+        self.url = URL(string:"https://api.schedjoules.com/subscription/\(subscriptionId)")!
     }
     
-    init(from decoder: Decoder) throws {
-        // Get data container
-        let container = try decoder.container(keyedBy: PageKeys.self)
-        
-        // Decode required properties
-        let name = try container.decode(String.self, forKey: .name)
-        let code = try container.decode(String.self, forKey: .code)
-        let icon = try container.decode(URL.self, forKey: .icon)
-        
-        // Initialize with the decoded values
-        self.init(name: name, code: code, icon: icon)
+    public func handleResult(with data: Data) -> Subscription? {
+        return try! JSONDecoder().decode(JSONSubscription.self, from: data)
     }
+
 }

@@ -47,6 +47,7 @@ extension JSONLanguage: Decodable {
         let name = try container.decode(String.self, forKey: .name)
         let code = try container.decode(String.self, forKey: .code)
         
+        // Initialize with the decoded values
         self.init(name: name, code: code)
     }
 }

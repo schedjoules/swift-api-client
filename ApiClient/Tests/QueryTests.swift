@@ -24,6 +24,7 @@
 // THE SOFTWARE.
 
 import XCTest
+import StoreKit
 @testable import ApiClient
 
 class QueryTests: XCTestCase {
@@ -174,6 +175,62 @@ class QueryTests: XCTestCase {
             responseExpectation.fulfill()
         })
         
+        waitForExpectations(timeout: 10.0) { (_) -> Void in }
+    }
+    
+    func testSubscriptionStatusQuery() {
+        let responseExpectation = expectation(description: "Received response")
+        let subscriptionStatusQuery = SubscriptionStatusQuery(subscriptionId: "2c520c23cbdda678d7aac86364fbac9d")
+        api.execute(query: subscriptionStatusQuery, completion: { result in
+            switch result {
+            case let .success(subscription):
+                XCTAssertNotNil(subscription)
+            case let .failure(apiError):
+                print(apiError)
+                XCTFail()
+            }
+            responseExpectation.fulfill()
+        })
+        
+        waitForExpectations(timeout: 10.0) { (_) -> Void in }
+    }
+    
+    func testSubscriptionIAPQuery() {
+        let responseExpectation = expectation(description: "Received response")
+        let subscriptionIAPQuery = SubscriptionIAPQuery()
+        api.execute(query: subscriptionIAPQuery, completion: { result in
+            switch result {
+            case let .success(subscriptionIAP):
+                XCTAssertNotNil(subscriptionIAP)
+            case let .failure(apiError):
+                print(apiError)
+                XCTFail()
+            }
+            responseExpectation.fulfill()
+        })
+        
+        waitForExpectations(timeout: 10.0) { (_) -> Void in }
+    }
+    
+    func testSubscriptionQuery() {
+        let responseExpectation = expectation(description: "Received response")
+        let subscriptionQuery = SubscriptionQuery(transaction: SKPaymentTransaction(transactionIdentifier: "1000000179103672",
+                                                                                    transactionState: .purchased, transactionDate: Date()),
+                                                  product: SKProduct(productIdentifier: "com.schedjoules.subscription.ios.50f79da41196.20160324T124400Z.1",
+                                                                     price: NSDecimalNumber(value: 0.99),
+                                                                     priceLocale: Locale.current),
+                                                  receipt: "base64-encoded-receipt-goes-here")
+        api.execute(query: subscriptionQuery, completion: { result in
+            switch result {
+            case let .success(subscription):
+                XCTAssertNotNil(subscription)
+            case let .failure(apiError):
+                print(apiError)
+                XCTFail()
+            }
+            responseExpectation.fulfill()
+        })
+
         waitForExpectations(timeout: 10.0) { (_) -> Void in }
     }
     

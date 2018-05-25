@@ -1,8 +1,8 @@
 //
-//  JSONCountry.swift
+//  JSONSubscription.swift
 //  ApiClient
 //
-//  Created by Balazs Vincze on 2018. 03. 31..
+//  Created by Balazs Vincze on 2018. 05. 11..
 //  Copyright © 2018. SchedJoules. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,20 +25,25 @@
 
 import Foundation
 
-struct JSONCountry: Country {
-    // Required properties
-    let name: String
-    let code: String
-    let icon: URL?
+struct JSONSubscription: Subscription {
+    let subscriptionId: String
+    let expirationDate: TimeInterval
+    let purchaseDate: TimeInterval
+    let subscriptionStatusCode: Int
+    let subscriptionStatusMessage: String
+    let transactionIds: [UInt64]
 }
 
 // MARK: - Decodable protocol
-extension JSONCountry: Decodable {
+extension JSONSubscription: Decodable {
     // JSON keys
     enum PageKeys: String, CodingKey {
-        case name
-        case code = "iso_3166"
-        case icon
+        case subscriptionId
+        case expirationDate
+        case purchaseDate
+        case subscriptionStatusCode
+        case subscriptionStatusMessage
+        case transactionIds
     }
     
     init(from decoder: Decoder) throws {
@@ -46,11 +51,14 @@ extension JSONCountry: Decodable {
         let container = try decoder.container(keyedBy: PageKeys.self)
         
         // Decode required properties
-        let name = try container.decode(String.self, forKey: .name)
-        let code = try container.decode(String.self, forKey: .code)
-        let icon = try container.decode(URL.self, forKey: .icon)
+        let subscriptionId = try container.decode(String.self, forKey: .subscriptionId)
+        let expirationDate = try container.decode(TimeInterval.self, forKey: .expirationDate)
+        let purchaseDate = try container.decode(TimeInterval.self, forKey: .purchaseDate)
+        let subscriptionStatusCode = try container.decode(Int.self, forKey: .subscriptionStatusCode)
+        let subscriptionStatusMessage = try container.decode(String.self, forKey: .subscriptionStatusMessage)
+        let transactionIds = try container.decode([UInt64].self, forKey: .transactionIds)
         
-        // Initialize with the decoded values
-        self.init(name: name, code: code, icon: icon)
+        // Initialize with the decoded valuess
+        self.init(subscriptionId: subscriptionId, expirationDate: expirationDate, purchaseDate: purchaseDate, subscriptionStatusCode: subscriptionStatusCode, subscriptionStatusMessage: subscriptionStatusMessage, transactionIds: transactionIds)
     }
 }

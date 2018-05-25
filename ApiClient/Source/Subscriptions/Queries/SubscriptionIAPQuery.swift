@@ -1,8 +1,8 @@
 //
-//  JSONCountry.swift
+//  SubscriptionIAPQuery.swift
 //  ApiClient
 //
-//  Created by Balazs Vincze on 2018. 03. 31..
+//  Created by Balazs Vincze on 2018. 05. 11..
 //  Copyright © 2018. SchedJoules. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,33 +24,20 @@
 // THE SOFTWARE.
 
 import Foundation
+import Alamofire
 
-struct JSONCountry: Country {
-    // Required properties
-    let name: String
-    let code: String
-    let icon: URL?
-}
-
-// MARK: - Decodable protocol
-extension JSONCountry: Decodable {
-    // JSON keys
-    enum PageKeys: String, CodingKey {
-        case name
-        case code = "iso_3166"
-        case icon
+public final class SubscriptionIAPQuery: Query {
+    public typealias Result = SubscriptionIAP
+    
+    public let url: URL = URL(string:"https://api.schedjoules.com/subscription")!
+    public let method: HTTPMethod = .get
+    public let encoding: ParameterEncoding = URLEncoding.default
+    public let parameters: Parameters = [:]
+    public let headers: HTTPHeaders = ["Accept" : "application/json"]
+    
+    public func handleResult(with data: Data) -> SubscriptionIAP? {
+        return try? JSONDecoder().decode(JSONSubscriptionIAP.self, from: data)
     }
     
-    init(from decoder: Decoder) throws {
-        // Get data container
-        let container = try decoder.container(keyedBy: PageKeys.self)
-        
-        // Decode required properties
-        let name = try container.decode(String.self, forKey: .name)
-        let code = try container.decode(String.self, forKey: .code)
-        let icon = try container.decode(URL.self, forKey: .icon)
-        
-        // Initialize with the decoded values
-        self.init(name: name, code: code, icon: icon)
-    }
+    public init() {}
 }
