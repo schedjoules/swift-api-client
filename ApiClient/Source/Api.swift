@@ -26,7 +26,7 @@
 import Foundation
 import Result
 
-protocol Api {
+public protocol Api {
     /**
      Execute a given query.
      - parameter query: The query to execute, must conform to `Query`.
