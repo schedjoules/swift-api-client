@@ -50,6 +50,5 @@ extension JSONLanguage: Decodable {
         
         self.init(name: name, code: code, icon: nil)
         // Initialize with the decoded values
-        self.init(name: name, code: code)
     }
 }
