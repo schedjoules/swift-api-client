@@ -40,15 +40,32 @@ public final class SubscriptionQuery: Query {
                                        "x-locale" : Locale.current.regionCode!]
     
     
-    public init(transactions: [[SKPaymentTransaction: SKProduct]], receipt: String) {
-        // Set the parameters (e.g. Body of the request)
-        let transactions =
-        parameters = [
-            "receipt" : receipt,
-            "transactions" : [
-                "quantity"
-            ]
+    public init(transaction: SKPaymentTransaction, product: SKProduct, receipt: String) {
+        let transactionId = transaction.transactionIdentifier ?? ""
+        let originalTransactionId = transaction.original?.transactionIdentifier ?? ""
+        let purchaseDateValid = transaction.transactionDate ?? Date()
+        let purchaseDate = Int(purchaseDateValid.timeIntervalSince1970)
+        let productId = product.productIdentifier
+        let pricingLocale = product.priceLocale.currencyCode ?? "$" //=> {"type" => "string", "minLength" => 1, "maxLength" => 3},
+        let pricing = product.price.description(withLocale: nil) // => {"type" => "string", "minLength" => 1, "maxLength" => 200},
+        let formattedPrice = product.localizedDescription
+        
+        let transactionDictionary = [
+            "transactionId" : transactionId,
+            "purchaseDate" : purchaseDate,
+            "productId" : productId,
+            "quantity" : 1,
+            "pricingLocale" : pricingLocale,
+            "pricing" : pricing,
+            "formattedPrice" : formattedPrice,
+            "originalTransactionId" : originalTransactionId
+            ] as [String : Any]
+        let requestContents: [String: Any] = [
+            "transactions": [transactionDictionary],
+            "receipt" : receipt
         ]
+        
+        self.parameters = requestContents
     }
     
     public func handleResult(with data: Data) -> Subscription? {
