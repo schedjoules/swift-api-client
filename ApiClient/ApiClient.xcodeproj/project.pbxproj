@@ -36,15 +36,15 @@
 		B63F1F222080D24400121936 /* JSONPageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F1F1B2080D24400121936 /* JSONPageSection.swift */; };
 		B63F1F232080D24400121936 /* JSONPageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F1F1C2080D24400121936 /* JSONPageItem.swift */; };
 		B649EB3B2078A5FE0096F7A0 /* QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6233C38204D9BA70081FC2C /* QueryTests.swift */; };
+		B66C529E20A5A18B009F9A2F /* SubscriptionIAP.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66C529D20A5A18A009F9A2F /* SubscriptionIAP.swift */; };
+		B66C52A020A5A859009F9A2F /* JSONSubscriptionIAP.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66C529F20A5A859009F9A2F /* JSONSubscriptionIAP.swift */; };
+		B66C52A220A5C0CA009F9A2F /* SubscriptionStatusQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66C52A120A5C0CA009F9A2F /* SubscriptionStatusQuery.swift */; };
+		B66C52A520A5CA53009F9A2F /* SubscriptionQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66C52A320A5C95C009F9A2F /* SubscriptionQuery.swift */; };
 		B6791A0920AED7D400E83DB8 /* CodedOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6791A0820AED7D400E83DB8 /* CodedOption.swift */; };
 		B6791A1120AED99400E83DB8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6791A0C20AED99400E83DB8 /* Event.swift */; };
 		B6791A1220AED99400E83DB8 /* ParsedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6791A0D20AED99400E83DB8 /* ParsedLine.swift */; };
 		B6791A1320AED99400E83DB8 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6791A0E20AED99400E83DB8 /* Parser.swift */; };
 		B6791A1520AED99400E83DB8 /* CalendarQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6791A1020AED99400E83DB8 /* CalendarQuery.swift */; };
-		B66C529E20A5A18B009F9A2F /* SubscriptionIAP.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66C529D20A5A18A009F9A2F /* SubscriptionIAP.swift */; };
-		B66C52A020A5A859009F9A2F /* JSONSubscriptionIAP.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66C529F20A5A859009F9A2F /* JSONSubscriptionIAP.swift */; };
-		B66C52A220A5C0CA009F9A2F /* SubscriptionStatusQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66C52A120A5C0CA009F9A2F /* SubscriptionStatusQuery.swift */; };
-		B66C52A520A5CA53009F9A2F /* SubscriptionQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66C52A320A5C95C009F9A2F /* SubscriptionQuery.swift */; };
 		B68D43B8207CEE9A00203EC7 /* ParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D43B7207CEE9900203EC7 /* ParsingTests.swift */; };
 		B6C3FBCB20A9D03900DE98E7 /* SKProduct+LocalizedPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3FBCA20A9D03900DE98E7 /* SKProduct+LocalizedPrice.swift */; };
 		B6CBD58220856B3B00305975 /* SupportedLanguagesQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CBD57A20856B3B00305975 /* SupportedLanguagesQuery.swift */; };
@@ -106,15 +106,15 @@
 		B63F1F1A2080D24400121936 /* JSONPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONPage.swift; sourceTree = "<group>"; };
 		B63F1F1B2080D24400121936 /* JSONPageSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONPageSection.swift; sourceTree = "<group>"; };
 		B63F1F1C2080D24400121936 /* JSONPageItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONPageItem.swift; sourceTree = "<group>"; };
+		B66C529D20A5A18A009F9A2F /* SubscriptionIAP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionIAP.swift; sourceTree = "<group>"; };
+		B66C529F20A5A859009F9A2F /* JSONSubscriptionIAP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSubscriptionIAP.swift; sourceTree = "<group>"; };
+		B66C52A120A5C0CA009F9A2F /* SubscriptionStatusQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusQuery.swift; sourceTree = "<group>"; };
+		B66C52A320A5C95C009F9A2F /* SubscriptionQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionQuery.swift; sourceTree = "<group>"; };
 		B6791A0820AED7D400E83DB8 /* CodedOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodedOption.swift; sourceTree = "<group>"; };
 		B6791A0C20AED99400E83DB8 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		B6791A0D20AED99400E83DB8 /* ParsedLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedLine.swift; sourceTree = "<group>"; };
 		B6791A0E20AED99400E83DB8 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		B6791A1020AED99400E83DB8 /* CalendarQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarQuery.swift; sourceTree = "<group>"; };
-		B66C529D20A5A18A009F9A2F /* SubscriptionIAP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionIAP.swift; sourceTree = "<group>"; };
-		B66C529F20A5A859009F9A2F /* JSONSubscriptionIAP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSubscriptionIAP.swift; sourceTree = "<group>"; };
-		B66C52A120A5C0CA009F9A2F /* SubscriptionStatusQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusQuery.swift; sourceTree = "<group>"; };
-		B66C52A320A5C95C009F9A2F /* SubscriptionQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionQuery.swift; sourceTree = "<group>"; };
 		B68D43B7207CEE9900203EC7 /* ParsingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsingTests.swift; sourceTree = "<group>"; };
 		B6C3FBCA20A9D03900DE98E7 /* SKProduct+LocalizedPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct+LocalizedPrice.swift"; sourceTree = "<group>"; };
 		B6CBD57A20856B3B00305975 /* SupportedLanguagesQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportedLanguagesQuery.swift; sourceTree = "<group>"; };
@@ -440,7 +440,6 @@
 				B6233C1D204D9BA60081FC2C /* Frameworks */,
 				B6233C1E204D9BA60081FC2C /* Resources */,
 				5457E6C2BBFD9983E89A9127 /* [CP] Embed Pods Frameworks */,
-				95F4BBFF96A01791B4A617E4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -459,8 +458,6 @@
 				B633B5842060645400685458 /* Sources */,
 				B633B5852060645400685458 /* Frameworks */,
 				B633B5862060645400685458 /* Resources */,
-				B9D231A93071D12A9AF4DE41 /* [CP] Embed Pods Frameworks */,
-				8694C8E28B4F08F20F8BDFEF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -571,51 +568,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApiClient/Pods-ApiClient-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8694C8E28B4F08F20F8BDFEF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests/Pods-Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		95F4BBFF96A01791B4A617E4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApiClient/Pods-ApiClient-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B9D231A93071D12A9AF4DE41 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests/Pods-Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C803AA3B577ADF96D0A082BA /* [CP] Check Pods Manifest.lock */ = {
