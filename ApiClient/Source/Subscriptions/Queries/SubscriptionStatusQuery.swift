@@ -44,7 +44,12 @@ public final class SubscriptionStatusQuery: Query {
     }
     
     public func handleResult(with data: Data) -> Subscription? {
-        return try! JSONDecoder().decode(JSONSubscription.self, from: data)
+        do {
+            let subscription = try JSONDecoder().decode(JSONSubscription.self, from: data)
+            return subscription
+        } catch {
+            return nil
+        }
     }
 
 }
