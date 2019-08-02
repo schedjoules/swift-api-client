@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SchedJoulesApiClient'
-  s.version          = '0.7.2'
+  s.version          = '0.7.3'
   s.summary          = 'The ApiClient for the SchedJoules API, written in Swift.'
  
   s.description      = <<-DESC
@@ -17,6 +17,6 @@ This pod contains classes which make it easier to interact with the SchedJoules 
   s.source_files = 'ApiClient/Source/**/*.swift'
 
   s.dependency 'Alamofire', '~> 4.5'
-  s.dependency 'Result', '~> 3.0.0'
+  s.dependency 'Result', '~> 4.0.0'
  
 end
