@@ -6,8 +6,8 @@ target 'ApiClient' do
   use_frameworks!
 
   # Pods for ApiClient
-  	pod 'Alamofire', '~> 4.5'	
-	pod 'Result', '~> 3.0.0'
+  pod 'Alamofire', '~> 4.5'	
+	pod 'Result', '~> 4.0.0'
 
   target 'Tests' do
     inherit! :search_paths
