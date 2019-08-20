@@ -234,4 +234,21 @@ class QueryTests: XCTestCase {
         waitForExpectations(timeout: 10.0) { (_) -> Void in }
     }
     
+    
+    func testWeatherSettingsQuery() {
+        let responseExpectation = expectation(description: "Received response")
+        let query = WeatherSettingsQuery()
+        api.execute(query: query, completion: { result in
+            switch result {
+            case let .success(page):
+                XCTAssertNotNil(page)
+            case let .failure(apiError):
+                print(apiError)
+                XCTFail()
+            }
+            responseExpectation.fulfill()
+        })
+        
+        wait(for: [responseExpectation], timeout: 10.0)
+    }
 }

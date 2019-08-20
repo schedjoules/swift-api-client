@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		467411402306B05A00226EAA /* WeatherSettingsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4674113F2306B05A00226EAA /* WeatherSettingsQuery.swift */; };
+		467411452306B41500226EAA /* WeatherSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467411442306B41500226EAA /* WeatherSettings.swift */; };
+		467411482306B67F00226EAA /* JSONWeatherSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467411472306B67F00226EAA /* JSONWeatherSettings.swift */; };
+		4674114A2306B8CF00226EAA /* WeatherSettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467411492306B8CF00226EAA /* WeatherSettingsItem.swift */; };
 		4B3B33A300DF542C542859EF /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4DACF9A2972499B7136C22 /* Pods_Tests.framework */; };
 		B60CC7E020AF018A00CAE3BD /* ICalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60CC7DF20AF018A00CAE3BD /* ICalendar.swift */; };
 		B6119D2820A9ADE20077B1BB /* SKProduct+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6119D2720A9ADE20077B1BB /* SKProduct+Mock.swift */; };
@@ -70,6 +74,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4674113F2306B05A00226EAA /* WeatherSettingsQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSettingsQuery.swift; sourceTree = "<group>"; };
+		467411442306B41500226EAA /* WeatherSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSettings.swift; sourceTree = "<group>"; };
+		467411472306B67F00226EAA /* JSONWeatherSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONWeatherSettings.swift; sourceTree = "<group>"; };
+		467411492306B8CF00226EAA /* WeatherSettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSettingsItem.swift; sourceTree = "<group>"; };
 		76F47F30E6C55131A14ECAB7 /* Pods-ApiClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApiClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApiClientTests/Pods-ApiClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		949DB18A0797320EAB54DED1 /* Pods-ApiClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApiClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApiClient/Pods-ApiClient.release.xcconfig"; sourceTree = "<group>"; };
 		9D4DACF9A2972499B7136C22 /* Pods_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +174,49 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4674113D2306B01F00226EAA /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				4674113E2306B02B00226EAA /* Queries */,
+				467411422306B3E200226EAA /* Models */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		4674113E2306B02B00226EAA /* Queries */ = {
+			isa = PBXGroup;
+			children = (
+				4674113F2306B05A00226EAA /* WeatherSettingsQuery.swift */,
+			);
+			path = Queries;
+			sourceTree = "<group>";
+		};
+		467411422306B3E200226EAA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				467411432306B3EA00226EAA /* Protocols */,
+				467411462306B66B00226EAA /* JSON */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		467411432306B3EA00226EAA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				467411492306B8CF00226EAA /* WeatherSettingsItem.swift */,
+				467411442306B41500226EAA /* WeatherSettings.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		467411462306B66B00226EAA /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				467411472306B67F00226EAA /* JSONWeatherSettings.swift */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 		6E865DB1C2DB30081D1CDBCE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +309,7 @@
 				B637DD40207AC16C00DE4229 /* Query.swift */,
 				B637DD3D207AC16C00DE4229 /* SchedJoulesApi.swift */,
 				B6791A0A20AED99400E83DB8 /* Calendar */,
+				4674113D2306B01F00226EAA /* Weather */,
 				B6CD826120A58BB7001B1266 /* Subscriptions */,
 				B6175D11208DE37F00F507C5 /* Auxiliary */,
 				B6CBD57820856B3B00305975 /* Localization */,
@@ -608,11 +660,14 @@
 				B63F1F1E2080D24400121936 /* PageItem.swift in Sources */,
 				B6CBD58420856B3B00305975 /* JSONLanguage.swift in Sources */,
 				B63F1F1F2080D24400121936 /* PageSection.swift in Sources */,
+				467411452306B41500226EAA /* WeatherSettings.swift in Sources */,
 				B6CBD58220856B3B00305975 /* SupportedLanguagesQuery.swift in Sources */,
 				B6791A1120AED99400E83DB8 /* Event.swift in Sources */,
 				B637DD42207AC16D00DE4229 /* ApiError.swift in Sources */,
+				467411402306B05A00226EAA /* WeatherSettingsQuery.swift in Sources */,
 				B6CBD58320856B3B00305975 /* SupportedCountriesQuery.swift in Sources */,
 				B6CBD58620856B3B00305975 /* Country.swift in Sources */,
+				467411482306B67F00226EAA /* JSONWeatherSettings.swift in Sources */,
 				B6CD826320A58BB7001B1266 /* SubscriptionIAPQuery.swift in Sources */,
 				B66C52A020A5A859009F9A2F /* JSONSubscriptionIAP.swift in Sources */,
 				B63F1F1D2080D24400121936 /* Item.swift in Sources */,
@@ -622,6 +677,7 @@
 				B6CD826820A58DE8001B1266 /* Subscription.swift in Sources */,
 				B637DD41207AC16D00DE4229 /* SchedJoulesApi.swift in Sources */,
 				B63F1F222080D24400121936 /* JSONPageSection.swift in Sources */,
+				4674114A2306B8CF00226EAA /* WeatherSettingsItem.swift in Sources */,
 				B66C52A220A5C0CA009F9A2F /* SubscriptionStatusQuery.swift in Sources */,
 				B66C52A520A5CA53009F9A2F /* SubscriptionQuery.swift in Sources */,
 				B6119D2820A9ADE20077B1BB /* SKProduct+Mock.swift in Sources */,
