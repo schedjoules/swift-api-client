@@ -25,6 +25,7 @@
 
 import XCTest
 import StoreKit
+import MapKit
 @testable import ApiClient
 
 class QueryTests: XCTestCase {
@@ -55,7 +56,7 @@ class QueryTests: XCTestCase {
             }
             responseExpectation.fulfill()
         })
-
+        
         wait(for: [responseExpectation], timeout: 10.0)
     }
     
@@ -230,18 +231,17 @@ class QueryTests: XCTestCase {
             }
             responseExpectation.fulfill()
         })
-
+        
         waitForExpectations(timeout: 10.0) { (_) -> Void in }
     }
-    
     
     func testWeatherSettingsQuery() {
         let responseExpectation = expectation(description: "Received response")
         let query = WeatherSettingsQuery()
         api.execute(query: query, completion: { result in
             switch result {
-            case let .success(page):
-                XCTAssertNotNil(page)
+            case let .success(value):
+                XCTAssertNotNil(value)
             case let .failure(apiError):
                 print(apiError)
                 XCTFail()
@@ -251,4 +251,29 @@ class QueryTests: XCTestCase {
         
         wait(for: [responseExpectation], timeout: 10.0)
     }
+    
+    func testWeatherCitiesQuery() {
+        let responseExpectation = expectation(description: "Received response")
+        
+        let northEastCoordinate = CLLocationCoordinate2D(latitude: 62.02379606635583,
+                                                         longitude: 19.032229477283522)
+        let southWestCoordinate = CLLocationCoordinate2D(latitude: 33.88639350914788,
+                                                         longitude: -6.462703718952866)
+        
+        let query = WeatherCitiesQuery(northEastCoordinate: northEastCoordinate,
+                                       southWestCoordinate: southWestCoordinate)
+        api.execute(query: query, completion: { result in
+            switch result {
+            case let .success(value):
+                XCTAssertNotNil(value)
+            case let .failure(apiError):
+                print(apiError)
+                XCTFail()
+            }
+            responseExpectation.fulfill()
+        })
+        
+        wait(for: [responseExpectation], timeout: 10.0)
+    }
+    
 }

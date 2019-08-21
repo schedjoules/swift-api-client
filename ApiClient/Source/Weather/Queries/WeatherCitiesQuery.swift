@@ -1,8 +1,9 @@
+import Foundation
 //
-//  WeatherSettingsQuery.swift
+//  WeatherCitiesQuery.swift
 //  ApiClient
 //
-//  Created by Alberto Huerdo on 2019. 06. 8..
+//  Created by Alberto Huerdo on 2019. 08. 20..
 //  Copyright © 2019 SchedJoules. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,10 +26,11 @@
 
 import Foundation
 import Alamofire
+import MapKit
 
-public final class WeatherSettingsQuery: Query {
-    public typealias Result = WeatherSettings
-
+public final class WeatherCitiesQuery: Query {
+    public typealias Result = [WeatherAnnotation]
+    
     public let url: URL
     public let method: HTTPMethod = .get
     public let encoding: ParameterEncoding = URLEncoding.default
@@ -37,31 +39,29 @@ public final class WeatherSettingsQuery: Query {
     
     private init(queryItems: [URLQueryItem]) {
         // Initialize url components from a string
-        var urlComponents = URLComponents(string: "https://api.schedjoules.com/cities/weather_settings")
+        var urlComponents = URLComponents(string: "https://api.schedjoules.com/cities/cities_within_bounds")
         // Add query items to the url
         urlComponents!.queryItems = queryItems
         // Set the url property to the url constructed from the components
-        self.url = urlComponents!.url!
+        self.url = urlComponents!.url!        
     }
     
     /// Automatically add locale and location parameter to the pages URL
-    public convenience init() {
-        self.init(locale: Locale.preferredLanguages[0].components(separatedBy: "-")[0], location: Locale.current.regionCode!)
+    public convenience init(northEastCoordinate: CLLocationCoordinate2D,
+                            southWestCoordinate: CLLocationCoordinate2D) {
+        self.init(queryItems: [URLQueryItem(name: "ne",
+                                            value: "\(northEastCoordinate.latitude),\(northEastCoordinate.longitude)"),
+                               URLQueryItem(name: "sw",
+                                            value: "\(southWestCoordinate.latitude),\(southWestCoordinate.longitude)")])
     }
     
-    /// Manualy specify locale and location parameters
-    public convenience init(locale: String, location: String) {
-        self.init(queryItems: [URLQueryItem(name: "locale", value: locale),
-                               URLQueryItem(name: "location", value: location)])
-    }
-
-    public func handleResult(with data: Data) -> WeatherSettings? {        
+    public func handleResult(with data: Data) -> [WeatherAnnotation]? {
         do {
-            let weatherSettings = try JSONDecoder().decode(JSONWeatherSettings.self, from: data)
-            return weatherSettings
+            let weatherAnnotation = try JSONDecoder().decode([JSONWeatherAnnotation].self, from: data)
+            return weatherAnnotation
         } catch {
             return nil
         }
     }
-
+    
 }
