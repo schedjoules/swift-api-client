@@ -26,11 +26,18 @@
 
 import Foundation
 
-public protocol WeatherAnnotation {
+
+/// Possible ways the marker is returned.
+public enum WeatherAnnotationGroup: String, Decodable {
+    case clustered = "c"
+    case individual = "i"
     
-    var fo: Int { get }
-    var la: Double { get }
-    var lo: Double { get }
-    var to: String { get }
-    var ty: String { get }
+}
+
+public protocol WeatherAnnotation {
+    var id: Int { get }
+    var latitude: Double { get }
+    var longitude: Double { get }
+    var name: String { get }
+    var group: WeatherAnnotationGroup { get }    
 }

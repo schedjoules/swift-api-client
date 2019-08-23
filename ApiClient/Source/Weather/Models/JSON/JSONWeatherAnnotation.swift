@@ -27,37 +27,42 @@ import Foundation
 
 
 struct JSONWeatherAnnotation: WeatherAnnotation {
-    var fo: Int
-    var la: Double
-    var lo: Double
-    var to: String    
-    var ty: String
-    
+    //The identifier of the anotation
+    var id: Int
+    //The latitude where to place the annotation
+    var latitude: Double
+    //The longitude where to place the annotation
+    var longitude: Double
+    //The name of the POI used for display
+    var name: String
+    //The group tells you if the returned marker is (c)lustered or (i)ndividual.
+    //Clustered markers can be zoomed into and will show more markers.
+    var group: WeatherAnnotationGroup
 }
 
 // MARK: - Decodable protocol
 extension JSONWeatherAnnotation: Decodable {
     // JSON keys
-    enum PageKeys: String, CodingKey {
-        case fo
-        case la
-        case lo
-        case to
-        case ty
+    enum CodingKeys: String, CodingKey {
+        case id = "fo"
+        case latitude = "la"
+        case longitude = "lo"
+        case name = "to"
+        case group = "ty"
     }
     
     init(from decoder: Decoder) throws {
         // Get data container
-        let container = try decoder.container(keyedBy: PageKeys.self)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
         
         // Decode required values
-        let fo = try container.decode(Int.self, forKey: .fo)
-        let la = try container.decode(Double.self, forKey: .la)
-        let lo = try container.decode(Double.self, forKey: .lo)
-        let to = try container.decode(String.self, forKey: .to)
-        let ty = try container.decode(String.self, forKey: .ty)
+        let id = try container.decode(Int.self, forKey: .id)
+        let latitude = try container.decode(Double.self, forKey: .latitude)
+        let longitude = try container.decode(Double.self, forKey: .longitude)
+        let name = try container.decode(String.self, forKey: .name)
+        let group = try container.decode(WeatherAnnotationGroup.self, forKey: .group)
         
         // Initialize with the decoded values
-        self.init(fo: fo, la: la, lo: lo, to: to, ty: ty)
+        self.init(id: id, latitude: latitude, longitude: longitude, name: name, group: group)
     }
 }
