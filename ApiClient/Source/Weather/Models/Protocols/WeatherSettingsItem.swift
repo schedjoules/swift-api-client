@@ -31,7 +31,7 @@ public struct WeatherSettingsItem: Decodable {
     var _default: String
     ///The category display name for the Setting
     var title: String
-    ///An array of all the posible units a user can choose for the Subscription to the calendar
+    ///A dictionary of all the posible measure units a user can choose for the Subscription to the calendar
     var units: [String: String]
     
     enum CodingKeys: String, CodingKey {
