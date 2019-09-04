@@ -28,11 +28,11 @@ import Foundation
 
 public struct WeatherSettingsItem: Decodable {
     ///The unit set as default when subscribing to the Weather calendar
-    var _default: String
+    public var _default: String
     ///The category display name for the Setting
-    var title: String
+    public var title: String
     ///A dictionary of all the posible measure units a user can choose for the Subscription to the calendar
-    var units: [String: String]
+    public var units: [String: String]
     
     enum CodingKeys: String, CodingKey {
         case _default = "default"

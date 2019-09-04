@@ -30,12 +30,12 @@ import Foundation
 public protocol WeatherSettings {
     
     ///The Setting to measure rain volume:
-    var rain: WeatherSettingsItem { get }
+    var rain: WeatherSettingsItem { get set }
     ///The Setting to measure the wind speed:
-    var wind: WeatherSettingsItem { get }
+    var wind: WeatherSettingsItem { get set }
     ///The Setting to measure the temperature: ºF / ªC
-    var temp: WeatherSettingsItem { get }
+    var temp: WeatherSettingsItem { get set }
     ///The Setting to measure the time: 12h / 24 h
-    var time: WeatherSettingsItem { get }
+    var time: WeatherSettingsItem { get set }
     
 }
