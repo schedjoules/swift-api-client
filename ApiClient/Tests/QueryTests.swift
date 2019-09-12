@@ -60,6 +60,7 @@ class QueryTests: XCTestCase {
         wait(for: [responseExpectation], timeout: 10.0)
     }
     
+    
     func testSinglePageQuery() {
         let responseExpectation = expectation(description: "Received response")
         let singlePageQuery = SinglePageQuery(pageID: "115673")
@@ -76,6 +77,43 @@ class QueryTests: XCTestCase {
         
         wait(for: [responseExpectation], timeout: 10.0)
     }
+    
+    
+    func testCalendarQuery() {
+        let responseExpectation = expectation(description: "Received response")
+        guard let url = URL(string: "https://ovalkey.schedjoules.com/calendars/4d26c6d53ae3?l=en&x=fbd971") else  {
+            XCTFail("bad url")
+            return
+        }
+        let singlePageQuery = CalendarQuery(url: url)
+        api.execute(query: singlePageQuery, completion: { result in
+            switch result {
+            case let .success(calendar):
+                
+                print(calendar)
+                print(calendar.events)
+                
+                calendar.events.forEach({ (event) in
+                    print(event.summary)
+                    print(event.description)
+                    
+                    if event.summary == "You have no access to this calendar" {
+                        XCTFail("User doesn't have access to the calendar")
+                        return
+                    }
+                })
+                
+                XCTAssertNotNil(calendar)
+            case let .failure(apiError):
+                print(apiError)
+                XCTFail()
+            }
+            responseExpectation.fulfill()
+        })
+        
+        wait(for: [responseExpectation], timeout: 10.0)
+    }
+    
     
     func testSearchQuery() {
         let responseExpectation = expectation(description: "Received response")
@@ -94,6 +132,7 @@ class QueryTests: XCTestCase {
         wait(for: [responseExpectation], timeout: 10.0)
     }
     
+    
     func testLanguageQuery() {
         let responseExpectation = expectation(description: "Received response")
         let languageQuery = SupportedLanguagesQuery()
@@ -110,6 +149,7 @@ class QueryTests: XCTestCase {
         
         waitForExpectations(timeout: 10.0) { (_) -> Void in }
     }
+    
     
     func testCountryQuery() {
         let responseExpectation = expectation(description: "Received response")
@@ -128,6 +168,7 @@ class QueryTests: XCTestCase {
         waitForExpectations(timeout: 10.0) { (_) -> Void in }
     }
     
+    
     func testTopPageQuery() {
         let responseExpectation = expectation(description: "Received response")
         let topPageQuery = TopPageQuery(numberOfItems: 15, locale: "en", location: "nl")
@@ -144,6 +185,7 @@ class QueryTests: XCTestCase {
         
         waitForExpectations(timeout: 10.0) { (_) -> Void in }
     }
+    
     
     func testNextPageQuery() {
         let responseExpectation = expectation(description: "Received response")
@@ -162,6 +204,7 @@ class QueryTests: XCTestCase {
         waitForExpectations(timeout: 10.0) { (_) -> Void in }
     }
     
+    
     func testNewPageQuery() {
         let responseExpectation = expectation(description: "Received response")
         let newPageQuery = NewPageQuery(numberOfItems: 15, locale: "en")
@@ -178,6 +221,7 @@ class QueryTests: XCTestCase {
         
         waitForExpectations(timeout: 10.0) { (_) -> Void in }
     }
+    
     
     func testSubscriptionStatusQuery() {
         let responseExpectation = expectation(description: "Received response")
@@ -196,6 +240,7 @@ class QueryTests: XCTestCase {
         waitForExpectations(timeout: 10.0) { (_) -> Void in }
     }
     
+    
     func testSubscriptionIAPQuery() {
         let responseExpectation = expectation(description: "Received response")
         let subscriptionIAPQuery = SubscriptionIAPQuery()
@@ -212,6 +257,7 @@ class QueryTests: XCTestCase {
         
         waitForExpectations(timeout: 10.0) { (_) -> Void in }
     }
+    
     
     func testSubscriptionQuery() {
         let responseExpectation = expectation(description: "Received response")
@@ -235,6 +281,7 @@ class QueryTests: XCTestCase {
         waitForExpectations(timeout: 10.0) { (_) -> Void in }
     }
     
+    
     func testWeatherSettingsQuery() {
         let responseExpectation = expectation(description: "Received response")
         let query = WeatherSettingsQuery()
@@ -251,6 +298,7 @@ class QueryTests: XCTestCase {
         
         wait(for: [responseExpectation], timeout: 10.0)
     }
+    
     
     func testWeatherCitiesQuery() {
         let responseExpectation = expectation(description: "Received response")

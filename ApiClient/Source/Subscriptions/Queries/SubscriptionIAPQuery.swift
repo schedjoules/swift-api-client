@@ -32,12 +32,16 @@ public final class SubscriptionIAPQuery: Query {
     public let url: URL = URL(string:"https://api.schedjoules.com/subscription")!
     public let method: HTTPMethod = .get
     public let encoding: ParameterEncoding = URLEncoding.default
-    public let parameters: Parameters = [:]
+    public let parameters: Parameters
     public let headers: HTTPHeaders = ["Accept" : "application/json"]
     
     public func handleResult(with data: Data) -> SubscriptionIAP? {
         return try? JSONDecoder().decode(JSONSubscriptionIAP.self, from: data)
     }
     
-    public init() {}
+    public init() {
+        //For parameters we need to pass an identifier.
+        //We first try to use the identifier for vendor to keep the uuid consistent, if we can’t do it we create a random one
+        parameters = ["u" : UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString]        
+    }
 }

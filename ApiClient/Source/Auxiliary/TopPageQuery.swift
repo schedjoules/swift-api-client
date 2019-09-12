@@ -32,7 +32,7 @@ public final class TopPageQuery: Query {
     public let url: URL
     public let method: HTTPMethod = .get
     public let encoding: ParameterEncoding = URLEncoding.default
-    public let parameters: Parameters = [:]
+    public let parameters: Parameters
     public let headers: HTTPHeaders = ["Accept" : "application/json"]
     
     private init(queryItems: [URLQueryItem]) {
@@ -42,6 +42,9 @@ public final class TopPageQuery: Query {
         urlComponents!.queryItems = queryItems
         // Set the url property to the url constructed from the components
         self.url = urlComponents!.url!
+        //For parameters we need to pass an identifier.
+        //We first try to use the identifier for vendor to keep the uuid consistent, if we can’t do it we create a random one
+        parameters = ["u" : UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString]
     }
     
     /// Initialize with the number of items to return

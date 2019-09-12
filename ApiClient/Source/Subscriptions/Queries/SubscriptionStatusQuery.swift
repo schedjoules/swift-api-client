@@ -32,7 +32,7 @@ public final class SubscriptionStatusQuery: Query {
     public let url: URL
     public let method: HTTPMethod = .get
     public let encoding: ParameterEncoding = URLEncoding.default
-    public let parameters: Parameters = [:]
+    public let parameters: Parameters
     public let headers: HTTPHeaders = ["Accept" : "application/json"]
     
     /**
@@ -41,6 +41,9 @@ public final class SubscriptionStatusQuery: Query {
      */
     public init(subscriptionId: String) {
         self.url = URL(string:"https://api.schedjoules.com/subscription/\(subscriptionId)")!
+        //For parameters we need to pass an identifier.
+        //We first try to use the identifier for vendor to keep the uuid consistent, if we can’t do it we create a random one
+        parameters = ["u" : UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString]
     }
     
     public func handleResult(with data: Data) -> Subscription? {
