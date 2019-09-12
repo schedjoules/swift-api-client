@@ -81,7 +81,7 @@ class QueryTests: XCTestCase {
     
     func testCalendarQuery() {
         let responseExpectation = expectation(description: "Received response")
-        guard let url = URL(string: "https://ovalkey.schedjoules.com/calendars/4d26c6d53ae3?l=en&x=fbd971") else  {
+        guard let url = URL(string: "https://{client}.schedjoules.com/calendars/{clientInfo}") else  {
             XCTFail("bad url")
             return
         }
