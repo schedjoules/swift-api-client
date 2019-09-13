@@ -46,7 +46,7 @@ class QueryTests: XCTestCase {
     func testHomePageQuery() {
         let responseExpectation = expectation(description: "Received response")
         let homePageQuery = HomePageQuery()
-        api.execute(query: homePageQuery, completion: { result in
+        api.execute(query: homePageQuery, uuid: UUID().uuidString, completion: { result in
             switch result {
             case let .success(page):
                 XCTAssertNotNil(page)
@@ -64,7 +64,7 @@ class QueryTests: XCTestCase {
     func testSinglePageQuery() {
         let responseExpectation = expectation(description: "Received response")
         let singlePageQuery = SinglePageQuery(pageID: "115673")
-        api.execute(query: singlePageQuery, completion: { result in
+        api.execute(query: singlePageQuery, uuid: UUID().uuidString, completion: { result in
             switch result {
             case let .success(page):
                 XCTAssertNotNil(page)
@@ -86,7 +86,7 @@ class QueryTests: XCTestCase {
             return
         }
         let singlePageQuery = CalendarQuery(url: url)
-        api.execute(query: singlePageQuery, completion: { result in
+        api.execute(query: singlePageQuery, uuid: UUID().uuidString, completion: { result in
             switch result {
             case let .success(calendar):
                 calendar.events.forEach({ (event) in
@@ -110,7 +110,7 @@ class QueryTests: XCTestCase {
     func testSearchQuery() {
         let responseExpectation = expectation(description: "Received response")
         let searchQuery = SearchQuery(query: "swim")
-        api.execute(query: searchQuery, completion: { result in
+        api.execute(query: searchQuery, uuid: UUID().uuidString, completion: { result in
             switch result {
             case let .success(page):
                 XCTAssertNotNil(page)
@@ -128,7 +128,7 @@ class QueryTests: XCTestCase {
     func testLanguageQuery() {
         let responseExpectation = expectation(description: "Received response")
         let languageQuery = SupportedLanguagesQuery()
-        api.execute(query: languageQuery, completion: { result in
+        api.execute(query: languageQuery, uuid: UUID().uuidString, completion: { result in
             switch result {
             case let .success(languages):
                 XCTAssertEqual(languages.count, 18)
@@ -146,7 +146,7 @@ class QueryTests: XCTestCase {
     func testCountryQuery() {
         let responseExpectation = expectation(description: "Received response")
         let countryQuery = SupportedCountriesQuery()
-        api.execute(query: countryQuery, completion: { result in
+        api.execute(query: countryQuery, uuid: UUID().uuidString, completion: { result in
             switch result {
             case let .success(countries):
                 XCTAssertEqual(countries.count, 74)
@@ -164,7 +164,7 @@ class QueryTests: XCTestCase {
     func testTopPageQuery() {
         let responseExpectation = expectation(description: "Received response")
         let topPageQuery = TopPageQuery(numberOfItems: 15, locale: "en", location: "nl")
-        api.execute(query: topPageQuery, completion: { result in
+        api.execute(query: topPageQuery, uuid: UUID().uuidString, completion: { result in
             switch result {
             case let .success(page):
                 XCTAssertNotNil(page)
@@ -182,7 +182,7 @@ class QueryTests: XCTestCase {
     func testNextPageQuery() {
         let responseExpectation = expectation(description: "Received response")
         let nextPageQuery = NextPageQuery(numberOfItems: 15, locale: "en")
-        api.execute(query: nextPageQuery, completion: { result in
+        api.execute(query: nextPageQuery, uuid: UUID().uuidString, completion: { result in
             switch result {
             case let .success(page):
                 XCTAssertNotNil(page)
@@ -200,7 +200,7 @@ class QueryTests: XCTestCase {
     func testNewPageQuery() {
         let responseExpectation = expectation(description: "Received response")
         let newPageQuery = NewPageQuery(numberOfItems: 15, locale: "en")
-        api.execute(query: newPageQuery, completion: { result in
+        api.execute(query: newPageQuery, uuid: UUID().uuidString, completion: { result in
             switch result {
             case let .success(page):
                 XCTAssertNotNil(page)
@@ -218,7 +218,7 @@ class QueryTests: XCTestCase {
     func testSubscriptionStatusQuery() {
         let responseExpectation = expectation(description: "Received response")
         let subscriptionStatusQuery = SubscriptionStatusQuery(subscriptionId: "2c520c23cbdda678d7aac86364fbac9d")
-        api.execute(query: subscriptionStatusQuery, completion: { result in
+        api.execute(query: subscriptionStatusQuery, uuid: UUID().uuidString, completion: { result in
             switch result {
             case let .success(subscription):
                 XCTAssertNotNil(subscription)
@@ -236,7 +236,7 @@ class QueryTests: XCTestCase {
     func testSubscriptionIAPQuery() {
         let responseExpectation = expectation(description: "Received response")
         let subscriptionIAPQuery = SubscriptionIAPQuery()
-        api.execute(query: subscriptionIAPQuery, completion: { result in
+        api.execute(query: subscriptionIAPQuery, uuid: UUID().uuidString, completion: { result in
             switch result {
             case let .success(subscriptionIAP):
                 XCTAssertNotNil(subscriptionIAP)
@@ -259,7 +259,7 @@ class QueryTests: XCTestCase {
                                                                      price: NSDecimalNumber(value: 0.99),
                                                                      priceLocale: Locale.current),
                                                   receipt: "base64-encoded-receipt-goes-here")
-        api.execute(query: subscriptionQuery, completion: { result in
+        api.execute(query: subscriptionQuery, uuid: UUID().uuidString, completion: { result in
             switch result {
             case let .success(subscription):
                 XCTAssertNotNil(subscription)
@@ -277,7 +277,7 @@ class QueryTests: XCTestCase {
     func testWeatherSettingsQuery() {
         let responseExpectation = expectation(description: "Received response")
         let query = WeatherSettingsQuery()
-        api.execute(query: query, completion: { result in
+        api.execute(query: query, uuid: UUID().uuidString, completion: { result in
             switch result {
             case let .success(value):
                 XCTAssertNotNil(value)
@@ -302,7 +302,7 @@ class QueryTests: XCTestCase {
         
         let query = WeatherCitiesQuery(northEastCoordinate: northEastCoordinate,
                                        southWestCoordinate: southWestCoordinate)
-        api.execute(query: query, completion: { result in
+        api.execute(query: query, uuid: UUID().uuidString, completion: { result in
             switch result {
             case let .success(value):
                 XCTAssertNotNil(value)

@@ -49,7 +49,7 @@ public final class SchedJoulesApi: Api {
     }
     
     // Execute a request object
-    public func execute<T: Query> (query: T, completion: @escaping (Result<T.Result,ApiError>) -> Void) {
+    public func execute<T: Query> (query: T, uuid: String, completion: @escaping (Result<T.Result,ApiError>) -> Void) {
         // Check if the url of the query is in the right domain
         if query.url.host!.suffix(apiDomain.count) != apiDomain {
             completion(.failure(ApiError.invalidDomain))
@@ -67,7 +67,7 @@ public final class SchedJoulesApi: Api {
         //Update the parameters to include the device uuid
         //We first try to use the identifier for vendor to keep the uuid consistent, if we can't do it we create a random one
         var updatedParameters = query.parameters
-        updatedParameters["u"] = UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
+        updatedParameters["u"] = uuid
         
         // Execute the request
         sessionManager.request(query.url, method: query.method, parameters: updatedParameters, encoding: query.encoding, headers: headers).validate().responseData { response in
