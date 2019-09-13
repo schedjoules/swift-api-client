@@ -66,8 +66,7 @@ public final class SchedJoulesApi: Api {
             headers[key] = value
         }
         
-        //Update the parameters to include the device uuid
-        //We first try to use the identifier for vendor to keep the uuid consistent, if we can't do it we create a random one
+        //Update the parameters to include the userId
         var updatedParameters = query.parameters
         updatedParameters["u"] = userId
         
