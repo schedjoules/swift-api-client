@@ -89,20 +89,12 @@ class QueryTests: XCTestCase {
         api.execute(query: singlePageQuery, completion: { result in
             switch result {
             case let .success(calendar):
-                
-                print(calendar)
-                print(calendar.events)
-                
                 calendar.events.forEach({ (event) in
-                    print(event.summary)
-                    print(event.description)
-                    
                     if event.summary == "You have no access to this calendar" {
                         XCTFail("User doesn't have access to the calendar")
                         return
                     }
                 })
-                
                 XCTAssertNotNil(calendar)
             case let .failure(apiError):
                 print(apiError)
