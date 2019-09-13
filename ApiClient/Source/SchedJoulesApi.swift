@@ -29,12 +29,14 @@ import enum Result.Result
 
 public final class SchedJoulesApi: Api {
     private let accessToken: String
+    private let userId: String
     private let sessionManager: Alamofire.SessionManager
     private let apiDomain = ".schedjoules.com"
     
     // Initiliaze with an access token
-    public required init (accessToken: String) {
+    public required init (accessToken: String, userId: String) {
         self.accessToken = accessToken
+        self.userId = userId
         
         // Set up a session manager
         let configuration = URLSessionConfiguration.default
@@ -64,8 +66,12 @@ public final class SchedJoulesApi: Api {
             headers[key] = value
         }
         
+        //Update the parameters to include the userId
+        var updatedParameters = query.parameters
+        updatedParameters["u"] = userId
+        
         // Execute the request
-        sessionManager.request(query.url, method: query.method, parameters: query.parameters, encoding: query.encoding, headers: headers).validate().responseData { response in
+        sessionManager.request(query.url, method: query.method, parameters: updatedParameters, encoding: query.encoding, headers: headers).validate().responseData { response in
             switch response.result {
             case .success:
                 guard let responseData = response.result.value else {
