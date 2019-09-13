@@ -32,9 +32,7 @@ public final class CalendarQuery: Query {
     public let url: URL
     public let method: HTTPMethod = .get
     public let encoding: ParameterEncoding = URLEncoding.default
-    //For parameters we need to pass an identifier.
-    //We first try to use the identifier for vendor to keep the uuid consistent, if we can't do it we create a random one
-    public let parameters: Parameters = ["u" : UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString]
+    public let parameters: Parameters = [:]
     public let headers: HTTPHeaders = ["Accept" : "text/calendar"]
     
     public required init(url: URL) {

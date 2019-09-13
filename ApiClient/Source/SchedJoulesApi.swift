@@ -64,8 +64,13 @@ public final class SchedJoulesApi: Api {
             headers[key] = value
         }
         
+        //Update the parameters to include the device uuid
+        //We first try to use the identifier for vendor to keep the uuid consistent, if we can't do it we create a random one
+        var updatedParameters = query.parameters
+        updatedParameters["u"] = UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
+        
         // Execute the request
-        sessionManager.request(query.url, method: query.method, parameters: query.parameters, encoding: query.encoding, headers: headers).validate().responseData { response in
+        sessionManager.request(query.url, method: query.method, parameters: updatedParameters, encoding: query.encoding, headers: headers).validate().responseData { response in
             switch response.result {
             case .success:
                 guard let responseData = response.result.value else {
