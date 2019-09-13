@@ -32,7 +32,7 @@ public final class SupportedCountriesQuery: Query {
     public let url: URL = URL(string:"https://api.schedjoules.com/countries")!
     public let method: HTTPMethod = .get
     public let encoding: ParameterEncoding = URLEncoding.default
-    public let parameters: Parameters
+    public let parameters: Parameters = [:]
     public let headers: HTTPHeaders = ["Accept" : "application/json"]
     
     public func handleResult(with data: Data) -> [JSONCountry]? {
@@ -41,8 +41,5 @@ public final class SupportedCountriesQuery: Query {
     
     // Explicitly declare the default initializer public
     public init() {
-        //For parameters we need to pass an identifier.
-        //We first try to use the identifier for vendor to keep the uuid consistent, if we can't do it we create a random one
-        parameters = ["u" : UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString]
     }
 }
