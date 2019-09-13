@@ -29,12 +29,14 @@ import enum Result.Result
 
 public final class SchedJoulesApi: Api {
     private let accessToken: String
+    private let userId: String
     private let sessionManager: Alamofire.SessionManager
     private let apiDomain = ".schedjoules.com"
     
     // Initiliaze with an access token
-    public required init (accessToken: String) {
+    public required init (accessToken: String, userId: String) {
         self.accessToken = accessToken
+        self.userId = userId
         
         // Set up a session manager
         let configuration = URLSessionConfiguration.default
@@ -49,7 +51,7 @@ public final class SchedJoulesApi: Api {
     }
     
     // Execute a request object
-    public func execute<T: Query> (query: T, uuid: String, completion: @escaping (Result<T.Result,ApiError>) -> Void) {
+    public func execute<T: Query> (query: T, completion: @escaping (Result<T.Result,ApiError>) -> Void) {
         // Check if the url of the query is in the right domain
         if query.url.host!.suffix(apiDomain.count) != apiDomain {
             completion(.failure(ApiError.invalidDomain))
@@ -67,7 +69,7 @@ public final class SchedJoulesApi: Api {
         //Update the parameters to include the device uuid
         //We first try to use the identifier for vendor to keep the uuid consistent, if we can't do it we create a random one
         var updatedParameters = query.parameters
-        updatedParameters["u"] = uuid
+        updatedParameters["u"] = userId
         
         // Execute the request
         sessionManager.request(query.url, method: query.method, parameters: updatedParameters, encoding: query.encoding, headers: headers).validate().responseData { response in

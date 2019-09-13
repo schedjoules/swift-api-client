@@ -32,5 +32,5 @@ public protocol Api {
      - parameter query: The query to execute, must conform to `Query`.
      - parameter completion: The result of the query. Either contains the associated type, or an `ApiError`.
      */
-    func execute<T: Query> (query: T, uuid: String, completion: @escaping (Result<T.Result,ApiError>) -> Void)
+    func execute<T: Query> (query: T, completion: @escaping (Result<T.Result,ApiError>) -> Void)
 }
