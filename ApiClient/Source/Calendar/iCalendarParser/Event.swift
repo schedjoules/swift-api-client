@@ -39,11 +39,14 @@ public final class Event {
     
     private func dateFrom(parsedLine: ParsedLine) -> Date {
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        
         if isDateAllDay(line: parsedLine){
             dateFormatter.dateFormat = "yyyyMMdd"
         } else {
             dateFormatter.dateFormat = "yyyyMMdd'T'HHmmssZ"
         }
+        
         return dateFormatter.date(from: parsedLine.value)!
     }
     
