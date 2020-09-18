@@ -46,7 +46,16 @@ public final class HomePageQuery: Query {
     
     /// Automatically add locale and location parameter to the pages URL
     public convenience init() {
-        self.init(locale: Locale.preferredLanguages[0].components(separatedBy: "-")[0], location: Locale.current.regionCode!)
+        print("locale 1: ", Locale.preferredLanguages)
+        print("locale 2: ", Locale.preferredLanguages[0])
+        print("locale 3: ", Locale.preferredLanguages[0].components(separatedBy: "-"))
+        print("locale 4: ", Locale.preferredLanguages[0].components(separatedBy: "-")[0])
+        print("locale 5: ", Locale.current)
+        print("locale 6: ", Locale.current.regionCode)
+        print("locale 6: ", Locale.current.identifier)
+        print("locale 7: ", Locale.isoRegionCodes)
+        self.init(locale: Locale.preferredLanguages[0].components(separatedBy: "-")[0],
+                  location: Locale.current.regionCode!)
     }
     
     /// Manualy specify locale and location parameters

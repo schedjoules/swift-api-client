@@ -10,6 +10,8 @@
 		460CA4F8230C00AA001CBB8E /* WeatherCitiesQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460CA4F7230C00AA001CBB8E /* WeatherCitiesQuery.swift */; };
 		460CA4FA230D4BD8001CBB8E /* WeatherAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460CA4F9230D4BD8001CBB8E /* WeatherAnnotation.swift */; };
 		460CA4FC230D4C84001CBB8E /* JSONWeatherAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460CA4FB230D4C84001CBB8E /* JSONWeatherAnnotation.swift */; };
+		4623655F25122AB30067B943 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B633B57E2060630600685458 /* Main.storyboard */; };
+		4623656025122AB30067B943 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B633B57C2060630600685458 /* LaunchScreen.storyboard */; };
 		467411402306B05A00226EAA /* WeatherSettingsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4674113F2306B05A00226EAA /* WeatherSettingsQuery.swift */; };
 		467411452306B41500226EAA /* WeatherSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467411442306B41500226EAA /* WeatherSettings.swift */; };
 		467411482306B67F00226EAA /* JSONWeatherSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467411472306B67F00226EAA /* JSONWeatherSettings.swift */; };
@@ -23,8 +25,6 @@
 		B6175D17208E0A4200F507C5 /* NextPageQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6175D16208E0A4200F507C5 /* NextPageQuery.swift */; };
 		B633B57420605F3D00685458 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B633B57320605F3D00685458 /* AppDelegate.swift */; };
 		B633B57F2060630600685458 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B633B5792060630600685458 /* ViewController.swift */; };
-		B633B5802060630600685458 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B633B57B2060630600685458 /* LaunchScreen.storyboard */; };
-		B633B5812060630600685458 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B633B57D2060630600685458 /* Main.storyboard */; };
 		B637DD33207ABFE200DE4229 /* HomePageQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637DD26207ABFE200DE4229 /* HomePageQuery.swift */; };
 		B637DD34207ABFE200DE4229 /* SinglePageQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637DD27207ABFE200DE4229 /* SinglePageQuery.swift */; };
 		B637DD35207ABFE200DE4229 /* SearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637DD28207ABFE200DE4229 /* SearchQuery.swift */; };
@@ -103,8 +103,8 @@
 		B633B570206052B600685458 /* sample_page.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample_page.json; sourceTree = "<group>"; };
 		B633B57320605F3D00685458 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B633B5792060630600685458 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B633B57C2060630600685458 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B633B57E2060630600685458 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		B633B57C2060630600685458 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B633B57E2060630600685458 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B633B5882060645400685458 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B637DD26207ABFE200DE4229 /* HomePageQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageQuery.swift; sourceTree = "<group>"; };
 		B637DD27207ABFE200DE4229 /* SinglePageQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePageQuery.swift; sourceTree = "<group>"; };
@@ -281,9 +281,9 @@
 			isa = PBXGroup;
 			children = (
 				B633B57320605F3D00685458 /* AppDelegate.swift */,
-				B633B57D2060630600685458 /* Main.storyboard */,
+				B633B57E2060630600685458 /* Main.storyboard */,
 				B633B5792060630600685458 /* ViewController.swift */,
-				B633B57B2060630600685458 /* LaunchScreen.storyboard */,
+				B633B57C2060630600685458 /* LaunchScreen.storyboard */,
 				B6233C2F204D9BA70081FC2C /* Info.plist */,
 			);
 			path = Example;
@@ -558,7 +558,6 @@
 			knownRegions = (
 				en,
 				Base,
-				global,
 			);
 			mainGroup = B6233C17204D9BA60081FC2C;
 			productRefGroup = B6233C21204D9BA60081FC2C /* Products */;
@@ -576,8 +575,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B633B5802060630600685458 /* LaunchScreen.storyboard in Resources */,
-				B633B5812060630600685458 /* Main.storyboard in Resources */,
+				4623656025122AB30067B943 /* LaunchScreen.storyboard in Resources */,
+				4623655F25122AB30067B943 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,25 +726,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		B633B57B2060630600685458 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B633B57C2060630600685458 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		B633B57D2060630600685458 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B633B57E2060630600685458 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		B6233C3B204D9BA70081FC2C /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -894,7 +874,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RN5LWE7CLV;
+				DEVELOPMENT_TEAM = H4FCPLHYSF;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.schedjoules.Tests;
@@ -911,7 +891,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RN5LWE7CLV;
+				DEVELOPMENT_TEAM = H4FCPLHYSF;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.schedjoules.Tests;

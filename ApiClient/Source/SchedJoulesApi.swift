@@ -30,7 +30,7 @@ import enum Result.Result
 public final class SchedJoulesApi: Api {
     private let accessToken: String
     private let userId: String
-    private let sessionManager: Alamofire.SessionManager
+    private let session: Alamofire.Session
     private let apiDomain = ".schedjoules.com"
     
     // Initiliaze with an access token
@@ -40,14 +40,14 @@ public final class SchedJoulesApi: Api {
         
         // Set up a session manager
         let configuration = URLSessionConfiguration.default
-        sessionManager = Alamofire.SessionManager(configuration: configuration)
+        session = Alamofire.Session(configuration: configuration)
         
         // Make sure "Authorization" header is preserved between redirects (iOS drops it by default)
-        sessionManager.delegate.taskWillPerformHTTPRedirection = { session, task, response, request in
-            var mutableRequest = request
-            mutableRequest.setValue("Token token=\(self.accessToken)", forHTTPHeaderField: "Authorization")
-            return mutableRequest
-        }
+//        sessionManager.delegate.taskWillPerformHTTPRedirection = { session, task, response, request in
+//            var mutableRequest = request
+//            mutableRequest.setValue("Token token=\(self.accessToken)", forHTTPHeaderField: "Authorization")
+//            return mutableRequest
+//        }
     }
     
     // Execute a request object
@@ -58,12 +58,12 @@ public final class SchedJoulesApi: Api {
         }
         
         // Set required HTTP headers
-        var headers = Alamofire.SessionManager.defaultHTTPHeaders
+        var headers = session.sessionConfiguration.headers
         headers["Authorization"] = "Token token=\(accessToken)"
         
         // Add headers from request object
-        for (key,value) in query.headers {
-            headers[key] = value
+        query.headers.forEach { (header) in
+            headers[header.name] = header.value
         }
         
         //Update the parameters to include the userId
@@ -71,14 +71,15 @@ public final class SchedJoulesApi: Api {
         updatedParameters["u"] = userId
         
         // Execute the request
-        sessionManager.request(query.url, method: query.method, parameters: updatedParameters, encoding: query.encoding, headers: headers).validate().responseData { response in
+        session.request(query.url, method: query.method, parameters: updatedParameters, encoding: query.encoding, headers: headers).validate().responseData { response in
             switch response.result {
-            case .success:
-                guard let responseData = response.result.value else {
-                    completion(.failure(ApiError.emptyResponseData))
-                    return
-                }
-                guard let handledResult = query.handleResult(with: responseData) else {
+            case .success(let value):
+                print(String(data: value, encoding: .utf8)!)
+//                guard let responseData = value else {
+//                    completion(.failure(ApiError.emptyResponseData))
+//                    return
+//                }
+                guard let handledResult = query.handleResult(with: value) else {
                     completion(.failure(ApiError.errorHandlingResult))
                     return
                 }

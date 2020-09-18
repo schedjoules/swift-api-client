@@ -46,7 +46,8 @@ public final class WeatherSettingsQuery: Query {
     
     /// Automatically add locale and location parameter to the pages URL
     public convenience init() {
-        self.init(locale: Locale.preferredLanguages[0].components(separatedBy: "-")[0], location: Locale.current.regionCode!)
+        self.init(locale: Locale.preferredLanguages[0].components(separatedBy: "-")[0],
+                  location: Locale.current.regionCode!)
     }
     
     /// Manualy specify locale and location parameters

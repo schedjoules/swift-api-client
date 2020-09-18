@@ -35,8 +35,8 @@ public final class SubscriptionQuery: Query {
     public let encoding: ParameterEncoding = JSONEncoding.default
     public let parameters: Parameters
     public let headers: HTTPHeaders = ["Accept" : "application/json",
-                                       "x-app-id" : Bundle.main.bundleIdentifier!,
-                                       "x-user-id" : UIDevice.current.identifierForVendor!.uuidString,
+                                       "x-app-id" : Bundle.main.bundleIdentifier ?? "",
+                                       "x-user-id" : UIDevice.current.identifierForVendor?.uuidString ?? "",
                                        "x-locale" : Locale.current.regionCode!]
     
     

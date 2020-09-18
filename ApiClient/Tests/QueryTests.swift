@@ -51,7 +51,7 @@ class QueryTests: XCTestCase {
             case let .success(page):
                 XCTAssertNotNil(page)
             case let .failure(apiError):
-                print(apiError)
+                print("testHomePageQuery error: ", apiError)
                 XCTFail()
             }
             responseExpectation.fulfill()
@@ -82,7 +82,7 @@ class QueryTests: XCTestCase {
     func testCalendarQuery() {
         let responseExpectation = expectation(description: "Received response")
         guard let url = URL(string: "https://{client}.schedjoules.com/calendars/{clientInfo}") else  {
-            XCTFail("bad url")
+            XCTFail("bad url: \("https://{client}.schedjoules.com/calendars/{clientInfo}"))")
             return
         }
         let singlePageQuery = CalendarQuery(url: url)
@@ -97,7 +97,7 @@ class QueryTests: XCTestCase {
                 })
                 XCTAssertNotNil(calendar)
             case let .failure(apiError):
-                print(apiError)
+                print("testCalendarQuery error: ", apiError)
                 XCTFail()
             }
             responseExpectation.fulfill()
