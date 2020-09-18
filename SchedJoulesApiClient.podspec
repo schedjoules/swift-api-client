@@ -12,11 +12,11 @@ This pod contains classes which make it easier to interact with the SchedJoules 
   s.author           = { 'Balazs Vincze' => 'sayhello@bvincze.com' }
   s.source           = { :git => 'https://github.com/schedjoules/swift-api-client.git', :tag => s.version.to_s }
 
-  s.swift_version = '4.0'
+  s.swift_version = '5.0'
   s.ios.deployment_target = '10.0'
   s.source_files = 'ApiClient/Source/**/*.swift'
-
-  s.dependency 'Alamofire', '~> 4.5'
+4
+  s.dependency 'Alamofire', '~> 5.0'
   s.dependency 'Result', '~> 4.0.0'
  
 end
