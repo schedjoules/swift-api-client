@@ -24,7 +24,6 @@
 //  THE SOFTWARE.
 
 import Foundation
-import Result
 
 struct EventKeys {
     static let eventBegin = "BEGIN:VEVENT"

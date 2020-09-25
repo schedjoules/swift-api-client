@@ -16,7 +16,5 @@ This pod contains classes which make it easier to interact with the SchedJoules 
   s.ios.deployment_target = '10.0'
   s.source_files = 'ApiClient/Source/**/*.swift'
 4
-  s.dependency 'Alamofire', '~> 5.0'
-  s.dependency 'Result', '~> 4.0.0'
  
 end

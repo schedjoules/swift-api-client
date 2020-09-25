@@ -24,7 +24,6 @@
 //  THE SOFTWARE.
 
 import Foundation
-import enum Result.Result
 
 public final class SchedJoulesApi: Api {
     
