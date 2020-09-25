@@ -6,7 +6,6 @@ target 'ApiClient' do
   use_frameworks!
 
   # Pods for ApiClient
-  pod 'Alamofire', '~> 5.0'	
 	pod 'Result', '~> 4.0.0'
 
   target 'Tests' do

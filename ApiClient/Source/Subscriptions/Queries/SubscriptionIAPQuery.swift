@@ -24,19 +24,31 @@
 // THE SOFTWARE.
 
 import Foundation
-import Alamofire
 
 public final class SubscriptionIAPQuery: Query {
     public typealias Result = SubscriptionIAP
     
     public let url: URL = URL(string:"https://api.schedjoules.com/subscription")!
-    public let method: HTTPMethod = .get
-    public let encoding: ParameterEncoding = URLEncoding.default
-    public let parameters: Parameters = [:]
-    public let headers: HTTPHeaders = ["Accept" : "application/json"]
+    public let method: SJHTTPMethod = .get
+//    public let encoding: ParameterEncoding = URLEncoding.default
+    public let parameters: [String : AnyObject] = [:]
+    public let headers: [String : String] = ["Accept" : "application/json"]
     
     public func handleResult(with data: Data) -> SubscriptionIAP? {
-        return try? JSONDecoder().decode(JSONSubscriptionIAP.self, from: data)
+        do {
+            let page = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            print("page 1: ", page)
+        } catch {
+            print("error: ", error)
+        }
+        
+        do {
+            let value = try JSONDecoder().decode(JSONSubscriptionIAP.self, from: data)
+            return value
+        } catch {
+            print("error: ", error)
+            return nil
+        }
     }
     
     public init() {}

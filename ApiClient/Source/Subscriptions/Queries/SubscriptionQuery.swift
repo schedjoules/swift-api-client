@@ -24,17 +24,16 @@
 // THE SOFTWARE.
 
 import Foundation
-import Alamofire
 import StoreKit
 
 public final class SubscriptionQuery: Query {
+    
     public typealias Result = Subscription
     
     public let url: URL = URL(string:"https://api.schedjoules.com/subscription")!
-    public let method: HTTPMethod = .post
-    public let encoding: ParameterEncoding = JSONEncoding.default
-    public let parameters: Parameters
-    public let headers: HTTPHeaders = ["Accept" : "application/json",
+    public let method: SJHTTPMethod = .post
+    public let parameters: [String : AnyObject]
+    public let headers: [String : String] = ["Accept" : "application/json",
                                        "x-app-id" : Bundle.main.bundleIdentifier ?? "",
                                        "x-user-id" : UIDevice.current.identifierForVendor?.uuidString ?? "",
                                        "x-locale" : Locale.current.regionCode!]
@@ -59,16 +58,32 @@ public final class SubscriptionQuery: Query {
             "pricing" : pricing,
             "formattedPrice" : formattedPrice,
             "originalTransactionId" : originalTransactionId
-            ] as [String : Any]
-        let requestContents: [String: Any] = [
+            ] as [String : AnyObject]
+        
+        let requestContents = [
             "transactions": [transactionDictionary],
             "receipt" : receipt
-        ]
+        ] as [String : AnyObject]
         
         self.parameters = requestContents
     }
     
     public func handleResult(with data: Data) -> Subscription? {
-        return try? JSONDecoder().decode(JSONSubscription.self, from: data)
+        
+        do {
+            let weatherSettings = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            print("Subscription 1: ", weatherSettings)
+        } catch {
+            print("error: ", error)
+            print("")
+        }
+        
+        do {
+            let json = try JSONDecoder().decode(JSONSubscription.self, from: data)
+            return json
+        } catch {
+            print("error: ", error)
+            return nil
+        }
     }
 }

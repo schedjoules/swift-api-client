@@ -25,17 +25,16 @@ import Foundation
 //  THE SOFTWARE.
 
 import Foundation
-import Alamofire
 import MapKit
 
 public final class WeatherCitiesQuery: Query {
     public typealias Result = [WeatherAnnotation]
     
     public let url: URL
-    public let method: HTTPMethod = .get
-    public let encoding: ParameterEncoding = URLEncoding.default
-    public let parameters: Parameters = [:]
-    public let headers: HTTPHeaders = ["Accept" : "application/json"]
+    public let method: SJHTTPMethod = .get
+//    public let encoding: ParameterEncoding = URLEncoding.default
+    public let parameters: [String : AnyObject] = [:]
+    public let headers: [String : String] = ["Accept" : "application/json"]
     
     private init(queryItems: [URLQueryItem]) {
         // Initialize url components from a string

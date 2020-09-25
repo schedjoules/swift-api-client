@@ -24,77 +24,48 @@
 //  THE SOFTWARE.
 
 import Foundation
-import Alamofire
 import enum Result.Result
 
 public final class SchedJoulesApi: Api {
+    
     private let accessToken: String
     private let userId: String
-    private let session: Alamofire.Session
     private let apiDomain = ".schedjoules.com"
     
     // Initiliaze with an access token
     public required init (accessToken: String, userId: String) {
         self.accessToken = accessToken
         self.userId = userId
-        
-        // Set up a session manager
-        let configuration = URLSessionConfiguration.default
-        session = Alamofire.Session(configuration: configuration)
-        
-        // Make sure "Authorization" header is preserved between redirects (iOS drops it by default)
-//        sessionManager.delegate.taskWillPerformHTTPRedirection = { session, task, response, request in
-//            var mutableRequest = request
-//            mutableRequest.setValue("Token token=\(self.accessToken)", forHTTPHeaderField: "Authorization")
-//            return mutableRequest
-//        }
     }
     
     // Execute a request object
-    public func execute<T: Query> (query: T, completion: @escaping (Result<T.Result,ApiError>) -> Void) {
+    public func execute<T>(query: T, completion: @escaping (Result<T.Result, ApiError>) -> Void) where T : Query {
         // Check if the url of the query is in the right domain
         if query.url.host!.suffix(apiDomain.count) != apiDomain {
             completion(.failure(ApiError.invalidDomain))
         }
         
-        // Set required HTTP headers
-        var headers = session.sessionConfiguration.headers
-        headers["Authorization"] = "Token token=\(accessToken)"
-        
-        // Add headers from request object
-        query.headers.forEach { (header) in
-            headers[header.name] = header.value
-        }
-        
-        //Update the parameters to include the userId
-        var updatedParameters = query.parameters
-        updatedParameters["u"] = userId
-        
-        // Execute the request
-        session.request(query.url, method: query.method, parameters: updatedParameters, encoding: query.encoding, headers: headers).validate().responseData { response in
-            switch response.result {
-            case .success(let value):
-                print(String(data: value, encoding: .utf8)!)
-//                guard let responseData = value else {
-//                    completion(.failure(ApiError.emptyResponseData))
-//                    return
-//                }
-                guard let handledResult = query.handleResult(with: value) else {
-                    completion(.failure(ApiError.errorHandlingResult))
-                    return
-                }
-                completion(.success(handledResult))
-            case .failure(let error):
-                guard let data = response.data else {
-                    completion(.failure(ApiError.error(error, response: nil)))
-                    return
-                }
-                guard let stringResponse = String(data: data, encoding: .utf8) else {
-                    completion(.failure(ApiError.error(error, response: nil)))
-                    return
-                }
-                completion(.failure(ApiError.error(error, response: stringResponse)))
+        var request = URLRequest(url: query.url)
+        request.addValue("Token token=\(accessToken)", forHTTPHeaderField: "Authorization")
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard error == nil else {
+                completion(.failure(ApiError.error(error!, response: nil)))
+                return
             }
+            guard let data = data else {
+                completion(.failure(ApiError.errorHandlingResult))
+                return
+            }
+            
+            guard let handledResult = query.handleResult(with: data) else {
+                completion(.failure(ApiError.errorHandlingResult))
+                return
+            }
+            
+            completion(.success(handledResult))
         }
+        
+        task.resume()
     }
+    
 }

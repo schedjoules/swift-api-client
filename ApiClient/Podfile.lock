@@ -1,21 +1,16 @@
 PODS:
-  - Alamofire (5.2.2)
   - Result (4.0.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.0)
   - Result (~> 4.0.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Result
-  trunk:
-    - Alamofire
 
 SPEC CHECKSUMS:
-  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   Result: a6e784bebf48b471d59cddc1adb81f41f678c487
 
-PODFILE CHECKSUM: 55e8bad6233ef74661dbb474ff659ca9ce53ebc8
+PODFILE CHECKSUM: f6f0f1029fe67fe61439785432779e0c96dadb24
 
 COCOAPODS: 1.9.3

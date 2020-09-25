@@ -24,19 +24,31 @@
 //  THE SOFTWARE.
 
 import Foundation
-import Alamofire
 
 public final class SupportedCountriesQuery: Query {
     public typealias Result = [JSONCountry]
     
     public let url: URL = URL(string:"https://api.schedjoules.com/countries")!
-    public let method: HTTPMethod = .get
-    public let encoding: ParameterEncoding = URLEncoding.default
-    public let parameters: Parameters = [:]
-    public let headers: HTTPHeaders = ["Accept" : "application/json"]
+    public let method: SJHTTPMethod = .get
+//    public let encoding: ParameterEncoding = URLEncoding.default
+    public let parameters: [String : AnyObject] = [:]
+    public let headers: [String : String] = ["Accept" : "application/json"]
     
     public func handleResult(with data: Data) -> [JSONCountry]? {
-        return try? JSONDecoder().decode([JSONCountry].self, from: data)
+        do {
+            let page = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            print("page 1: ", page)
+        } catch {
+            print("error: ", error)
+        }
+        
+        do {
+            let value = try JSONDecoder().decode([JSONCountry].self, from: data)
+            return value
+        } catch {
+            print("error: ", error)
+            return nil
+        }
     }
     
     // Explicitly declare the default initializer public
