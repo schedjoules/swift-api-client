@@ -15,6 +15,5 @@ This pod contains classes which make it easier to interact with the SchedJoules 
   s.swift_version = '5.0'
   s.ios.deployment_target = '10.0'
   s.source_files = 'ApiClient/Source/**/*.swift'
-4
  
 end
