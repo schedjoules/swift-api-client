@@ -25,7 +25,7 @@
 
 import Foundation
 
-public final class SchedJoulesApi: Api {
+public final class SchedJoulesApi: NSObject, Api {
     
     private let accessToken: String
     private let userId: String
@@ -35,6 +35,8 @@ public final class SchedJoulesApi: Api {
     public required init (accessToken: String, userId: String) {
         self.accessToken = accessToken
         self.userId = userId
+        
+        super.init()
     }
     
     // Execute a request object
@@ -43,14 +45,22 @@ public final class SchedJoulesApi: Api {
         if query.url.host!.suffix(apiDomain.count) != apiDomain {
             completion(.failure(ApiError.invalidDomain))
         }
+        //Update the parameters to include the userId
+        var updatedParameters = query.parameters
+        updatedParameters["u"] = userId as AnyObject
         
         var request = URLRequest(url: query.url)
         request.addValue("Token token=\(accessToken)", forHTTPHeaderField: "Authorization")
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        
+        let sessionConfig: URLSessionConfiguration = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig, delegate: self, delegateQueue: nil)
+        
+        let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             guard error == nil else {
                 completion(.failure(ApiError.error(error!, response: nil)))
                 return
             }
+            
             guard let data = data else {
                 completion(.failure(ApiError.errorHandlingResult))
                 return
@@ -62,9 +72,28 @@ public final class SchedJoulesApi: Api {
             }
             
             completion(.success(handledResult))
-        }
+        })
         
         task.resume()
+    }
+    
+}
+
+extension SchedJoulesApi: URLSessionDelegate, URLSessionTaskDelegate {
+    
+    public func urlSession(_ session: URLSession,
+                           task: URLSessionTask,
+                           willPerformHTTPRedirection response: HTTPURLResponse,
+                           newRequest request: URLRequest,
+                           completionHandler: @escaping (URLRequest?) -> Void) {
+        guard let url = request.url else {
+            completionHandler(request)
+            return
+        }
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = request.httpMethod
+        urlRequest.setValue("Token token=\(self.accessToken)", forHTTPHeaderField: "Authorization")
+        completionHandler(urlRequest)
     }
     
 }

@@ -68,9 +68,6 @@ public protocol Query {
     
     /**
 //     Specifies how the query parameters should be encoded.
-//
-//    **See:**
-//     [Alamofire ParameterEncoding](https://github.com/Alamofire/Alamofire/blob/master/Source/ParameterEncoding.swift)
 //     */
 //    var encoding: ParameterEncoding { get }
     
