@@ -43,7 +43,9 @@ public final class SchedJoulesApi: NSObject, Api {
     public func execute<T>(query: T, completion: @escaping (Result<T.Result, ApiError>) -> Void) where T : Query {
         // Check if the url of the query is in the right domain
         if query.url.host!.suffix(apiDomain.count) != apiDomain {
-            completion(.failure(ApiError.invalidDomain))
+            DispatchQueue.main.async {
+                completion(.failure(ApiError.invalidDomain))
+            }
         }
         //Update the parameters to include the userId
         var updatedParameters = query.parameters
@@ -57,21 +59,29 @@ public final class SchedJoulesApi: NSObject, Api {
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             guard error == nil else {
-                completion(.failure(ApiError.error(error!, response: nil)))
+                DispatchQueue.main.async {
+                    completion(.failure(ApiError.error(error!, response: nil)))
+                }
                 return
             }
             
             guard let data = data else {
-                completion(.failure(ApiError.errorHandlingResult))
+                DispatchQueue.main.async {
+                    completion(.failure(ApiError.errorHandlingResult))
+                }
                 return
             }
             
             guard let handledResult = query.handleResult(with: data) else {
-                completion(.failure(ApiError.errorHandlingResult))
+                DispatchQueue.main.async {
+                    completion(.failure(ApiError.errorHandlingResult))
+                }
                 return
             }
             
-            completion(.success(handledResult))
+            DispatchQueue.main.async {
+                completion(.success(handledResult))
+            }
         })
         
         task.resume()
@@ -87,13 +97,17 @@ extension SchedJoulesApi: URLSessionDelegate, URLSessionTaskDelegate {
                            newRequest request: URLRequest,
                            completionHandler: @escaping (URLRequest?) -> Void) {
         guard let url = request.url else {
-            completionHandler(request)
+            DispatchQueue.main.async {
+                completionHandler(request)
+            }
             return
         }
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.httpMethod
         urlRequest.setValue("Token token=\(self.accessToken)", forHTTPHeaderField: "Authorization")
-        completionHandler(urlRequest)
+        DispatchQueue.main.async {
+            completionHandler(urlRequest)
+        }
     }
     
 }
