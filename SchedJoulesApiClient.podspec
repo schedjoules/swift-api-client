@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SchedJoulesApiClient'
-  s.version          = '0.7.8'
+  s.version          = '0.8.0'
   s.summary          = 'The ApiClient for the SchedJoules API, written in Swift.'
  
   s.description      = <<-DESC
@@ -13,7 +13,7 @@ This pod contains classes which make it easier to interact with the SchedJoules 
   s.source           = { :git => 'https://github.com/schedjoules/swift-api-client.git', :tag => s.version.to_s }
 
   s.swift_version = '5.0'
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '11.0'
   s.source_files = 'ApiClient/Source/**/*.swift'
  
 end
