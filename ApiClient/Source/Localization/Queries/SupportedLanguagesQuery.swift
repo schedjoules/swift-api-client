@@ -24,16 +24,15 @@
 //  THE SOFTWARE.
 
 import Foundation
-import Alamofire
 
 public final class SupportedLanguagesQuery: Query {
     public typealias Result = [JSONLanguage]
     
     public let url: URL = URL(string:"https://api.schedjoules.com/languages")!
-    public let method: HTTPMethod = .get
-    public let encoding: ParameterEncoding = URLEncoding.default
-    public let parameters: Parameters = [:]
-    public let headers: HTTPHeaders = ["Accept" : "application/json"]
+    public let method: SJHTTPMethod = .get
+//    public let encoding: ParameterEncoding = URLEncoding.default
+    public let parameters: [String : AnyObject] = [:]
+    public let headers: [String : String] = ["Accept" : "application/json"]
     
     public func handleResult(with data: Data) -> [JSONLanguage]? {
         return try? JSONDecoder().decode([JSONLanguage].self, from: data)

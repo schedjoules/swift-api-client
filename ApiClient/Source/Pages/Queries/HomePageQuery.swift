@@ -24,17 +24,17 @@
 //  THE SOFTWARE.
 
 import Foundation
-import Alamofire
 
 public final class HomePageQuery: Query {
+    
     public typealias Result = Page
-
+    
     public let url: URL
-    public let method: HTTPMethod = .get
-    public let encoding: ParameterEncoding = URLEncoding.default
-    public let parameters: Parameters = [:]
-    public let headers: HTTPHeaders = ["Accept" : "application/json"]
-
+    public let method: SJHTTPMethod = .get
+//    public let encoding: ParameterEncoding = URLEncoding.default
+    public let parameters: [String : AnyObject] = [:]
+    public let headers: [String : String] = ["Accept" : "application/json"]
+    
     private init(queryItems: [URLQueryItem]) {
         // Initialize url components from a string
         var urlComponents = URLComponents(string: "https://api.schedjoules.com/pages")
@@ -46,7 +46,8 @@ public final class HomePageQuery: Query {
     
     /// Automatically add locale and location parameter to the pages URL
     public convenience init() {
-        self.init(locale: Locale.preferredLanguages[0].components(separatedBy: "-")[0], location: Locale.current.regionCode!)
+        self.init(locale: Locale.preferredLanguages[0].components(separatedBy: "-")[0],
+                  location: Locale.current.regionCode!)
     }
     
     /// Manualy specify locale and location parameters
@@ -54,9 +55,25 @@ public final class HomePageQuery: Query {
         self.init(queryItems: [URLQueryItem(name: "locale", value: locale),
                                URLQueryItem(name: "location", value: location)])
     }
-    
-    /// Return a Page object from the data
+
     public func handleResult(with data: Data) -> Page? {
-        return try? JSONDecoder().decode(JSONPage.self, from: data)
+        
+        do {
+            let weatherSettings = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            print("weatherSettings 1: ", weatherSettings)
+        } catch {
+            print("error: ", error)
+        }
+        
+        
+        
+        do {
+            let value = try JSONDecoder().decode(JSONPage.self, from: data)
+            return value
+        } catch {
+            print("error: ", error)
+            return nil
+        }
     }
+
 }

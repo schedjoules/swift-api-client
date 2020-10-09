@@ -24,16 +24,15 @@
 //  THE SOFTWARE.
 
 import Foundation
-import Alamofire
 
 public final class SearchQuery: Query {
     public typealias Result = Page
     
     public let url: URL
-    public let method: HTTPMethod = .get
-    public let encoding: ParameterEncoding = URLEncoding.default
-    public let parameters: Parameters = [:]
-    public let headers: HTTPHeaders = ["Accept" : "application/json"]
+    public let method: SJHTTPMethod = .get
+//    public let encoding: ParameterEncoding = URLEncoding.default
+    public let parameters: [String : AnyObject] = [:]
+    public let headers: [String : String] = ["Accept" : "application/json"]
     
     private init(queryItems: [URLQueryItem]) {
         // Initialize url components from a string
@@ -52,7 +51,20 @@ public final class SearchQuery: Query {
     
     /// Return a Page object from the data
     public func handleResult(with data: Data) -> Page? {
-        return try? JSONDecoder().decode(JSONPage.self, from: data)
+        do {
+            let page = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            print("page 1: ", page)
+        } catch {
+            print("error: ", error)
+        }
+        
+        do {
+            let value = try JSONDecoder().decode(JSONPage.self, from: data)
+            return value
+        } catch {
+            print("error: ", error)
+            return nil
+        }
     }
     
 }

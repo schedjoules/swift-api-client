@@ -1,3 +1,4 @@
 /ApiClient/Pods
 /ApiClient/ApiClient.xcworkspace/xcuserdata/
 /ApiClient/Tests/API.plist
+*.xcbkptlist

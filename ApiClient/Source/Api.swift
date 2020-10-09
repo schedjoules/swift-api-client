@@ -24,7 +24,6 @@
 //  THE SOFTWARE.
 
 import Foundation
-import Result
 
 public protocol Api {
     /**

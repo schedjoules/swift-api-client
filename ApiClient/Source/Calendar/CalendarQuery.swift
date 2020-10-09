@@ -24,16 +24,15 @@
 //  THE SOFTWARE.
 
 import Foundation
-import Alamofire
 
 public final class CalendarQuery: Query {
     public typealias Result = ICalendar
 
     public let url: URL
-    public let method: HTTPMethod = .get
-    public let encoding: ParameterEncoding = URLEncoding.default
-    public let parameters: Parameters = [:]
-    public let headers: HTTPHeaders = ["Accept" : "text/calendar"]
+    public let method: SJHTTPMethod = .get
+//    public let encoding: ParameterEncoding = URLEncoding.default
+    public let parameters: [String : AnyObject] = [:]
+    public let headers: [String : String] = ["Accept" : "application/json"]
     
     public required init(url: URL) {
         self.url = url

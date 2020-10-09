@@ -24,16 +24,16 @@
 //  THE SOFTWARE.
 
 import Foundation
-import Alamofire
 
 public final class WeatherSettingsQuery: Query {
+    
     public typealias Result = WeatherSettings
-
+    
     public let url: URL
-    public let method: HTTPMethod = .get
-    public let encoding: ParameterEncoding = URLEncoding.default
-    public let parameters: Parameters = [:]
-    public let headers: HTTPHeaders = ["Accept" : "application/json"]
+    public let method: SJHTTPMethod = .get
+//    public let encoding: ParameterEncoding = URLEncoding.default
+    public let parameters: [String : AnyObject] = [:]
+    public let headers: [String : String] = ["Accept" : "application/json"]
     
     private init(queryItems: [URLQueryItem]) {
         // Initialize url components from a string
@@ -46,7 +46,8 @@ public final class WeatherSettingsQuery: Query {
     
     /// Automatically add locale and location parameter to the pages URL
     public convenience init() {
-        self.init(locale: Locale.preferredLanguages[0].components(separatedBy: "-")[0], location: Locale.current.regionCode!)
+        self.init(locale: Locale.preferredLanguages[0].components(separatedBy: "-")[0],
+                  location: Locale.current.regionCode!)
     }
     
     /// Manualy specify locale and location parameters
@@ -55,11 +56,22 @@ public final class WeatherSettingsQuery: Query {
                                URLQueryItem(name: "location", value: location)])
     }
 
-    public func handleResult(with data: Data) -> WeatherSettings? {        
+    public func handleResult(with data: Data) -> WeatherSettings? {
+        
+        do {
+            let weatherSettings = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            print("weatherSettings 1: ", weatherSettings)
+        } catch {
+            print("error: ", error)
+        }
+        
+        
+        
         do {
             let weatherSettings = try JSONDecoder().decode(JSONWeatherSettings.self, from: data)
             return weatherSettings
         } catch {
+            print("error: ", error)
             return nil
         }
     }

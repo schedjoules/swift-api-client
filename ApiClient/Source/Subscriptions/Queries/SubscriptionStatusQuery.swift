@@ -24,16 +24,15 @@
 // THE SOFTWARE.
 
 import Foundation
-import Alamofire
 
 public final class SubscriptionStatusQuery: Query {
     public typealias Result = Subscription
     
     public let url: URL
-    public let method: HTTPMethod = .get
-    public let encoding: ParameterEncoding = URLEncoding.default
-    public let parameters: Parameters = [:]
-    public let headers: HTTPHeaders = ["Accept" : "application/json"]
+    public let method: SJHTTPMethod = .get
+//    public let encoding: ParameterEncoding = URLEncoding.default
+    public let parameters: [String : AnyObject] = [:]
+    public let headers: [String : String] = ["Accept" : "application/json"]
     
     /**
      Initalize with a given subscription identifier..
@@ -45,11 +44,19 @@ public final class SubscriptionStatusQuery: Query {
     
     public func handleResult(with data: Data) -> Subscription? {
         do {
-            let subscription = try JSONDecoder().decode(JSONSubscription.self, from: data)
-            return subscription
+            let page = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            print("page 1: ", page)
         } catch {
+            print("error: ", error)
+        }
+        
+        do {
+            let value = try JSONDecoder().decode(JSONSubscription.self, from: data)
+            return value
+        } catch {
+            print("error: ", error)
             return nil
         }
     }
-
+    
 }

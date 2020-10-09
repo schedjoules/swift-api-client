@@ -24,9 +24,14 @@
 //  THE SOFTWARE.
 
 import Foundation
-import Alamofire
+
+public enum SJHTTPMethod: String {
+    case post = "POST"
+    case get = "GET"
+}
 
 public protocol Query {
+    
     /// The type returned by the query.
     associatedtype Result
     
@@ -39,7 +44,7 @@ public protocol Query {
      **See:**
      [HTTP method types](https://tools.ietf.org/html/rfc7231#section-4.3)
      */
-    var method: HTTPMethod { get }
+    var method: SJHTTPMethod { get }
     
     /**
      The parameters are key-value pairs to append to the request. Used mostly for `POST` requests.
@@ -49,7 +54,7 @@ public protocol Query {
      ["username" : "user", "password" : "pass"]
      ````
      */
-    var parameters: Parameters { get }
+    var parameters: [String : AnyObject] { get }
     
     /**
      The HTTP headers for the query.
@@ -59,15 +64,12 @@ public protocol Query {
      ["Accept" : "application/json"]
      ````
      */
-    var headers: HTTPHeaders { get }
+    var headers: [String : String] { get }
     
     /**
-     Specifies how the query parameters should be encoded.
-     
-    **See:**
-     [Alamofire ParameterEncoding](https://github.com/Alamofire/Alamofire/blob/master/Source/ParameterEncoding.swift)
-     */
-    var encoding: ParameterEncoding { get }
+//     Specifies how the query parameters should be encoded.
+//     */
+//    var encoding: ParameterEncoding { get }
     
     /// Turn the response from the API into the associated type.
     func handleResult(with data: Data) -> Result?
