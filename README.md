@@ -30,5 +30,4 @@ The Api Client also includes model classes. These all conform to the `Decodable`
 
 ## Legacy
 If you want to use the latest version supported that includes [Alamofire](https://github.com/Alamofire/Alamofire) and [Result](https://github.com/antitypical/Result) you can point your pod file to the `legacy-0.7.8` branch.
-```pod 'SchedJoulesApiClient', :git => 'https://github.com/schedjoules/swift-api-client.git', :branch => 'legacy-0.7.8'
-``
+``pod 'SchedJoulesApiClient', :git => 'https://github.com/schedjoules/swift-api-client.git', :branch => 'legacy-0.7.8'
