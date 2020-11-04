@@ -36,7 +36,7 @@ public final class SubscriptionQuery: Query {
     public let headers: [String : String] = ["Accept" : "application/json",
                                        "x-app-id" : Bundle.main.bundleIdentifier ?? "",
                                        "x-user-id" : UIDevice.current.identifierForVendor?.uuidString ?? "",
-                                       "x-locale" : Locale.current.regionCode!]
+                                       "x-locale" : Locale.current.regionCode ?? ""]
     
     
     public init(transaction: SKPaymentTransaction, product: SKProduct, receipt: String) {
@@ -69,15 +69,6 @@ public final class SubscriptionQuery: Query {
     }
     
     public func handleResult(with data: Data) -> Subscription? {
-        
-        do {
-            let weatherSettings = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-            print("Subscription 1: ", weatherSettings)
-        } catch {
-            print("error: ", error)
-            print("")
-        }
-        
         do {
             let json = try JSONDecoder().decode(JSONSubscription.self, from: data)
             return json
