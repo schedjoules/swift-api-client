@@ -36,13 +36,6 @@ public final class SupportedCountriesQuery: Query {
     
     public func handleResult(with data: Data) -> [JSONCountry]? {
         do {
-            let page = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-            print("page 1: ", page)
-        } catch {
-            print("error: ", error)
-        }
-        
-        do {
             let value = try JSONDecoder().decode([JSONCountry].self, from: data)
             return value
         } catch {

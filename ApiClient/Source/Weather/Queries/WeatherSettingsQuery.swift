@@ -47,7 +47,7 @@ public final class WeatherSettingsQuery: Query {
     /// Automatically add locale and location parameter to the pages URL
     public convenience init() {
         self.init(locale: Locale.preferredLanguages[0].components(separatedBy: "-")[0],
-                  location: Locale.current.regionCode!)
+                  location: Locale.current.regionCode ?? "")
     }
     
     /// Manualy specify locale and location parameters
@@ -57,16 +57,6 @@ public final class WeatherSettingsQuery: Query {
     }
 
     public func handleResult(with data: Data) -> WeatherSettings? {
-        
-        do {
-            let weatherSettings = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-            print("weatherSettings 1: ", weatherSettings)
-        } catch {
-            print("error: ", error)
-        }
-        
-        
-        
         do {
             let weatherSettings = try JSONDecoder().decode(JSONWeatherSettings.self, from: data)
             return weatherSettings

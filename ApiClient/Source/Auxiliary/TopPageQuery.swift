@@ -58,13 +58,6 @@ public final class TopPageQuery: Query {
     /// Return a Page object from the data
     public func handleResult(with data: Data) -> Page? {
         do {
-            let page = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-            print("page 1: ", page)
-        } catch {
-            print("error: ", error)
-        }
-        
-        do {
             let value = try JSONDecoder().decode(JSONPage.self, from: data)
             return value
         } catch {
