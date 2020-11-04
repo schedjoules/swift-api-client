@@ -2,3 +2,4 @@
 /ApiClient/ApiClient.xcworkspace/xcuserdata/
 /ApiClient/Tests/API.plist
 *.xcbkptlist
+*.xcuserstate
