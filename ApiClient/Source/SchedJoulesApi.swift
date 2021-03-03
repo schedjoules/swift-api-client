@@ -51,8 +51,16 @@ public final class SchedJoulesApi: NSObject, Api {
         var updatedParameters = query.parameters
         updatedParameters["u"] = userId as AnyObject
         
-        var request = URLRequest(url: query.url)
+        var queryURlComponents = URLComponents(string: query.url.absoluteString)!
+        let currentQueryItems = queryURlComponents.queryItems ?? []
+        
+        queryURlComponents.queryItems = currentQueryItems + updatedParameters.map {
+            URLQueryItem(name: $0.key, value: String(describing: $0.value))
+        }
+                
+        var request = URLRequest(url: queryURlComponents.url!)
         request.addValue("Token token=\(accessToken)", forHTTPHeaderField: "Authorization")
+        
         
         let sessionConfig: URLSessionConfiguration = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig, delegate: self, delegateQueue: nil)
