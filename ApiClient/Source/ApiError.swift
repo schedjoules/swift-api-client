@@ -34,4 +34,6 @@ public enum ApiError: Error {
     case errorHandlingResult
     /// The URL of the passed in query is not in the `schedjoules.com` domain.
     case invalidDomain
+    /// The URL of the passed in query failed to create a URLComponents
+    case invalidURL
 }

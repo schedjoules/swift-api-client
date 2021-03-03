@@ -51,7 +51,30 @@ public final class SchedJoulesApi: NSObject, Api {
         var updatedParameters = query.parameters
         updatedParameters["u"] = userId as AnyObject
         
-        var request = URLRequest(url: query.url)
+        //Create URLComponents using the query url to add the updated parameter
+        guard var queryURLComponents = URLComponents(url: query.url, resolvingAgainstBaseURL: false) else {                completion(.failure(ApiError.invalidURL))
+            return
+        }
+        
+        //Create the updated parameters for the query avoiding invalid values for a URLQueryItem
+        let updatedQueryParameters = updatedParameters.compactMap({ (parameter) -> URLQueryItem? in
+            guard let value = parameter.value as? String else {
+                return nil
+            }
+            return URLQueryItem(name: parameter.key, value: value)
+        })
+        
+        //Append the updated parameters to the URLComponents
+        queryURLComponents.queryItems?.append(contentsOf: updatedQueryParameters)
+        
+        //Confirm a valid url can be created from the URLComponents
+        guard let updatedURL = queryURLComponents.url else {
+            completion(.failure(ApiError.invalidURL))
+            return
+        }
+        
+        //Create and start the request
+        var request = URLRequest(url: updatedURL)
         request.addValue("Token token=\(accessToken)", forHTTPHeaderField: "Authorization")
         
         let sessionConfig: URLSessionConfiguration = URLSessionConfiguration.default
