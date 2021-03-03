@@ -51,16 +51,31 @@ public final class SchedJoulesApi: NSObject, Api {
         var updatedParameters = query.parameters
         updatedParameters["u"] = userId as AnyObject
         
-        var queryURlComponents = URLComponents(string: query.url.absoluteString)!
-        let currentQueryItems = queryURlComponents.queryItems ?? []
-        
-        queryURlComponents.queryItems = currentQueryItems + updatedParameters.map {
-            URLQueryItem(name: $0.key, value: String(describing: $0.value))
+        //Create URLComponents using the query url to add the updated parameter
+        guard var queryURLComponents = URLComponents(url: query.url, resolvingAgainstBaseURL: false) else {                completion(.failure(ApiError.invalidURL))
+            return
         }
-                
-        var request = URLRequest(url: queryURlComponents.url!)
-        request.addValue("Token token=\(accessToken)", forHTTPHeaderField: "Authorization")
         
+        //Create the updated parameters for the query avoiding invalid values for a URLQueryItem
+        let updatedQueryParameters = updatedParameters.compactMap({ (parameter) -> URLQueryItem? in
+            guard let value = parameter.value as? String else {
+                return nil
+            }
+            return URLQueryItem(name: parameter.key, value: value)
+        })
+        
+        //Append the updated parameters to the URLComponents
+        queryURLComponents.queryItems?.append(contentsOf: updatedQueryParameters)
+        
+        //Confirm a valid url can be created from the URLComponents
+        guard let updatedURL = queryURLComponents.url else {
+            completion(.failure(ApiError.invalidURL))
+            return
+        }
+        
+        //Create and start the request
+        var request = URLRequest(url: updatedURL)
+        request.addValue("Token token=\(accessToken)", forHTTPHeaderField: "Authorization")
         
         let sessionConfig: URLSessionConfiguration = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig, delegate: self, delegateQueue: nil)
