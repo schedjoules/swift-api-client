@@ -44,8 +44,12 @@ public final class Parser {
     /// Parse the parameters into a dictionary
     private static func parse(params: [String]) -> [String:String] {
         var paramsDict = [String:String]()
-        for param in params{
+        for param in params {
             let paramExploded = param.components(separatedBy: "=")
+            guard paramExploded.count > 1 else {
+                break
+            }
+            
             paramsDict[paramExploded[0]] = paramExploded[1]
         }
         return paramsDict
@@ -56,7 +60,7 @@ public final class Parser {
         let firstPart = line.components(separatedBy: ":")[0]
         let value = String(line.dropFirst(firstPart.count+1))
         
-        if firstPart.contains(";"){
+        if firstPart.contains(";") && firstPart.contains("=") {
             let key = firstPart.components(separatedBy: ";")[0]
             let paramsStripped = firstPart.dropFirst(key.count+1).components(separatedBy: ";")
             let params = parse(params: paramsStripped)
