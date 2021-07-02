@@ -65,7 +65,7 @@ public final class SchedJoulesApi: NSObject, Api {
         })
         
         //Append the updated parameters to the URLComponents
-        queryURLComponents.queryItems?.append(contentsOf: updatedQueryParameters)
+        queryURLComponents.queryItems = updatedQueryParameters
         
         //Confirm a valid url can be created from the URLComponents
         guard let updatedURL = queryURLComponents.url else {
