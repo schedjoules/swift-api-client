@@ -64,8 +64,10 @@ public final class SchedJoulesApi: NSObject, Api {
             return URLQueryItem(name: parameter.key, value: value)
         })
         
-        //Append the updated parameters to the URLComponents
-        queryURLComponents.queryItems = updatedQueryParameters
+        //Append the updated parameters to the URLComponents for GET requests
+        if query.method == .get {
+            queryURLComponents.queryItems = updatedQueryParameters
+        }
         
         //Confirm a valid url can be created from the URLComponents
         guard let updatedURL = queryURLComponents.url else {
@@ -75,7 +77,23 @@ public final class SchedJoulesApi: NSObject, Api {
         
         //Create and start the request
         var request = URLRequest(url: updatedURL)
+        
+        //Add headers
         request.addValue("Token token=\(accessToken)", forHTTPHeaderField: "Authorization")
+        query.headers.forEach { key, value in
+            request.addValue(value, forHTTPHeaderField: key)
+        }
+        
+        //Add method and body for POST requests
+        if query.method == .post {
+            do {
+                request.httpMethod = "POST"
+                let parametersData = try JSONSerialization.data(withJSONObject: query.parameters, options: .fragmentsAllowed)
+                request.httpBody = parametersData
+            } catch {
+                print("body error: ", error)
+            }
+        }
         
         let sessionConfig: URLSessionConfiguration = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig, delegate: self, delegateQueue: nil)
