@@ -52,12 +52,13 @@ public final class SchedJoulesApi: NSObject, Api {
         updatedParameters["u"] = userId as AnyObject
         
         //Create URLComponents using the query url to add the updated parameter
-        guard var queryURLComponents = URLComponents(url: query.url, resolvingAgainstBaseURL: false) else {                completion(.failure(ApiError.invalidURL))
+        guard var queryURLComponents = URLComponents(url: query.url, resolvingAgainstBaseURL: false) else {
+            completion(.failure(ApiError.invalidURL))
             return
         }
         
         //Create the updated parameters for the query avoiding invalid values for a URLQueryItem
-        let updatedQueryParameters = updatedParameters.compactMap({ (parameter) -> URLQueryItem? in
+        var updatedQueryParameters = updatedParameters.compactMap({ (parameter) -> URLQueryItem? in
             guard let value = parameter.value as? String else {
                 return nil
             }
@@ -66,6 +67,8 @@ public final class SchedJoulesApi: NSObject, Api {
         
         //Append the updated parameters to the URLComponents for GET requests
         if query.method == .get {
+            let currentQueryItems = queryURLComponents.queryItems ?? []
+            updatedQueryParameters.append(contentsOf: currentQueryItems)
             queryURLComponents.queryItems = updatedQueryParameters
         }
         
