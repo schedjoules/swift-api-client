@@ -16,6 +16,8 @@
 		467411452306B41500226EAA /* WeatherSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467411442306B41500226EAA /* WeatherSettings.swift */; };
 		467411482306B67F00226EAA /* JSONWeatherSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467411472306B67F00226EAA /* JSONWeatherSettings.swift */; };
 		4674114A2306B8CF00226EAA /* WeatherSettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467411492306B8CF00226EAA /* WeatherSettingsItem.swift */; };
+		8432B671288168AA005216DF /* RecommendationsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432B670288168AA005216DF /* RecommendationsQuery.swift */; };
+		8432B672288168AA005216DF /* RecommendationsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432B670288168AA005216DF /* RecommendationsQuery.swift */; };
 		B60CC7E020AF018A00CAE3BD /* ICalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60CC7DF20AF018A00CAE3BD /* ICalendar.swift */; };
 		B6119D2820A9ADE20077B1BB /* SKProduct+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6119D2720A9ADE20077B1BB /* SKProduct+Mock.swift */; };
 		B6119D2A20A9AF350077B1BB /* SKPaymentTransaction+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6119D2920A9AF350077B1BB /* SKPaymentTransaction+Mock.swift */; };
@@ -82,6 +84,7 @@
 		467411442306B41500226EAA /* WeatherSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSettings.swift; sourceTree = "<group>"; };
 		467411472306B67F00226EAA /* JSONWeatherSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONWeatherSettings.swift; sourceTree = "<group>"; };
 		467411492306B8CF00226EAA /* WeatherSettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSettingsItem.swift; sourceTree = "<group>"; };
+		8432B670288168AA005216DF /* RecommendationsQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsQuery.swift; sourceTree = "<group>"; };
 		B60CC7DF20AF018A00CAE3BD /* ICalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICalendar.swift; sourceTree = "<group>"; };
 		B6119D2720A9ADE20077B1BB /* SKProduct+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct+Mock.swift"; sourceTree = "<group>"; };
 		B6119D2920A9AF350077B1BB /* SKPaymentTransaction+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKPaymentTransaction+Mock.swift"; sourceTree = "<group>"; };
@@ -302,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				B637DD26207ABFE200DE4229 /* HomePageQuery.swift */,
+				8432B670288168AA005216DF /* RecommendationsQuery.swift */,
 				B637DD27207ABFE200DE4229 /* SinglePageQuery.swift */,
 				B637DD28207ABFE200DE4229 /* SearchQuery.swift */,
 			);
@@ -586,6 +590,7 @@
 				B637DD33207ABFE200DE4229 /* HomePageQuery.swift in Sources */,
 				B6791A1320AED99400E83DB8 /* Parser.swift in Sources */,
 				B6175D15208E0A0600F507C5 /* NewPageQuery.swift in Sources */,
+				8432B671288168AA005216DF /* RecommendationsQuery.swift in Sources */,
 				B6CD826820A58DE8001B1266 /* Subscription.swift in Sources */,
 				B637DD41207AC16D00DE4229 /* SchedJoulesApi.swift in Sources */,
 				B63F1F222080D24400121936 /* JSONPageSection.swift in Sources */,
@@ -614,6 +619,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B68D43B8207CEE9A00203EC7 /* ParsingTests.swift in Sources */,
+				8432B672288168AA005216DF /* RecommendationsQuery.swift in Sources */,
 				B649EB3B2078A5FE0096F7A0 /* QueryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
