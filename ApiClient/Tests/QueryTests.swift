@@ -179,6 +179,27 @@ class QueryTests: XCTestCase {
     }
     
     
+    func testLicenseQuery() {
+        let responseExpectation = expectation(description: "Received response")
+        let query = LicenseQuery(accountId: "aa5abb625cc3ec7970a709e2")
+        api.execute(query: query, completion: { result in
+            
+            
+            switch result {
+            case let .success(value):
+                print(value.licenses)
+                XCTAssertNotNil(value)
+            case let .failure(apiError):
+                print(apiError)
+                XCTFail()
+            }
+            responseExpectation.fulfill()
+        })
+        
+        wait(for: [responseExpectation], timeout: 10.0)
+    }
+    
+    
     func testNextPageQuery() {
         let responseExpectation = expectation(description: "Received response")
         let nextPageQuery = NextPageQuery(numberOfItems: 15, locale: "en")
@@ -317,3 +338,31 @@ class QueryTests: XCTestCase {
     }
     
 }
+
+
+/*
+ 
+ "account_id" = aasdfsdfsdfsdfsdfsdf970a709e2;
+ licenses =     (
+             {
+         "{}" =             {
+             "expiration_date" = "2022-12-06T11:38:33Z";
+         };
+     }
+ );
+ 
+ 
+ 
+ 
+ json:  {
+     "account_id" = aa5abb625cc3ec7970a709e2;
+     licenses =     (
+                 {
+             "{}" =             {
+                 "expiration_date" = "2022-11-08T11:54:32Z";
+             };
+         }
+     );
+ }
+ 
+ */
