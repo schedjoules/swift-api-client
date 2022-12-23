@@ -27,6 +27,10 @@
 		8432B671288168AA005216DF /* RecommendationsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432B670288168AA005216DF /* RecommendationsQuery.swift */; };
 		8432B672288168AA005216DF /* RecommendationsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432B670288168AA005216DF /* RecommendationsQuery.swift */; };
 		84B8435B2930DAEF00FB3415 /* LicenseQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B8435A2930DAEF00FB3415 /* LicenseQuery.swift */; };
+		84BF78072955BE280029A79E /* LicenseUpdateQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF78062955BE280029A79E /* LicenseUpdateQuery.swift */; };
+		84BF78092955BE3E0029A79E /* AppsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF78082955BE3E0029A79E /* AppsQuery.swift */; };
+		84BF780E2955BED80029A79E /* LicenseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF780D2955BED80029A79E /* LicenseStatus.swift */; };
+		84BF78102955BEEF0029A79E /* AppStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF780F2955BEEF0029A79E /* AppStatus.swift */; };
 		B60CC7E020AF018A00CAE3BD /* ICalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60CC7DF20AF018A00CAE3BD /* ICalendar.swift */; };
 		B6119D2820A9ADE20077B1BB /* SKProduct+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6119D2720A9ADE20077B1BB /* SKProduct+Mock.swift */; };
 		B6119D2A20A9AF350077B1BB /* SKPaymentTransaction+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6119D2920A9AF350077B1BB /* SKPaymentTransaction+Mock.swift */; };
@@ -95,6 +99,10 @@
 		467411492306B8CF00226EAA /* WeatherSettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSettingsItem.swift; sourceTree = "<group>"; };
 		8432B670288168AA005216DF /* RecommendationsQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsQuery.swift; sourceTree = "<group>"; };
 		84B8435A2930DAEF00FB3415 /* LicenseQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseQuery.swift; sourceTree = "<group>"; };
+		84BF78062955BE280029A79E /* LicenseUpdateQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseUpdateQuery.swift; sourceTree = "<group>"; };
+		84BF78082955BE3E0029A79E /* AppsQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsQuery.swift; sourceTree = "<group>"; };
+		84BF780D2955BED80029A79E /* LicenseStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseStatus.swift; sourceTree = "<group>"; };
+		84BF780F2955BEEF0029A79E /* AppStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatus.swift; sourceTree = "<group>"; };
 		B60CC7DF20AF018A00CAE3BD /* ICalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICalendar.swift; sourceTree = "<group>"; };
 		B6119D2720A9ADE20077B1BB /* SKProduct+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct+Mock.swift"; sourceTree = "<group>"; };
 		B6119D2920A9AF350077B1BB /* SKPaymentTransaction+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKPaymentTransaction+Mock.swift"; sourceTree = "<group>"; };
@@ -213,6 +221,34 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
+		84BF780A2955BE770029A79E /* License */ = {
+			isa = PBXGroup;
+			children = (
+				84BF780C2955BE8B0029A79E /* Models */,
+				84BF780B2955BE820029A79E /* Queries */,
+			);
+			path = License;
+			sourceTree = "<group>";
+		};
+		84BF780B2955BE820029A79E /* Queries */ = {
+			isa = PBXGroup;
+			children = (
+				84B8435A2930DAEF00FB3415 /* LicenseQuery.swift */,
+				84BF78062955BE280029A79E /* LicenseUpdateQuery.swift */,
+				84BF78082955BE3E0029A79E /* AppsQuery.swift */,
+			);
+			path = Queries;
+			sourceTree = "<group>";
+		};
+		84BF780C2955BE8B0029A79E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				84BF780D2955BED80029A79E /* LicenseStatus.swift */,
+				84BF780F2955BEEF0029A79E /* AppStatus.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		B6119D2B20A9AF6A0077B1BB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,7 +265,6 @@
 				B6175D12208DE49200F507C5 /* TopPageQuery.swift */,
 				B6175D16208E0A4200F507C5 /* NextPageQuery.swift */,
 				B6175D14208E0A0600F507C5 /* NewPageQuery.swift */,
-				84B8435A2930DAEF00FB3415 /* LicenseQuery.swift */,
 			);
 			path = Auxiliary;
 			sourceTree = "<group>";
@@ -294,6 +329,7 @@
 				B637DD40207AC16C00DE4229 /* Query.swift */,
 				B637DD3D207AC16C00DE4229 /* SchedJoulesApi.swift */,
 				B6791A0A20AED99400E83DB8 /* Calendar */,
+				84BF780A2955BE770029A79E /* License */,
 				4674113D2306B01F00226EAA /* Weather */,
 				B6CD826120A58BB7001B1266 /* Subscriptions */,
 				B6175D11208DE37F00F507C5 /* Auxiliary */,
@@ -577,6 +613,7 @@
 				B637DD43207AC16D00DE4229 /* Api.swift in Sources */,
 				460CA4F8230C00AA001CBB8E /* WeatherCitiesQuery.swift in Sources */,
 				B60CC7E020AF018A00CAE3BD /* ICalendar.swift in Sources */,
+				84BF78092955BE3E0029A79E /* AppsQuery.swift in Sources */,
 				B637DD34207ABFE200DE4229 /* SinglePageQuery.swift in Sources */,
 				B63F1F202080D24400121936 /* Page.swift in Sources */,
 				B633B57F2060630600685458 /* ViewController.swift in Sources */,
@@ -598,6 +635,9 @@
 				B6CD826320A58BB7001B1266 /* SubscriptionIAPQuery.swift in Sources */,
 				B66C52A020A5A859009F9A2F /* JSONSubscriptionIAP.swift in Sources */,
 				B63F1F1D2080D24400121936 /* Item.swift in Sources */,
+				84BF78072955BE280029A79E /* LicenseUpdateQuery.swift in Sources */,
+				84BF78102955BEEF0029A79E /* AppStatus.swift in Sources */,
+				84BF780E2955BED80029A79E /* LicenseStatus.swift in Sources */,
 				B637DD33207ABFE200DE4229 /* HomePageQuery.swift in Sources */,
 				B6791A1320AED99400E83DB8 /* Parser.swift in Sources */,
 				B6175D15208E0A0600F507C5 /* NewPageQuery.swift in Sources */,

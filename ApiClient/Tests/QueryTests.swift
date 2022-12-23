@@ -179,15 +179,57 @@ class QueryTests: XCTestCase {
     }
     
     
-    func testLicenseQuery() {
+    func testLicenseUpdateQuery() {
         let responseExpectation = expectation(description: "Received response")
-        let query = LicenseQuery(accountId: "aa5abb625cc3ec7970a709e2")
+        let query = LicenseUpdateQuery(userId: "aa5abb625cc3ec7970a709e2", expirationDate: Calendar.current.date(byAdding: .day, value: 7, to: Date())!)
         api.execute(query: query, completion: { result in
             
             
             switch result {
             case let .success(value):
-                print(value.licenses)
+                print(value)
+                XCTAssertNotNil(value)
+            case let .failure(apiError):
+                print(apiError)
+                XCTFail()
+            }
+            responseExpectation.fulfill()
+        })
+        
+        wait(for: [responseExpectation], timeout: 10.0)
+    }
+    
+    
+    func testLicensesQuery() {
+        let responseExpectation = expectation(description: "Received response")
+        let query = LicenseQuery(userId: "aa5abb625cc3ec7970a709e2", expirationDate: Calendar.current.date(byAdding: .day, value: 7, to: Date())!)
+        api.execute(query: query, completion: { result in
+            print("result: ", result)
+            
+            switch result {
+            case let .success(value):
+                print(value)
+                XCTAssertNotNil(value)
+            case let .failure(apiError):
+                print(apiError)
+                XCTFail()
+            }
+            responseExpectation.fulfill()
+        })
+        
+        wait(for: [responseExpectation], timeout: 10.0)
+    }
+    
+    
+    func testAppsQuery() {
+        let responseExpectation = expectation(description: "Received response")
+        let query = AppsQuery(userId: "aa5abb625cc3ec7970a709e2", expirationDate: Calendar.current.date(byAdding: .day, value: 7, to: Date())!)
+        api.execute(query: query, completion: { result in
+            print("result: ", result)
+            
+            switch result {
+            case let .success(value):
+                print(value)
                 XCTAssertNotNil(value)
             case let .failure(apiError):
                 print(apiError)
