@@ -35,8 +35,11 @@ public final class LicenseQuery: Query {
     
     private init(_ userId: String, expirationDate: Date) {
         self.url = URL(string: "https://api.schedjoules.com/accounts/\(userId)/licenses")!
-        self.parameters = ["product_id" : "com.schedjoules.ApiClient",
-                           "expiration_date": Int(expirationDate.timeIntervalSince1970)] as! [String : AnyObject]
+        
+        self.parameters = ["expiration_date": Int(expirationDate.timeIntervalSince1970)] as! [String : AnyObject]
+        if let bundle = Bundle.main.bundleIdentifier {
+            self.parameters["product_id"] = bundle as AnyObject
+        }
     }
     
     /// Initialize with the number of items to return
@@ -49,6 +52,10 @@ public final class LicenseQuery: Query {
         do {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            let json = try JSONSerialization.jsonObject(with: data)
+            print("json: ", json)
+            
             
             let value = try decoder.decode(LicenseStatus.self, from: data)
             return value
