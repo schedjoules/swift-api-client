@@ -197,10 +197,25 @@ class QueryTests: XCTestCase {
         })
         
         wait(for: [responseExpectation], timeout: 10.0)
+        
+        /*
+         cURL:  curl --verbose \
+          'https://api.schedjoules.com/accounts/aa5abb625cc3ec7970a709e2/licenses' \
+          -X POST \
+          -H 'Accept: application/json' \
+          -H 'Authorization: Token token=40ee2077c5f0f98b65e26af8a343efbc' \
+          --data '{"product_id":"com.schedjoules.ApiClient","expiration_date":1678714934}' \
+         */
     }
     
     
     func testLicensesQuery() {
+        /*
+         cURL:  curl --verbose \
+          'https://api.schedjoules.com/accounts/aa5abb625cc3ec7970a709e2/licenses?product_id=com.schedjoules.ApiClient&u=FA8D0802-6587-4CDB-8625-58A4141826DC' \
+          -H 'Accept: application/json' \
+          -H 'Authorization: Token token=40ee2077c5f0f98b65e26af8a343efbc' \
+         */
         let responseExpectation = expectation(description: "Received response")
         let query = LicenseQuery(userId: "aa5abb625cc3ec7970a709e2", expirationDate: Calendar.current.date(byAdding: .day, value: 7, to: Date())!)
         api.execute(query: query, completion: { result in
