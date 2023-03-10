@@ -31,7 +31,7 @@ import MapKit
 class QueryTests: XCTestCase {
     
     // Initialize the Api Client
-    let api = SchedJoulesApi(accessToken: "0443a55244bb2b6224fd48e0416f0d9c", userId: UUID().uuidString)
+    let api = SchedJoulesApi(accessToken: "0443a55244bb2b6224fd48e0416f0d9c", userId: "12342342343245345353")
     
     override func setUp() {
         super.setUp()
@@ -181,7 +181,7 @@ class QueryTests: XCTestCase {
     
     func testLicenseUpdateQuery() {
         let responseExpectation = expectation(description: "Received response")
-        let query = LicenseUpdateQuery(userId: "aa5abb625cc3ec7970a709e2", expirationDate: Calendar.current.date(byAdding: .day, value: 7, to: Date())!)
+        let query = LicenseUpdateQuery(userId: "userForPost1", expirationDate: Calendar.current.date(byAdding: .day, value: 7, to: Date())!)
         api.execute(query: query, completion: { result in
             
             
@@ -217,7 +217,7 @@ class QueryTests: XCTestCase {
           -H 'Authorization: Token token=40ee2077c5f0f98b65e26af8a343efbc' \
          */
         let responseExpectation = expectation(description: "Received response")
-        let query = LicenseQuery(userId: "aa5abb625cc3ec7970a709e2", expirationDate: Calendar.current.date(byAdding: .day, value: 7, to: Date())!)
+        let query = LicenseQuery(userId: "userForGET3", expirationDate: Calendar.current.date(byAdding: .day, value: 7, to: Date())!)
         api.execute(query: query, completion: { result in
             print("result: ", result)
             

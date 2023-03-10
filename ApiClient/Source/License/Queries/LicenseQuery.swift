@@ -35,8 +35,6 @@ public final class LicenseQuery: Query {
     
     private init(_ userId: String, expirationDate: Date) {
         self.url = URL(string: "https://api.schedjoules.com/accounts/\(userId)/licenses")!
-        
-        self.parameters = ["expiration_date": Int(expirationDate.timeIntervalSince1970)] as! [String : AnyObject]
         if let bundle = Bundle.main.bundleIdentifier {
             self.parameters["product_id"] = bundle as AnyObject
         }

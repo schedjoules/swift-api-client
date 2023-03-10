@@ -19,7 +19,12 @@ public final class LicenseUpdateQuery: Query {
     private init(_ userId: String, expirationDate: Date) {
         self.url = URL(string: "https://api.schedjoules.com/accounts/\(userId)/licenses")!
         
-        self.parameters = ["expiration_date": Int(expirationDate.timeIntervalSince1970)] as! [String : AnyObject]
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let dateString = formatter.string(from: expirationDate)
+        
+        self.parameters = ["expiration_date": dateString] as! [String : AnyObject]
         if let bundle = Bundle.main.bundleIdentifier {
             self.parameters["product_id"] = bundle as AnyObject
         }
