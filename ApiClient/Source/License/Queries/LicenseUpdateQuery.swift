@@ -14,7 +14,7 @@ public final class LicenseUpdateQuery: Query {
     public let url: URL
     public let method: SJHTTPMethod = .post
     public var parameters: [String : AnyObject] = [:]
-    public let headers: [String : String] = ["Accept" : "application/json"]
+    public let headers: [String : String] = ["Content-Type" : "application/json"]
     
     private init(_ userId: String, expirationDate: Date) {
         self.url = URL(string: "https://api.schedjoules.com/accounts/\(userId)/licenses")!

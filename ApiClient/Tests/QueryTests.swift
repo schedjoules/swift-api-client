@@ -181,7 +181,7 @@ class QueryTests: XCTestCase {
     
     func testLicenseUpdateQuery() {
         let responseExpectation = expectation(description: "Received response")
-        let query = LicenseUpdateQuery(userId: "userForPost1", expirationDate: Calendar.current.date(byAdding: .day, value: 7, to: Date())!)
+        let query = LicenseUpdateQuery(userId: "userForPost1", expirationDate: Calendar.current.date(byAdding: .day, value: 8, to: Date())!)
         api.execute(query: query, completion: { result in
             
             

@@ -33,8 +33,7 @@ public final class SubscriptionQuery: Query {
     public let url: URL = URL(string:"https://api.schedjoules.com/subscription")!
     public let method: SJHTTPMethod = .post
     public let parameters: [String : AnyObject]
-    public let headers: [String : String] = ["Accept" : "application/json",
-                                             "Content-Type" : "application/json",
+    public let headers: [String : String] = ["Content-Type" : "application/json",
                                        "x-app-id" : Bundle.main.bundleIdentifier ?? "",
                                        "x-user-id" : UIDevice.current.identifierForVendor?.uuidString ?? "",
                                        "x-locale" : Locale.current.regionCode ?? ""]
