@@ -58,7 +58,7 @@ public final class SubscriptionQuery: Query {
             "pricing" : pricing,
             "formattedPrice" : formattedPrice,
             "originalTransactionId" : originalTransactionId
-            ] as [String : AnyObject]
+        ] as [String : AnyObject]
         
         let requestContents = [
             "transactions": [transactionDictionary],

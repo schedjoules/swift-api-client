@@ -4,20 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>ApiClient.xcscheme_^#shared#^_</key>
+		<key>swift-api-client.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>B6233C1F204D9BA60081FC2C</key>
+		<key>swift-api-client</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B633B5872060645400685458</key>
+		<key>swift-api-clientTests</key>
 		<dict>
 			<key>primary</key>
 			<true/>
