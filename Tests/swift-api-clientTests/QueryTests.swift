@@ -26,7 +26,7 @@
 import XCTest
 import StoreKit
 import MapKit
-@testable import ApiClient
+@testable import swift_api_client
 
 class QueryTests: XCTestCase {
     

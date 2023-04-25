@@ -18,6 +18,9 @@ let package = Package(
             name: "swift-api-client"),
         .testTarget(
             name: "swift-api-clientTests",
-            dependencies: ["swift-api-client"]),
+            dependencies: ["swift-api-client"],
+            resources: [
+                .process("Resources")]
+        ),
     ]
 )

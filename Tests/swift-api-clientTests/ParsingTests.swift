@@ -24,7 +24,7 @@
 // THE SOFTWARE.
 
 import XCTest
-@testable import ApiClient
+@testable import swift_api_client
 
 class ParsingTests: XCTestCase {
     
@@ -39,7 +39,7 @@ class ParsingTests: XCTestCase {
     }
     
     func testJsonPageItemDecoding() {
-        let testBundle = Bundle(for: type(of: self))
+        let testBundle = Bundle.module
         guard let path = testBundle.path(forResource: "sample_page_item", ofType: "json") else {
             XCTFail()
             return
@@ -60,7 +60,7 @@ class ParsingTests: XCTestCase {
     }
     
     func testJsonPageSectionDecoding() {
-        let testBundle = Bundle(for: type(of: self))
+        let testBundle = Bundle.module
         guard let path = testBundle.path(forResource: "sample_page_section", ofType: "json") else {
             XCTFail()
             return
@@ -81,7 +81,7 @@ class ParsingTests: XCTestCase {
     }
     
     func testJsonPageDecoding() {
-        let testBundle = Bundle(for: type(of: self))
+        let testBundle = Bundle.module
         guard let path = testBundle.path(forResource: "sample_page", ofType: "json") else {
             XCTFail()
             return
