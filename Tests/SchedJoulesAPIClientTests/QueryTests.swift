@@ -26,7 +26,7 @@
 import XCTest
 import StoreKit
 import MapKit
-@testable import swift_api_client
+@testable import SchedJoulesAPIClient
 
 class QueryTests: XCTestCase {
     
@@ -395,31 +395,3 @@ class QueryTests: XCTestCase {
     }
     
 }
-
-
-/*
- 
- "account_id" = aasdfsdfsdfsdfsdfsdf970a709e2;
- licenses =     (
-             {
-         "{}" =             {
-             "expiration_date" = "2022-12-06T11:38:33Z";
-         };
-     }
- );
- 
- 
- 
- 
- json:  {
-     "account_id" = aa5abb625cc3ec7970a709e2;
-     licenses =     (
-                 {
-             "{}" =             {
-                 "expiration_date" = "2022-11-08T11:54:32Z";
-             };
-         }
-     );
- }
- 
- */

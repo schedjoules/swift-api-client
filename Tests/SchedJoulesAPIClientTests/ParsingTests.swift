@@ -24,7 +24,7 @@
 // THE SOFTWARE.
 
 import XCTest
-@testable import swift_api_client
+@testable import SchedJoulesAPIClient
 
 class ParsingTests: XCTestCase {
     
