@@ -3,3 +3,4 @@
 /ApiClient/Tests/API.plist
 *.xcbkptlist
 *.xcuserstate
+.DS_Store
