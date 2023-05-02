@@ -26,7 +26,7 @@
 import XCTest
 import StoreKit
 import MapKit
-@testable import SchedJoulesAPIClient
+@testable import SchedJoulesApiClient
 
 class QueryTests: XCTestCase {
     

@@ -1,5 +1,5 @@
 import XCTest
-@testable import SchedJoulesAPIClient
+@testable import SchedJoulesApiClient
 
 final class swift_api_clientTests: XCTestCase {
     func testExample() throws {
