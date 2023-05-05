@@ -14,12 +14,12 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>swift-api-client-Package.xcscheme_^#shared#^_</key>
+		<key>SchedJoulesApiClient-Package.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>swift-api-client.xcscheme_^#shared#^_</key>
+		<key>SchedJoulesApiClient.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
@@ -42,17 +42,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>swift-api-client</key>
+		<key>SchedJoulesApiClient</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>swift-api-clientTests</key>
+		<key>SchedJoulesApiClientTests</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>swift-api-client_swift-api-clientTests</key>
+		<key>SchedJoulesApiClient_SchedJoulesApiClientTests</key>
 		<dict>
 			<key>primary</key>
 			<true/>
